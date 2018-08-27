@@ -6,7 +6,7 @@
     <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
     <meta name="description" content="">
     <meta name="author" content="ThemeBucket">
-    <link rel="shortcut icon" href="#" type="image/png">
+    {{--<link rel="shortcut icon" href="" type="image/png">--}}
 
     <title>@yield('title','印象日记后台')</title>
 
@@ -21,6 +21,11 @@
 
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="/static/admin/js/morris-chart/morris.css">
+
+    <!--dynamic table-->
+    <link href="/static/admin/js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+    <link href="/static/admin/js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/admin/js/data-tables/DT_bootstrap.css" />
 
     <!--common-->
     <link href="/static/admin/css/style.css" rel="stylesheet">
@@ -39,11 +44,42 @@
 <!-- 左侧菜单栏 开始 -->
 @include('admin.AdminPublic.menu')
 <!-- 左侧菜单栏 结束-->
+<div class="main-content" >
+
+<!-- 右侧顶部搜索部分 开始 -->
+@include('admin.AdminPublic.header')
+<!-- 右侧顶部搜索部分 结束 -->
+
+@if(session('success'))
+<div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" id="success" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>{{session('success')}}</strong>
+</div>
+<script>
+setInterval(function(){
+    $('#success').trigger('click');
+},2500)
+</script>
+@endif
+
+@if(session('error'))
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" id="error" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>{{session('error')}}</strong>
+</div>
+<script>
+setInterval(function(){
+    $('#error').trigger('click');
+},2500)
+</script>
+@endif
 
 <!-- 右侧内容区域 开始-->
 @section('container')
 @show
 <!-- 右侧内容区域 结束-->
+
+</div>
 </section>
 
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -84,9 +120,6 @@
 
 <!--common scripts for all pages-->
 <script src="/static/admin/js/scripts.js"></script>
-
-<!--Dashboard Charts-->
-<script src="/static/admin/js/dashboard-chart-init.js"></script>
 
 </body>
 </html>
