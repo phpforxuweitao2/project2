@@ -501,11 +501,6 @@
   </div>
 </div>
 <!--右侧显示内容区域 结束-->
-
-<!--footer section start-->
-<footer style="position: fixed; bottom: 0;">
-  2018 &copy; AdminEx by <a href="#" target="_blank">源码之家</a>
-</footer>
-<!--footer section end-->
+    
 </div>
 @endsection
