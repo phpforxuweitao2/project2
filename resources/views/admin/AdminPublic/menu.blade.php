@@ -138,7 +138,7 @@
                     <li><a href="lock_screen.html"> Lockscreen </a></li>
                 </ul>
             </li>
-            <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+            <li><a href="/bk_logout"><i class="fa fa-sign-in"></i> <span>退出</span></a></li>
 
         </ul>
         <!--sidebar nav end-->
