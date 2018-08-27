@@ -23,7 +23,11 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_index','IndexController@index');//后台首页
 
     //分类模块
-    Route::get('bk_cate','CatesController@index');//分类模块列表页
+    Route::get('bk_cates','CatesController@index');//分类模块列表页
+    Route::get('bk_cates/add','CatesController@add');//进入分类添加页面
+    Route::post('bk_cates/doadd','CatesController@doadd');//处理分类添加数据
+    Route::get('bk_del-{id}','CatesController@delete');//处理分类删除
+    Route::get('bk_cates/trash','CatesController@trash');//进入分类回收站
 
     // 后台首页
     Route::get('bk_index','IndexController@index');

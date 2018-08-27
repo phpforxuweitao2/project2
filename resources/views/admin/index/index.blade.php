@@ -1,101 +1,71 @@
 @extends('admin.AdminPublic.index')
 @section('title','印象日记后台2')
 @section('container')
-<div class="main-content" >
-
-<!-- 右侧顶部搜索部分 开始 -->
-@include('admin.AdminPublic.header')
-<!-- 右侧顶部搜索部分 结束 -->
-
-<!-- 右侧顶部链接导航区域 开始 -->
-<div class="page-heading">
-  <h3>首页</h3>
-  <ul class="breadcrumb">
-    <li>
-      <a href="#">首页</a>
-    </li>
-    <li class="active"> My Dashboard </li>
-  </ul>
-  <div class="state-info">
-    <section class="panel">
-      <div class="panel-body">
-        <div class="summary">
-          <span>yearly expense</span>
-          <h3 class="red-txt">$ 45,600</h3>
-        </div>
-        <div id="income" class="chart-bar"></div>
-      </div>
-    </section>
-    <section class="panel">
-      <div class="panel-body">
-        <div class="summary">
-          <span>yearly  income</span>
-          <h3 class="green-txt">$ 45,600</h3>
-        </div>
-        <div id="expense" class="chart-bar"></div>
-      </div>
-    </section>
-  </div>
-</div>
-<!-- 右侧顶部链接导航区域 结束-->
-
 <!--右侧显示内容区域 开始-->
 <div class="wrapper">
-  <h2>sdflasdlfjalkfjladsf</h2>
-  <div class="row">
-    <div class="col-md-6">
-      <!--statistics start-->
-      <div class="row state-overview">
-        <div class="col-md-6 col-xs-12 col-sm-6">
-          <div class="panel purple">
-            <div class="symbol">
-              <i class="fa fa-gavel"></i>
-            </div>
-            <div class="state-value">
-              <div class="value">230</div>
-              <div class="title">New Order</div>
-            </div>
-          </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
+            </ul>
+            <!--breadcrumbs end -->
         </div>
-        <div class="col-md-6 col-xs-12 col-sm-6">
-          <div class="panel red">
-            <div class="symbol">
-              <i class="fa fa-tags"></i>
-            </div>
-            <div class="state-value">
-              <div class="value">3490</div>
-              <div class="title">Copy Sold</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row state-overview">
-        <div class="col-md-6 col-xs-12 col-sm-6">
-          <div class="panel blue">
-            <div class="symbol">
-              <i class="fa fa-money"></i>
-            </div>
-            <div class="state-value">
-              <div class="value">22014</div>
-              <div class="title"> Total Revenue</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xs-12 col-sm-6">
-          <div class="panel green">
-            <div class="symbol">
-              <i class="fa fa-eye"></i>
-            </div>
-            <div class="state-value">
-              <div class="value">390</div>
-              <div class="title"> Unique Visitors</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--statistics end-->
     </div>
-    <div class="col-md-6">
+    <div class="row">
+        <div class="col-md-6">
+          <!--statistics start-->
+          <div class="row state-overview">
+            <div class="col-md-6 col-xs-12 col-sm-6">
+              <div class="panel purple">
+                <div class="symbol">
+                  <i class="fa fa-gavel"></i>
+                </div>
+                <div class="state-value">
+                  <div class="value">230</div>
+                  <div class="title">New Order</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xs-12 col-sm-6">
+              <div class="panel red">
+                <div class="symbol">
+                  <i class="fa fa-tags"></i>
+                </div>
+                <div class="state-value">
+                  <div class="value">3490</div>
+                  <div class="title">Copy Sold</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row state-overview">
+            <div class="col-md-6 col-xs-12 col-sm-6">
+              <div class="panel blue">
+                <div class="symbol">
+                  <i class="fa fa-money"></i>
+                </div>
+                <div class="state-value">
+                  <div class="value">22014</div>
+                  <div class="title"> Total Revenue</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xs-12 col-sm-6">
+              <div class="panel green">
+                <div class="symbol">
+                  <i class="fa fa-eye"></i>
+                </div>
+                <div class="state-value">
+                  <div class="value">390</div>
+                  <div class="title"> Unique Visitors</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--statistics end-->
+        </div>
+        <div class="col-md-6">
       <!--more statistics box start-->
       <div class="panel deep-purple-box">
         <div class="panel-body">
@@ -117,8 +87,8 @@
       </div>
       <!--more statistics box end-->
     </div>
-  </div>
-  <div class="row">
+    </div>
+    <div class="row">
     <div class="col-md-8">
       <div class="panel">
         <div class="panel-body">
@@ -196,7 +166,7 @@
           <ul class="goal-progress">
             <li>
               <div class="prog-avatar">
-                <img src="images/photos/user1.png" alt=""/>
+                <img src="/static/admin/images/photos/user1.png" alt=""/>
               </div>
               <div class="details">
                 <div class="title">
@@ -211,7 +181,7 @@
             </li>
             <li>
               <div class="prog-avatar">
-                <img src="images/photos/user2.png" alt=""/>
+                <img src="/static/admin/images/photos/user2.png" alt=""/>
               </div>
               <div class="details">
                 <div class="title">
@@ -226,7 +196,7 @@
             </li>
             <li>
               <div class="prog-avatar">
-                <img src="images/photos/user3.png" alt=""/>
+                <img src="/static/admin/images/photos/user3.png" alt=""/>
               </div>
               <div class="details">
                 <div class="title">
@@ -241,7 +211,7 @@
             </li>
             <li>
               <div class="prog-avatar">
-                <img src="images/photos/user4.png" alt=""/>
+                <img src="/static/admin/images/photos/user4.png" alt=""/>
               </div>
               <div class="details">
                 <div class="title">
@@ -256,7 +226,7 @@
             </li>
             <li>
               <div class="prog-avatar">
-                <img src="images/photos/user5.png" alt=""/>
+                <img src="/static/admin/images/photos/user5.png" alt=""/>
               </div>
               <div class="details">
                 <div class="title">
@@ -276,7 +246,7 @@
     </div>
   </div>
 
-  <div class="row">
+    <div class="row">
     <div class="col-md-4">
       <div class="panel">
         <div class="panel-body extra-pad">
@@ -341,7 +311,7 @@
     </div>
   </div>
 
-  <div class="row">
+    <div class="row">
     <div class="col-md-4">
       <div class="panel">
         <div class="panel-body">
@@ -359,9 +329,9 @@
         <header class="panel-heading">
           Todo List
           <span class="tools pull-right">
-                            <a class="fa fa-chevron-down" href="javascript:;"></a>
-                            <a class="fa fa-times" href="javascript:;"></a>
-                         </span>
+             <a class="fa fa-chevron-down" href="javascript:;"></a>
+             <a class="fa fa-times" href="javascript:;"></a>
+          </span>
         </header>
         <div class="panel-body">
           <ul class="to-do-list" id="sortable-todo">
@@ -382,9 +352,9 @@
               </div>
             </li>
             <li class="clearfix">
-                                <span class="drag-marker">
-                                <i></i>
-                                </span>
+              <span class="drag-marker">
+                <i></i>
+              </span>
               <div class="todo-check pull-left">
                 <input type="checkbox" value="None" id="todo-check1"/>
                 <label for="todo-check1"></label>
@@ -409,9 +379,9 @@
                 </div>
             </li>
             <li class="clearfix">
-                                <span class="drag-marker">
-                                <i></i>
-                                </span>
+              <span class="drag-marker">
+                <i></i>
+              </span>
               <div class="todo-check pull-left">
                 <input type="checkbox" value="None" id="todo-check3"/>
                 <label for="todo-check3"></label>
@@ -425,9 +395,9 @@
               </div>
             </li>
             <li class="clearfix">
-                                <span class="drag-marker">
-                                <i></i>
-                                </span>
+              <span class="drag-marker">
+                <i></i>
+              </span>
               <div class="todo-check pull-left">
                 <input type="checkbox" value="None" id="todo-check4"/>
                 <label for="todo-check4"></label>
@@ -469,7 +439,7 @@
         <div class="panel-body">
           <div class="media usr-info">
             <a href="#" class="pull-left">
-              <img class="thumb" src="images/photos/user2.png" alt=""/>
+              <img class="thumb" src="/static/admin/images/photos/user2.png" alt=""/>
             </a>
             <div class="media-body">
               <h4 class="media-heading">Mila Watson</h4>
@@ -496,5 +466,4 @@
   </div>
 </div>
 <!--右侧显示内容区域 结束-->
-</div>
 @endsection

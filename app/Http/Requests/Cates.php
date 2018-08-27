@@ -29,7 +29,18 @@ class Cates extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'  => 'required|unique:cates|max:30'
+        ];
+    }
+
+    /*
+     * 自定义错误信息
+     */
+    public function messages() {
+        return [
+            'name.required' => '类名称不能为空',
+            'name.unique'   => '类名称已存在',
+            'name.max'      => '类名称最多30个字符'
         ];
     }
 }

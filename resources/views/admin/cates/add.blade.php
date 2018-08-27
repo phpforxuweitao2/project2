@@ -1,6 +1,16 @@
 @extends('admin.AdminPublic.index')
 @section('title','分类添加页面')
 @section('container')
+    @if (count($errors) > 0)
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <!--右侧显示内容区域 开始-->
     <div class="wrapper">
         <div class="row">
@@ -20,6 +30,7 @@
                     <header class="panel-heading">分类添加</header>
                     <div class="panel-body">
                         <div class="form">
+
                             <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_cates/doadd">
                                 <div class="form-group ">
                                     <label for="firstname" class="control-label col-lg-2">父类名称</label>
@@ -36,9 +47,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label for="firstname" class="control-label col-lg-2">子类名称</label>
+                                    <label for="name" class="control-label col-lg-2">子类名称</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control" id="firstname" name="name" type="text">
+                                        <input class="form-control" id="name" name="name" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
