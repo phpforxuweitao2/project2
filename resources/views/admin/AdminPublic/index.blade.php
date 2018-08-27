@@ -1,17 +1,16 @@
 @include('admin.AdminPublic.meta')
-<body>
-@include('admin.AdminPublic.header')
 
-<div class="am-cf admin-main">
+<body class="sticky-header">
 
-    @include('admin.AdminPublic.menu')
+<section>
+<!-- 左侧菜单栏 开始 -->
+@include('admin.AdminPublic.menu')
+<!-- 左侧菜单栏 结束-->
 
-    @section('container')
-    @show
-
-</div>
+<!-- 右侧内容区域 开始-->
+@section('container')
+@show
+<!-- 右侧内容区域 结束-->
+</section>
 
 @include('admin.AdminPublic.footer')
-
-</body>
-</html>

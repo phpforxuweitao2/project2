@@ -1,136 +1,140 @@
-<div class="nav-navicon admin-main admin-sidebar">
-    <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 10px;">
-        <a href="/bk_index" style="color: #cdcdcd;">首页</a>
+<div class="left-side sticky-left-side">
+
+    <!--logo and iconic logo start-->
+    <div class="logo">
+        <a href="index.html"><img src="/static/admin/images/logo.png" alt=""></a>
     </div>
-    <div id="menu" class="sideMenu">
-        <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
-        <ul>
-            <li>
-                <a href="">商品列表</a>
-            </li>
-            <li>
-                <a href="">添加新商品</a>
-            </li>
-            <li>
-                <a href="">商品分类</a>
-            </li>
-            <li>
-                <a href="">用户评论</a>
-            </li>
-            <li>
-                <a href="">商品回收站</a>
-            </li>
-            <li>
-                <a href="">库存管理</a>
-            </li>
-        </ul>
-        <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
-        <ul>
-            <li>
-                <a href="">订单列表</a>
-            </li>
-            <li>
-                <a href="">合并订单</a>
-            </li>
-            <li>
-                <a href="">订单打印</a>
-            </li>
-            <li>
-                <a href="">添加订单</a>
-            </li>
-            <li>
-                <a href="">发货单列表</a>
-            </li>
-            <li>
-                <a href="">换货单列表</a>
-            </li>
-        </ul>
-        <h3 class="am-icon-users"><em></em> <a href="#">会员管理</a></h3>
-        <ul>
-            <li>
-                <a href="">会员列表</a>
-            </li>
-            <li>
-                <a href="">未激活会员</a>
-            </li>
-            <li>
-                <a href="">团队系谱图</a>
-            </li>
-            <li>
-                <a href="">会员推荐图</a>
-            </li>
-            <li>
-                <a href="">推荐列表</a>
-            </li>
-        </ul>
-        <h3 class="am-icon-gears"><em></em> <a href="#">管理员管理</a></h3>
-        <ul>
-            <li>
-                <a href="">数据备份</a>
-            </li>
-            <li>
-                <a href="">邮件/短信管理</a>
-            </li>
-            <li>
-                <a href="">上传/下载</a>
-            </li>
-            <li>
-                <a href="">权限</a>
-            </li>
-            <li>
-                <a href="">网站设置</a>
-            </li>
-            <li>
-                <a href="">第三方支付</a>
-            </li>
-        </ul>
-        <h3 class="am-icon-volume-up"><em></em> <a href="#">信息通知</a></h3>
-        <ul>
-            <li>
-                <a href="">站内消息/留言 </a>
-            </li>
-            <li>
-                <a href="">短信</a>
-            </li>
-            <li>
-                <a href="">邮件</a>
-            </li>
-        </ul>
-        <h3 class="am-icon-gears"><em></em> <a href="#">系统设置</a></h3>
-        <ul>
-            <li>
-                <a href="">数据备份</a>
-            </li>
-            <li>
-                <a href="">邮件/短信管理</a>
-            </li>
-            <li>
-                <a href="">上传/下载</a>
-            </li>
-            <li>
-                <a href="">权限</a>
-            </li>
-            <li>
-                <a href="">网站设置</a>
-            </li>
-            <li>
-                <a href="">第三方支付</a>
-            </li>
-        </ul>
+
+    <div class="logo-icon text-center">
+        <a href="index.html"><img src="/static/admin/images/logo_icon.png" alt=""></a>
     </div>
-    <!-- sideMenu End -->
+    <!--logo and iconic logo end-->
+
+    <div class="left-side-inner">
+
+        <!-- 手机端显示时右侧的小导航栏 开始 -->
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">
+            <div class="media logged-user">
+                <img alt="" src="/static/admin/images/photos/user-avatar.png" class="media-object">
+                <div class="media-body">
+                    <h4><a href="#">John Doe222</a></h4>
+                    <span>"Hello There..."</span>
+                </div>
+            </div>
+
+            <h5 class="left-nav-title">Account Information</h5>
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li>
+                    <a href="#"><i class="fa fa-user"></i> <span>Profile</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out2222</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- 手机端显示时右侧的小导航栏 结束 -->
+
+        <!--sidebar nav start-->
+        <ul class="nav nav-pills nav-stacked custom-nav">
+            <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+            <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="blank_page.html"> Blank Page</a></li>
+                    <li><a href="boxed_view.html"> Boxed Page</a></li>
+                    <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
+                    <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
+
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI Elements</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="general.html"> General</a></li>
+                    <li><a href="buttons.html"> Buttons</a></li>
+                    <li><a href="tabs-accordions.html"> Tabs & Accordions</a></li>
+                    <li><a href="typography.html"> Typography</a></li>
+                    <li><a href="slider.html"> Slider</a></li>
+                    <li><a href="panels.html"> Panels</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="grids.html"> Grids</a></li>
+                    <li><a href="gallery.html"> Media Gallery</a></li>
+                    <li><a href="calendar.html"> Calendar</a></li>
+                    <li><a href="tree_view.html"> Tree View</a></li>
+                    <li><a href="nestable.html"> Nestable</a></li>
+
+                </ul>
+            </li>
+
+            <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>Fontawesome</span></a></li>
+
+            <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>Mail</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="mail.html"> Inbox</a></li>
+                    <li><a href="mail_compose.html"> Compose Mail</a></li>
+                    <li><a href="mail_view.html"> View Mail</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Forms</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="form_layouts.html"> Form Layouts</a></li>
+                    <li><a href="form_advanced_components.html"> Advanced Components</a></li>
+                    <li><a href="form_wizard.html"> Form Wizards</a></li>
+                    <li><a href="form_validation.html"> Form Validation</a></li>
+                    <li><a href="editors.html"> Editors</a></li>
+                    <li><a href="inline_editors.html"> Inline Editors</a></li>
+                    <li><a href="pickers.html"> Pickers</a></li>
+                    <li><a href="dropzone.html"> Dropzone</a></li>
+                    <li><a href="http://www.weidea.net"> More</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="flot_chart.html"> Flot Charts</a></li>
+                    <li><a href="morris.html"> Morris Charts</a></li>
+                    <li><a href="chartjs.html"> Chartjs</a></li>
+                    <li><a href="c3chart.html"> C3 Charts</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="basic_table.html"> Basic Table</a></li>
+                    <li><a href="dynamic_table.html"> Advanced Table</a></li>
+                    <li><a href="responsive_table.html"> Responsive Table</a></li>
+                    <li><a href="editable_table.html"> Edit Table</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="google_map.html"> Google Map</a></li>
+                    <li><a href="vector_map.html"> Vector Map</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="profile.html"> Profile</a></li>
+                    <li><a href="invoice.html"> Invoice</a></li>
+                    <li><a href="pricing_table.html"> Pricing Table</a></li>
+                    <li><a href="timeline.html"> Timeline</a></li>
+                    <li><a href="blog_list.html"> Blog List</a></li>
+                    <li><a href="blog_details.html"> Blog Details</a></li>
+                    <li><a href="directory.html"> Directory </a></li>
+                    <li><a href="chat.html"> Chat </a></li>
+                    <li><a href="404.html"> 404 Error</a></li>
+                    <li><a href="500.html"> 500 Error</a></li>
+                    <li><a href="registration.html"> Registration Page</a></li>
+                    <li><a href="lock_screen.html"> Lockscreen </a></li>
+                </ul>
+            </li>
+            <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+
+        </ul>
+        <!--sidebar nav end-->
+    </div>
 </div>
-<script>
-$("#menu>h3").each(function(){
-    $(this).click(function(){
-        if ( $(this).next('ul').css('display') === 'block' ) {
-            $(this).next('ul').css('display','none');
-        } else {
-            $("#menu>h3").each(function(){
-                $(this).next('ul').css('display','none');
-            });
-            $(this).next('ul').css('display','block');
-        }
-    });
-});
-</script>
