@@ -2,16 +2,19 @@
 
     <!--logo and iconic logo start-->
     <div class="logo">
-        <a href="index.html"><img src="/static/admin/images/logo.png" alt=""></a>
+        <a href="/bk_index" title="后台首页">
+            <img src="/static/admin/images/logo.png" alt="">
+        </a>
     </div>
 
     <div class="logo-icon text-center">
-        <a href="index.html"><img src="/static/admin/images/logo_icon.png" alt=""></a>
+        <a href="/bk_index">
+            <img src="/static/admin/images/logo_icon.png" alt="">
+        </a>
     </div>
     <!--logo and iconic logo end-->
 
     <div class="left-side-inner">
-
         <!-- 手机端显示时右侧的小导航栏 开始 -->
         <div class="visible-xs hidden-sm hidden-md hidden-lg">
             <div class="media logged-user">
@@ -39,8 +42,11 @@
 
         <!--sidebar nav start-->
         <ul class="nav nav-pills nav-stacked custom-nav">
-            <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-            <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+            <li class="active">
+                <a href="/bk_index"><i class="fa fa-home"></i> <span>首页</span></a>
+            </li>
+            <li class="menu-list">
+                <a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="blank_page.html"> Blank Page</a></li>
                     <li><a href="boxed_view.html"> Boxed Page</a></li>
