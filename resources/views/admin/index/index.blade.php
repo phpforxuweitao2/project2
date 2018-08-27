@@ -398,20 +398,15 @@
               </div>
             </li>
             <li class="clearfix">
-                                <span class="drag-marker">
-                                <i></i>
-                                </span>
-              <div class="todo-check pull-left">
-                <input type="checkbox" value="None" id="todo-check2"/>
-                <label for="todo-check2"></label>
-              </div>
-              <p class="todo-title">
-                UI perfection testing for Mega Section
-              </p>
-              <div class="todo-actionlist pull-right clearfix">
-
-                <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-              </div>
+                <span class="drag-marker"><i></i></span>
+                <div class="todo-check pull-left">
+                    <input type="checkbox" value="None" id="todo-check2"/>
+                    <label for="todo-check2"></label>
+                </div>
+                <p class="todo-title">UI perfection testing for Mega Section</p>
+                <div class="todo-actionlist pull-right clearfix">
+                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
+                </div>
             </li>
             <li class="clearfix">
                                 <span class="drag-marker">
