@@ -95,7 +95,7 @@
                     <ul class="dropdown-list normal-list">
                         <li class="new">
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
+                                <span class="thumb"><img src="/static/admin/images/photos/user1.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">John Doe <span class="badge badge-success">new</span></span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -104,7 +104,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
+                                <span class="thumb"><img src="/static/admin/images/photos/user2.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Jonathan Smith</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -113,7 +113,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
+                                <span class="thumb"><img src="/static/admin/images/photos/user3.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Jane Doe</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -122,7 +122,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
+                                <span class="thumb"><img src="/static/admin/images/photos/user4.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Mark Henry</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -131,7 +131,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
+                                <span class="thumb"><img src="/static/admin/images/photos/user5.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Jim Doe</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -184,7 +184,7 @@
             </li>
             <li>
                 <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <img src="images/photos/user-avatar.png" alt="" />
+                    <img src="/static/admin/images/photos/user-avatar.png" alt="" />
                     John Doe
                     <span class="caret"></span>
                 </a>
