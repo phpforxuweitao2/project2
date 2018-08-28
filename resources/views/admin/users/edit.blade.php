@@ -1,7 +1,6 @@
 @extends('admin.AdminPublic.index')
 @section('title','会员修改')
 @section('container')
-<div class="main-content" >
 
 <!-- 右侧顶部搜索部分 开始 -->
 @include('admin.AdminPublic.header')
@@ -37,7 +36,7 @@
                             Basic validations
                         </header>
                         <div class="panel-body">
-                            <form  class="form-horizontal adminex-form" method="post" action="/bk_users/updata">
+                            <form  class="form-horizontal adminex-form" method="post" action="/bk_users/update">
                                 <div class="form-group ">
                                     <label class="col-lg-2 control-label">账号：</label>
                                     <div class="col-lg-8">
@@ -78,5 +77,4 @@
     </div> 
   </div>
 <!--右侧显示内容区域 结束-->
-</div>
 @endsection

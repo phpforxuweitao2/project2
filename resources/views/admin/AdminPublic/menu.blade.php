@@ -50,9 +50,6 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_users_index or ''}}"><a href="/bk_users">会员列表</a></li>
                     <li class="{{$menu_users_create or ''}}"><a href="/bk_users/create"> 添加会员</a></li>
-                    <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
-                    <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
-
                 </ul>
             </li>
             <li class="menu-list {{$menu_cates or ''}}">
@@ -63,7 +60,7 @@
                     <li class="{{$menu_cates_trash or ''}}"><a href="/bk_cates/trash"> 分类回收站</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
+            <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>管理员管理</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="grids.html"> Grids</a></li>
                     <li><a href="gallery.html"> Media Gallery</a></li>

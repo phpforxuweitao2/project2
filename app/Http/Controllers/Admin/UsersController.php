@@ -8,7 +8,8 @@ use DB;
 //导入Hash类
 use Hash;
 //导入校验类
-use App\Http\Requests\UserInsert;
+use App\Http\Requests\user\UserInsert;
+use App\Http\Requests\user\UserUpdate;
 class UsersController extends Controller
 {
     /**
@@ -115,5 +116,38 @@ class UsersController extends Controller
         //获取需要修改的数据
         $user = DB::table("users")->where("id",'=',$id)->first();
         return view("admin.users.edit",['user'=>$user]);
+    }
+
+    /**
+     * 用户修改的方法
+     * @return [type]              [description]
+     */
+    public function update(UserUpdate $request)
+    {
+        // 获取修改数据拼修改数据库
+        $data = $request->except(['id','_token']);
+        $id = $request->input('id');
+        $row = DB::table('users')->where('id','=',$id)->update($data);
+        // 判断是否修改成功
+        if ($row) {
+             return redirect("/bk_users")->with('success','修改成功');
+        } else {
+            return back()->with('error','修改失败');
+        }
+    }
+
+    /**
+     * 用户详情
+     * @return [type]     [description]
+     */
+    public function show($id){
+        //获取
+        $data = DB::table('users as u')
+            ->join('users_detail as ud','u.id','=','ud.uid')
+            ->where('u.id',$id)
+            ->get();
+        // var_dump($data[0]);
+        // dd($data[0]);
+        return view('admin.users.show',['user'=>$data[0]]);
     }
 }

@@ -41,6 +41,8 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_users/close/{id}','UsersController@close')->where(['id' => '\d+']);//会员禁用
     Route::get('bk_users/{id}/edit','UsersController@edit')->where(['id' => '\d+']);//会员添加页
     Route::post('bk_users/update','UsersController@update');//会员添加操作
+    Route::get('bk_users/{id}/show','UsersController@show')->where(['id' => '\d+']);//会员添加页
+
 
     //后台管理员模块
 
