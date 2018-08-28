@@ -69,15 +69,9 @@
        </table> 
        <!-- 分页 --> 
 		  <div class="row">
-		   <div class="col-lg-6" >
-		    <div class="dataTables_info" id="editable-sample_info">
-		     Showing 1 to 5 of 28 entries
-		    </div>
-		   </div>
-		   <div class="col-lg-6" >
-		    <div class="dataTables_paginate paging_bootstrap pagination" style="margin-top:-20px ">
-		     	 {{$user->appends($request)->render()}}
-		    </div>
+
+		   <div class="col-xs-12" style="text-align: right;">
+               {{$user->appends($request)->render()}}
 		   </div>
 		  </div>
 
