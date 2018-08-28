@@ -57,7 +57,6 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_cates_index or ''}}"><a href="/bk_cates">分类列表</a></li>
                     <li class="{{$menu_cates_add or ''}}"><a href="/bk_cates/add"> 添加分类</a></li>
-                    <li class="{{$menu_cates_trash or ''}}"><a href="/bk_cates/trash"> 分类回收站</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>管理员管理</span></a>

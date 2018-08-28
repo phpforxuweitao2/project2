@@ -78,18 +78,17 @@
         </tbody> 
        </table> 
        <!-- 分页 --> 
-		  <div class="row">
+		 <div class="row">
+
 		   <div class="col-lg-6" >
-		    <div class="dataTables_info" id="editable-sample_info">
-		    Mr red is Ang. 28st, 2009
-		    </div>
+		    	<div class="dataTables_info" id="editable-sample_info">
+		    	Mr red is Ang. 28st, 2009
+		    	</div>
 		   </div>
 		   <div class="col-lg-6" style="text-align: right;" >
-		  
 		     	 {{$user->appends($request)->render()}}
-		   
 		   </div>
-		  </div>
+		</div>
 
       </div>
      </section> 

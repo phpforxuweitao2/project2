@@ -12,60 +12,80 @@ use Carbon\Carbon;
 
 class LoginController extends Controller
 {
-	public $limit = 3;
+	private $limitNum = 5; //允许的错误次数
+	private $limitTime  = 1; //禁用分钟数
 
 	//登录
     public function index() {
+        if ( session('admin_info')['islogin'] ) {
+            return back();
+        }
     	return view('admin.login.login');
     }
 
     //处理登录方法
-    public function dologin(Request $request) {
+    public function dologin(AdminLogin $request) {
     	$name = $request -> input('name');
     	$pass = $request -> input('pass');
     	$user = DB::table('admin_users')
     	    ->where('name','=',$name)
     	    ->first(); //获取数据库中匹配的用户名
-    	
-    	
-    	if($user) {
-    		// check方法验证hash密码
-    		if(Hash::check($pass,$user->pass)) {
-                session(['id'=>$user->id]); //把用户信息写入到session
-                session(['name'=>$user->name]);
-                //登录成功，跳转到后台首页
+
+        $ip     = 'bk_login_'.$_SERVER['REMOTE_ADDR'];
+        $err    = Cache::get($ip);
+        if ( !empty($err) && $err >= $this->limitNum ) {
+            return back()->with('admin_login_error',"已经登录错误{$err}次,{$this->limitTime}分钟后方可登录");
+        } else {
+            //如果用户名正确并且密码验证通过
+            if ($user && Hash::check($pass,$user->pass)){
+                //把用户信息写入到session
+                session([
+                    'admin_info'=>[
+                        'islogin'   => true,
+                        'uid'       => $user->id,
+                        'adminName' => $user->name
+                    ]
+                ]);
+                //登录成功，跳转到后台首页并清空记录登录错误的cache
+                Cache::pull($ip);
     			return redirect('/bk_index')->with('success','登录成功');
-    		} else {
-    			if(Cache::get('status') == '1'){
-    				return redirect('/bk_login')->with('error','该账号已被禁用');
-    			}
-   			
-    			if(empty($num)){
-    				$num=1;
-    			}else if(!empty($num) && $num<3){
-    				$num++;
-    			}
-    			
-    			Cache::put(['num'=>$num],Carbon::now()->addSeconds(300));
-    			echo Cache::get('num');die;
-    			// echo $num;die;
-    			if(Cache::get('num') > 3){
-    				cache(['status'=>'1'],Carbon::now()->addSeconds(300));
-    				//修改status的值
-		    		return redirect('/bk_login')->with('error','你已经登录错误5次，请1小时后再登录');
-		    	}
-    			return redirect('/bk_login')->with('error','密码有误');
-    		}
-    	} else {
-    		return redirect('/bk_login')->with('error','用户名有误');
-    	}
+            } else {
+                $err = $this->login_errorNum($this->limitNum,$this->limitTime);
+                if ($err < $this->limitNum) {
+                    return back()->with('admin_login_error',"用户名或密码错误,错误次数{$err}");
+                } else {
+                    return back()->with('admin_login_error',"已经登录错误{$err}次,{$this->limitTime}分钟后方可登录");
+                }
+            }
+        }
     }
 
     //退出登录
     public function logout(Request $request) {
     	//销毁session值
-    	$request -> session() -> pull('id');
-        $request -> session() -> pull('name');
+    	$request -> session()->pull('admin_info');
     	return redirect('/bk_login');
     }
+
+    /**
+     * @param int $limit    允许错误次数
+     * @param int $time 限制分钟数
+     * @return int|mixed
+     */
+    protected function login_errorNum(int $limit = 5,int $time=5):int {
+        //获取当前登录用户的ip
+        $ip = 'bk_login_'.$_SERVER['REMOTE_ADDR'];
+        $err = Cache::get($ip);
+        if ( empty($err) ) {
+            $err = 1;
+            Cache::put($ip,$err,$time);
+        } elseif (!empty($err) && $err < $limit) {
+            ++ $err;
+            Cache::put($ip,$err,$time);
+        } elseif ($err >= $limit) {
+            Cache::put($ip,$err,$time);
+        }
+        return $err;    //返回错误次数
+    }
+
 }
