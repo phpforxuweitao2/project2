@@ -45,11 +45,11 @@
             <li class="{{$menu_index or ''}}">
                 <a href="/bk_index"><i class="fa fa-home"></i> <span>首页</span></a>
             </li>
-            <li class="menu-list">
-                <a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+            <li class="menu-list {{$menu_users or ''}}">
+                <a href=""><i class="fa fa-user"></i> <span>会员管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="blank_page.html"> Blank Page</a></li>
-                    <li><a href="boxed_view.html"> Boxed Page</a></li>
+                    <li class="{{$menu_users_index or ''}}"><a href="/bk_users">会员列表</a></li>
+                    <li class="{{$menu_users_create or ''}}"><a href="/bk_users/create"> 添加会员</a></li>
                     <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
                     <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
 
