@@ -11,7 +11,10 @@ class IndexController
 
     public function index() {
 
-        return view('admin.index.index');
+        return view('admin.index.index',[
+            'menu_index'    => 'active',
+
+        ]);
 
     }
 }

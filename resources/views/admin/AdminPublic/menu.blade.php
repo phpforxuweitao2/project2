@@ -42,7 +42,7 @@
 
         <!--sidebar nav start-->
         <ul class="nav nav-pills nav-stacked custom-nav">
-            <li class="active">
+            <li class="{{$menu_index or ''}}">
                 <a href="/bk_index"><i class="fa fa-home"></i> <span>首页</span></a>
             </li>
             <li class="menu-list {{$menu_users or ''}}">
@@ -55,14 +55,12 @@
 
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI Elements</span></a>
+            <li class="menu-list {{$menu_cates or ''}}">
+                <a href=""><i class="fa fa-book"></i> <span>分类管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="general.html"> General</a></li>
-                    <li><a href="buttons.html"> Buttons</a></li>
-                    <li><a href="tabs-accordions.html"> Tabs & Accordions</a></li>
-                    <li><a href="typography.html"> Typography</a></li>
-                    <li><a href="slider.html"> Slider</a></li>
-                    <li><a href="panels.html"> Panels</a></li>
+                    <li class="{{$menu_cates_index or ''}}"><a href="/bk_cates">分类列表</a></li>
+                    <li class="{{$menu_cates_add or ''}}"><a href="/bk_cates/add"> 添加分类</a></li>
+                    <li class="{{$menu_cates_trash or ''}}"><a href="/bk_cates/trash"> 分类回收站</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
@@ -138,7 +136,7 @@
                     <li><a href="lock_screen.html"> Lockscreen </a></li>
                 </ul>
             </li>
-            <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+            <li><a href="/bk_logout"><i class="fa fa-sign-in"></i> <span>退出</span></a></li>
 
         </ul>
         <!--sidebar nav end-->

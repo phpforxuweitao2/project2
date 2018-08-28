@@ -1,7 +1,7 @@
 @extends('admin.AdminPublic.index')
 @section('title','会员列表')
 @section('container')
-<div class="main-content" >
+
 
 <!-- 右侧顶部搜索部分 开始 -->
 @include('admin.AdminPublic.header')
@@ -87,5 +87,5 @@
    </div> 
   </div>
 <!--右侧显示内容区域 结束-->
-</div>
+
 @endsection
