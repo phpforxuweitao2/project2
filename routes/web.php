@@ -29,7 +29,14 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_index','IndexController@index');
 
     // 前台会员模块
-    Route::get('bk_users','UsersController@index');
+    Route::get('bk_users','UsersController@index');//会员列表
+    Route::get('bk_users/create','UsersController@create');//会员添加页
+    Route::post('bk_users/add','UsersController@add');//会员添加方法
+    Route::get('bk_users/del/{id}','UsersController@del')->where(['id' => '\d+']);//会员删除
+    Route::get('bk_users/open/{id}','UsersController@open')->where(['id' => '\d+']);//会员启用
+    Route::get('bk_users/close/{id}','UsersController@close')->where(['id' => '\d+']);//会员禁用
+    Route::get('bk_users/{id}/edit','UsersController@edit')->where(['id' => '\d+']);//会员添加页
+    Route::post('bk_users/update','UsersController@update');//会员添加操作
 
     //后台管理员模块
 
