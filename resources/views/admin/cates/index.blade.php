@@ -21,32 +21,6 @@
                 <div class="panel-body">
                     <div class="adv-table">
                         <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                            <div class="row-fluid">
-                                <div class="col-xs-6">
-                                    <div id="dynamic-table_length" class="dataTables_length">
-                                        <label>
-                                            <select class="form-control" size="1" name="dynamic-table_length" aria-controls="dynamic-table">
-                                                <option value="10" selected="selected">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select> 条/页
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <form class="form" action="/bk_cates" method="get">
-                                        <div class="col-xs-8">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="搜索...">
-                                                <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">搜索</button>
-      </span>
-                                            </div><!-- /input-group -->
-                                        </div><!-- /.col-lg-6 -->
-                                    </form>
-                                </div>
-                            </div>
                             <table class="display table table-bordered table-striped dataTable" id="dynamic-table" aria-describedby="dynamic-table_info">
                                 <thead>
                                     <tr role="row">
@@ -54,6 +28,8 @@
                                         <th>名称</th>
                                         <th>pid</th>
                                         <th>path</th>
+                                        <th width="200">添加时间</th>
+                                        <th width="200">修改时间</th>
                                         <th width="200">操作</th>
                                     </tr>
                                 </thead>
@@ -69,9 +45,11 @@
                                         </td>
                                         <td class="center">{{$v->pid}}</td>
                                         <td class="center hidden-phone ">{{$v->path}}</td>
+                                        <td class="center hidden-phone ">{{date('Y-m-d H:i:s',$v->created_at)}}</td>
+                                        <td class="center hidden-phone ">{{date('Y-m-d H:i:s',$v->updated_at)}}</td>
                                         <td class="center hidden-phone">
-                                            <a class="btn btn-success" href="javascript:void(0);">修改</a>&nbsp;&nbsp;
-                                            <a class="btn btn-warning" href="/bk_del-{{$v->id}}">删除</a>
+                                            <a class="btn btn-success" href="/bk_cates/edit-{{$v->id}}">修改</a>&nbsp;&nbsp;
+                                            <a class="btn btn-warning" href="/bk_cates/del-{{$v->id}}">删除</a>
                                         </td>
                                     </tr>
                                 @endforeach

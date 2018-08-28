@@ -24,18 +24,18 @@ class AdminLogin extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required', //用户名规则
-            'pass' => 'required', //密码规则
-            'captcha' => 'required' //验证码规则
+            'name' => 'required',
+            'pass' => 'required',
+            //'captcha' => 'required'
         ];
     }
 
     //自定义错误消息
     public function messages() {
         return [
-            'username.required' => '用户名不能为空',
+            'name.required' => '用户名不能为空',
             'pass.required' => '密码不能为空',
-            'captcha' => '验证码不能为空'
+            //'captcha' => '验证码不能为空'
         ];
     }
 }
