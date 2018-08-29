@@ -11,7 +11,7 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="#">会员管理</a></li>
+                    <li><a href="/bk_users">会员管理</a></li>
                     <li class="active">会员添加</li>
                 </ul>
                 <!--breadcrumbs end -->

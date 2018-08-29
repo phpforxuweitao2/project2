@@ -1,5 +1,5 @@
 @extends('admin.AdminPublic.index')
-@section('title','会员修改')
+@section('title','管理员管理-权限添加')
 @section('container')
 
 <!-- 右侧顶部搜索部分 开始 -->
@@ -11,8 +11,8 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="/bk_users">会员管理</a></li>
-                    <li class="active">会员修改</li>
+                    <li><a href="/bk_adminuser">管理员管理</a></li>
+                    <li class="active">权限添加</li>
                 </ul>
                 <!--breadcrumbs end -->
             </div>
@@ -33,34 +33,28 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Basic validations
+                           Permissions add
                         </header>
                         <div class="panel-body">
-                            <form  class="form-horizontal adminex-form" method="post" action="/bk_users/update">
+                            <form  class="form-horizontal adminex-form" method="post" action="/bk_node/add">
                                 <div class="form-group ">
-                                    <label class="col-lg-2 control-label">账号：</label>
+                                    <label class="col-lg-2 control-label">权限名：</label>
                                     <div class="col-lg-8">
-                                        <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" value="{{$user->name}}" name=""> 
+                                        <input type="text" placeholder="" id="f-name" class="form-control" name="name">   
                                     </div>
                                 </div>
-                                <input type="hidden" name="id" value="{{$user->id}}">                                
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label">邮箱：</label>
+                            
+                                 <div class="form-group">
+                                    <label class="col-lg-2 control-label">控制器：</label>
                                     <div class="col-lg-8">
-                                        <input type="email" placeholder="" id="email2" class="form-control" value="{{$user->email}}" name="email">
+                                        <input type="text" placeholder="" id="email2" class="form-control" name="mname">
                                         
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label class="col-lg-2 control-label">QQ：</label>
+                                    <label class="col-lg-2 control-label">方法：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" value="{{$user->qq}}" name="qq">     
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label">积分：</label>
-                                    <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" value="{{$user->score}}" name="score">     
+                                        <input type="text" placeholder="" id="email2" class="form-control" name="aname">     
                                     </div>
                                 </div>
                                 {{csrf_field()}}
@@ -77,4 +71,5 @@
     </div> 
   </div>
 <!--右侧显示内容区域 结束-->
+
 @endsection

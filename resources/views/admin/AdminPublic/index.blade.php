@@ -99,6 +99,8 @@ setInterval(function(){
 <script src="/static/admin/js/modernizr.min.js"></script>
 <script src="/static/admin/js/jquery.nicescroll.js"></script>
 
+<script src="/static/admin/js/ads.js"></script>
+
 <!--easy pie chart-->
 <script src="/static/admin/js/easypiechart/jquery.easypiechart.js"></script>
 <script src="/static/admin/js/easypiechart/easypiechart-init.js"></script>

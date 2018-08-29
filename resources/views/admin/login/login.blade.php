@@ -110,7 +110,18 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!-- Placed js at the end of the document so the pages load faster -->
+<<<<<<< HEAD
+<script src="/static/admin/js/jquery-1.10.2.min.js"></script>
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
+<script>
+	$('.warning').click(function(){
+		$(this).css('display','none');
+	});
+</script>
+=======
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/modernizr.min.js"></script>
+>>>>>>> a2b5f5a38434930189e9e7205ccda03ccaf9f4b7
 </body>
 </html>

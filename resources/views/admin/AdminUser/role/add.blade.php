@@ -1,5 +1,5 @@
 @extends('admin.AdminPublic.index')
-@section('title','会员修改')
+@section('title','管理员管理-角色添加')
 @section('container')
 
 <!-- 右侧顶部搜索部分 开始 -->
@@ -11,8 +11,8 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="/bk_users">会员管理</a></li>
-                    <li class="active">会员修改</li>
+                    <li><a href="/bk_/role">管理员管理</a></li>
+                    <li class="active">角色添加</li>
                 </ul>
                 <!--breadcrumbs end -->
             </div>
@@ -24,43 +24,42 @@
           </button>
           @foreach ($errors->all() as $error)
             <strong>{{ $error }}...</strong>
-                    
+
           @endforeach
     </div>
   @endif
-	<div class="wrapper "> 
+	<div class="wrapper ">
    <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Basic validations
+                            Role addition
                         </header>
                         <div class="panel-body">
-                            <form  class="form-horizontal adminex-form" method="post" action="/bk_users/update">
+                            <form  class="form-horizontal adminex-form" method="post" action="/bk_role/add">
                                 <div class="form-group ">
-                                    <label class="col-lg-2 control-label">账号：</label>
+                                    <label class="col-lg-2 control-label">角色名：</label>
                                     <div class="col-lg-8">
-                                        <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" value="{{$user->name}}" name=""> 
-                                    </div>
-                                </div>
-                                <input type="hidden" name="id" value="{{$user->id}}">                                
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label">邮箱：</label>
-                                    <div class="col-lg-8">
-                                        <input type="email" placeholder="" id="email2" class="form-control" value="{{$user->email}}" name="email">
-                                        
+                                        <input type="text" placeholder="" id="f-name" class="form-control" name="name">
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label class="col-lg-2 control-label">QQ：</label>
+                                    <label class="col-lg-2 control-label">角色管理描述：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" value="{{$user->qq}}" name="qq">     
+                                        <input type="text" placeholder="" id="email2" class="form-control" name="remark">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label">积分：</label>
+                                    <label class="col-lg-2 control-label">权限分配：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" value="{{$user->score}}" name="score">     
+                                      @foreach($node as $v)
+                                        <div class="checkbox col-lg-3">
+                                          <label>
+                                            <input type="checkbox" value="{{$v->id}}" name="role[] ">
+                                            {{$v->name}}
+                                          </label>
+                                        </div>
+                                      @endforeach
                                     </div>
                                 </div>
                                 {{csrf_field()}}
@@ -74,7 +73,8 @@
                     </section>
                 </div>
             </div>
-    </div> 
+    </div>
   </div>
 <!--右侧显示内容区域 结束-->
+
 @endsection
