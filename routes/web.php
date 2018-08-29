@@ -32,9 +32,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
 
-    // 后台首页
-    Route::get('bk_index','IndexController@index');
-
     // 前台会员模块
     Route::get('bk_users','UsersController@index');//会员列表
     Route::get('bk_users/create','UsersController@create');//会员添加页
@@ -42,13 +39,43 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_users/del/{id}','UsersController@del')->where(['id' => '\d+']);//会员删除
     Route::get('bk_users/open/{id}','UsersController@open')->where(['id' => '\d+']);//会员启用
     Route::get('bk_users/close/{id}','UsersController@close')->where(['id' => '\d+']);//会员禁用
-    Route::get('bk_users/{id}/edit','UsersController@edit')->where(['id' => '\d+']);//会员添加页
-    Route::post('bk_users/update','UsersController@update');//会员添加操作
-    Route::get('bk_users/{id}/show','UsersController@show')->where(['id' => '\d+']);//会员添加页
+    Route::get('bk_users/{id}/edit','UsersController@edit')->where(['id' => '\d+']);//会员修改页
+    Route::post('bk_users/update','UsersController@update');//会员修改操作
+    Route::get('bk_users/{id}/show','UsersController@show')->where(['id' => '\d+']);//会员详情页
 
+    //后台角色管理
+    Route::get('bk_role','RoleController@index');//角色列表
+    Route::get('bk_role/create','RoleController@create');//角色添加页
+    Route::post('bk_role/add','RoleController@add');//角色添加方法
+    Route::get('bk_role/del/{id}','RoleController@del')->where(['id' => '\d+']);//角色删除
+    Route::get('bk_role/open/{id}','RoleController@open')->where(['id' => '\d+']);//角色启用
+    Route::get('bk_role/close/{id}','RoleController@close')->where(['id' => '\d+']);//角色锁定
+    Route::get('bk_role/{id}/edit','RoleController@edit')->where(['id' => '\d+']);//角色修改页
+    Route::post('bk_role/update','RoleController@update');//角色修改操作
+    Route::get('bk_role/{id}/node','RoleController@node')->where(['id' => '\d+']);//角色权限分配页
+    Route::post('bk_role/donode','RoleController@donode');//角色权限分配操作
+
+    // 后台权限管理
+    Route::get('bk_node','NodeController@index');//权限列表
+    Route::get('bk_node/create','NodeController@create');//权限添加页
+    Route::post('bk_node/add','NodeController@add');//权限添加方法
+    Route::get('bk_node/del/{id}','NodeController@del')->where(['id' => '\d+']);//权限员删除
+    Route::get('bk_node/open/{id}','NodeController@open')->where(['id' => '\d+']);//权限启用
+    Route::get('bk_node/close/{id}','NodeController@close')->where(['id' => '\d+']);//权限锁定
+    Route::get('bk_node/{id}/edit','NodeController@edit')->where(['id' => '\d+']);//权限修改页
+    Route::post('bk_node/update','NodeController@update');//权限修改操作
 
     //后台管理员模块
-
+                                                                                                                          Route::get('bk_adminuser','AdminUserController@index');//管理员列表
+    Route::get('bk_adminuser/create','AdminUserController@create');//管理员添加页
+    Route::post('bk_adminuser/add','AdminUserController@add');//管理员添加方法
+    Route::get('bk_adminuser/del/{id}','AdminUserController@del')->where(['id' => '\d+']);//管理员删除
+    Route::get('bk_adminuser/open/{id}','AdminUserController@open')->where(['id' => '\d+']);//管理员启用
+    Route::get('bk_adminuser/close/{id}','AdminUserController@close')->where(['id' => '\d+']);//管理员锁定
+    Route::get('bk_adminuser/{id}/edit','AdminUserController@edit')->where(['id' => '\d+']);//管理员修改页
+    Route::post('bk_adminuser/update','AdminUserController@update');//管理员修改操作
+    Route::get('bk_adminuser/{id}/node','AdminUserController@node')->where(['id' => '\d+']);//管理员角色分配页
+    Route::post('bk_adminuser/donode','AdminUserController@donode');//管理员角色分配操作
 });
 
 

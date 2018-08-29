@@ -1,5 +1,5 @@
 @extends('admin.AdminPublic.index')
-@section('title','会员添加')
+@section('title','管理员管理-权限添加')
 @section('container')
 
 <!-- 右侧顶部搜索部分 开始 -->
@@ -11,8 +11,8 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="/bk_users">会员管理</a></li>
-                    <li class="active">会员添加</li>
+                    <li><a href="/bk_adminuser">管理员管理</a></li>
+                    <li class="active">权限添加</li>
                 </ul>
                 <!--breadcrumbs end -->
             </div>
@@ -33,41 +33,28 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Basic validations
+                           Permissions add
                         </header>
                         <div class="panel-body">
-                            <form  class="form-horizontal adminex-form" method="post" action="/bk_users/add">
+                            <form  class="form-horizontal adminex-form" method="post" action="/bk_node/add">
                                 <div class="form-group ">
-                                    <label class="col-lg-2 control-label">账号：</label>
+                                    <label class="col-lg-2 control-label">权限名：</label>
                                     <div class="col-lg-8">
                                         <input type="text" placeholder="" id="f-name" class="form-control" name="name">   
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label">密码：</label>
+                            
+                                 <div class="form-group">
+                                    <label class="col-lg-2 control-label">控制器：</label>
                                     <div class="col-lg-8">
-                                        <input type="password" placeholder="" id="l-name" class="form-control" name="pass"> 
-                              
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label">确认密码：</label>
-                                    <div class="col-lg-8">
-                                        <input type="password" placeholder="" id="email2" class="form-control" name="repass">
+                                        <input type="text" placeholder="" id="email2" class="form-control" name="mname">
                                         
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label class="col-lg-2 control-label">邮箱：</label>
+                                    <label class="col-lg-2 control-label">方法：</label>
                                     <div class="col-lg-8">
-                                        <input type="email" placeholder="" id="email2" class="form-control" name="email">
-                                        
-                                    </div>
-                                </div>
-                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label">QQ：</label>
-                                    <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" name="qq">     
+                                        <input type="text" placeholder="" id="email2" class="form-control" name="aname">     
                                     </div>
                                 </div>
                                 {{csrf_field()}}

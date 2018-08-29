@@ -59,13 +59,15 @@
                     <li class="{{$menu_cates_add or ''}}"><a href="/bk_cates/add"> 添加分类</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>管理员管理</span></a>
+
+            <li class="menu-list {{$menu_admin or ''}}"><a href=""><i class="fa fa-cogs"></i> <span>管理员管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="grids.html"> Grids</a></li>
-                    <li><a href="gallery.html"> Media Gallery</a></li>
-                    <li><a href="calendar.html"> Calendar</a></li>
-                    <li><a href="tree_view.html"> Tree View</a></li>
-                    <li><a href="nestable.html"> Nestable</a></li>
+                    <li class="{{$menu_adminuser_index or ''}}"><a href="/bk_adminuser">管理团队</a></li>
+                    <li class="{{$menu_adminuser_create or ''}}"><a href="/bk_adminuser/create">添加管理</a></li>
+                    <li class="{{$menu_role_index or ''}}"><a href="/bk_role">角色列表</a></li>
+                    <li class="{{$menu_role_create or ''}}"><a href="/bk_role/create">角色添加</a></li>
+                    <li class="{{$menu_node_index or ''}}"><a href="/bk_node">权限列表</a></li>
+                    <li class="{{$menu_node_create or ''}}"><a href="/bk_node/create">权限添加</a></li>
 
                 </ul>
             </li>
