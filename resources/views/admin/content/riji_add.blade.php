@@ -10,6 +10,11 @@
                 @endforeach
             </ul>
         </div>
+        <script>
+            setInterval(function(){
+                $(".close").trigger('click');
+            },2000);
+        </script>
     @endif
     <!--右侧显示内容区域 开始-->
     <div class="wrapper">
