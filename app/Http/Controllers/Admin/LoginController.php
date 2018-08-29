@@ -13,7 +13,7 @@ use Carbon\Carbon;
 class LoginController extends Controller
 {
 	private $limitNum = 5; //允许的错误次数
-	private $limitTime  = 1; //禁用分钟数
+	private $limitTime  = 10; //禁用分钟数
 
 	//登录
     public function index() {
@@ -38,6 +38,14 @@ class LoginController extends Controller
         } else {
             //如果用户名正确并且密码验证通过
             if ($user && Hash::check($pass,$user->pass)){
+                //将当前用户登录信息插入到admin_log表中
+                $admin_log = [
+                    'uid'       => $user->id,
+                    'ip'        => $_SERVER['REMOTE_ADDR'],
+                    'desc'      => '登录',
+                    'login_time'=> time()
+                ];
+                DB::table('admin_log')->insert($admin_log);
                 //把用户信息写入到session
                 session([
                     'admin_info'=>[
@@ -61,7 +69,15 @@ class LoginController extends Controller
     }
 
     //退出登录
-    public function logout(Request $request) {
+    public function logout(Request $request,$uid) {
+        //将当前用户退出信息插入到admin_log表中
+        $admin_log = [
+            'uid'       => $uid,
+            'ip'        => $_SERVER['REMOTE_ADDR'],
+            'desc'      => '退出',
+            'login_time'=> time()
+        ];
+        DB::table('admin_log')->insert($admin_log);
     	//销毁session值
     	$request -> session()->pull('admin_info');
     	return redirect('/bk_login');

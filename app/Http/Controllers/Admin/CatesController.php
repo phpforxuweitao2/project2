@@ -24,12 +24,13 @@ class CatesController extends Controller
         ]);
     }
 
-    public function add() {
+    public function add($id='') {
         $cates = DB::table('cates')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path','created_at')->get();
         return view('admin.cates.add',[
-            'menu_cates'   => 'active',
+            'menu_cates'    => 'active',
             'menu_cates_add'=> 'active',
-            'cates'         =>$cates
+            'cates'         =>$cates,
+            'cate_id'       => $id
         ]);
     }
 
