@@ -26,7 +26,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_cates','CatesController@index');//分类模块列表页
     Route::get('bk_cates/add/{id?}','CatesController@add');//进入分类添加页面
     Route::post('bk_cates/doadd','CatesController@doadd');//处理分类添加数据
-<<<<<<< HEAD
     Route::get('bk_cates/del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
@@ -35,18 +34,15 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_content/riji','ContentController@riji');//日记列表页面
     Route::get('bk_content/riji/add','ContentController@riji_add');//进入添加日记页面
     Route::post('bk_content/riji/saveriji','ContentController@save_riji');//保存日记
-=======
-<<<<<<< HEAD
+
     Route::get('bk_del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/trash','CatesController@trash');//进入分类回收站
-=======
+
     Route::get('bk_cates/down-{id}','CatesController@down');//处理分类禁用
     Route::get('bk_cates/up-{id}','CatesController@up');//处理分类启用
     Route::get('bk_cates/del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
->>>>>>> a2b5f5a38434930189e9e7205ccda03ccaf9f4b7
->>>>>>> 770260d86209de690bf46a36bf6246213105d6cd
 
     // 前台会员模块
     Route::get('bk_users','UsersController@index');//会员列表
@@ -59,7 +55,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_users/update','UsersController@update');//会员修改操作
     Route::get('bk_users/{id}/show','UsersController@show')->where(['id' => '\d+']);//会员详情页
 
-<<<<<<< HEAD
     //轮播图模块
     Route::get('bk_lunbo','LunboController@index'); //轮播图列表页
     Route::get('bk_lunbo/add','LunboController@add'); //轮播图添加
@@ -85,10 +80,7 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_links/edit/{id}','LinksController@edit'); //修改页面
     Route::post('bk_links/doedit','LinksController@doedit'); //处理修改
     Route::get('bk_link/change/{id}','LinksController@change'); // 启用链接
-    
 
-    //后台管理员模块
-=======
     //后台角色管理
     Route::get('bk_role','RoleController@index');//角色列表
     Route::get('bk_role/create','RoleController@create');//角色添加页
@@ -100,7 +92,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_role/update','RoleController@update');//角色修改操作
     Route::get('bk_role/{id}/node','RoleController@node')->where(['id' => '\d+']);//角色权限分配页
     Route::post('bk_role/donode','RoleController@donode');//角色权限分配操作
->>>>>>> a2b5f5a38434930189e9e7205ccda03ccaf9f4b7
 
     // 后台权限管理
     Route::get('bk_node','NodeController@index');//权限列表
@@ -113,7 +104,7 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_node/update','NodeController@update');//权限修改操作
 
     //后台管理员模块
-                                                                                                                          Route::get('bk_adminuser','AdminUserController@index');//管理员列表
+    Route::get('bk_adminuser','AdminUserController@index');//管理员列表
     Route::get('bk_adminuser/create','AdminUserController@create');//管理员添加页
     Route::post('bk_adminuser/add','AdminUserController@add');//管理员添加方法
     Route::get('bk_adminuser/del/{id}','AdminUserController@del')->where(['id' => '\d+']);//管理员删除
