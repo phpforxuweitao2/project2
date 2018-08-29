@@ -45,14 +45,11 @@
             <li class="{{$menu_index or ''}}">
                 <a href="/bk_index"><i class="fa fa-home"></i> <span>首页</span></a>
             </li>
-            <li class="menu-list">
-                <a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+            <li class="menu-list {{$menu_users or ''}}">
+                <a href=""><i class="fa fa-user"></i> <span>会员管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="blank_page.html"> Blank Page</a></li>
-                    <li><a href="boxed_view.html"> Boxed Page</a></li>
-                    <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
-                    <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
-
+                    <li class="{{$menu_users_index or ''}}"><a href="/bk_users">会员列表</a></li>
+                    <li class="{{$menu_users_create or ''}}"><a href="/bk_users/create"> 添加会员</a></li>
                 </ul>
             </li>
             <li class="menu-list {{$menu_cates or ''}}">
@@ -60,16 +57,17 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_cates_index or ''}}"><a href="/bk_cates">分类列表</a></li>
                     <li class="{{$menu_cates_add or ''}}"><a href="/bk_cates/add"> 添加分类</a></li>
-                    <li class="{{$menu_cates_trash or ''}}"><a href="/bk_cates/trash"> 分类回收站</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
+
+            <li class="menu-list {{$menu_admin or ''}}"><a href=""><i class="fa fa-cogs"></i> <span>管理员管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="grids.html"> Grids</a></li>
-                    <li><a href="gallery.html"> Media Gallery</a></li>
-                    <li><a href="calendar.html"> Calendar</a></li>
-                    <li><a href="tree_view.html"> Tree View</a></li>
-                    <li><a href="nestable.html"> Nestable</a></li>
+                    <li class="{{$menu_adminuser_index or ''}}"><a href="/bk_adminuser">管理团队</a></li>
+                    <li class="{{$menu_adminuser_create or ''}}"><a href="/bk_adminuser/create">添加管理</a></li>
+                    <li class="{{$menu_role_index or ''}}"><a href="/bk_role">角色列表</a></li>
+                    <li class="{{$menu_role_create or ''}}"><a href="/bk_role/create">角色添加</a></li>
+                    <li class="{{$menu_node_index or ''}}"><a href="/bk_node">权限列表</a></li>
+                    <li class="{{$menu_node_create or ''}}"><a href="/bk_node/create">权限添加</a></li>
 
                 </ul>
             </li>

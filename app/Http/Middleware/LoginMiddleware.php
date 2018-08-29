@@ -16,7 +16,7 @@ class LoginMiddleware
     public function handle($request, Closure $next)
     {
          //检测用户是否具有登录的session
-        if($request->session()->has('id')){
+        if(session('admin_info')['islogin']){
             return $next($request);
         }else{
             //跳转到登录界面
