@@ -29,11 +29,35 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/trash','CatesController@trash');//进入分类回收站
 
-    // 后台首页
-    Route::get('bk_index','IndexController@index');
-
     // 前台会员模块
     Route::get('bk_users','UsersController@index');
+
+    //轮播图模块
+    Route::get('bk_lunbo','LunboController@index'); //轮播图列表页
+    Route::get('bk_lunbo/add','LunboController@add'); //轮播图添加
+    Route::post('bk_lunbo/doadd','LunboController@doadd'); //轮播图添加处理
+    Route::get('bk_lunbo/del/{id}','LunboController@delete'); //处理删除
+    Route::get('bk_lunbo/edit/{id}','LunboController@edit'); //轮播图修改页
+    Route::post('bk_lunbo/doedit','LunboController@doedit'); //处理修改
+    Route::get('bk_lunbo/change/{id}','LunboController@change'); //启用和禁用轮播图
+
+    //广告模块
+    Route::get('bk_ads','AdsController@index'); //广告列表页
+    Route::get('bk_ads/add','AdsController@add'); //广告添加页
+    Route::post('bk_ads/doadd','AdsController@doadd'); //广告添加处理
+    Route::get('bk_ads/del/{id}','AdsController@delete'); //删除处理
+    Route::get('bk_ads/edit/{id}','AdsController@edit'); //修改页面
+    Route::post('bk_ads/doedit','AdsController@doedit'); //处理修改
+
+    //友情链接模块
+    Route::get('bk_links','LinksController@index'); //友情链接列表页
+    Route::get('bk_links/add','LinksController@add'); //友情链接添加页
+    Route::post('bk_links/doadd','LinksController@doadd'); //处理添加页
+    Route::get('bk_links/del/{id}','LinksController@delete'); //删除处理
+    Route::get('bk_links/edit/{id}','LinksController@edit'); //修改页面
+    Route::post('bk_links/doedit','LinksController@doedit'); //处理修改
+    Route::get('bk_link/change/{id}','LinksController@change'); // 启用链接
+    
 
     //后台管理员模块
 

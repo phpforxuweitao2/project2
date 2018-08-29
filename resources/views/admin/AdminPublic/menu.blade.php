@@ -97,27 +97,26 @@
                     <li><a href="http://www.weidea.net"> More</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a>
+            <li class="menu-list {{$menu_lunbo or ''}}">
+                <a href=""><i class="fa fa-bar-chart-o"></i> <span>轮播图</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="flot_chart.html"> Flot Charts</a></li>
-                    <li><a href="morris.html"> Morris Charts</a></li>
-                    <li><a href="chartjs.html"> Chartjs</a></li>
-                    <li><a href="c3chart.html"> C3 Charts</a></li>
+                    <li class="{{$menu_lunbo_index or ''}}"><a href="/bk_lunbo"> 轮播图列表</a></li>
+                    <li class="{{$menu_lunbo_add or ''}}"><a href="/bk_lunbo/add"> 添加轮播图</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
+            <li class="menu-list {{$menu_ads or ''}}">
+                <a href=""><i class="fa fa-th-list"></i> <span>广告</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="basic_table.html"> Basic Table</a></li>
-                    <li><a href="dynamic_table.html"> Advanced Table</a></li>
-                    <li><a href="responsive_table.html"> Responsive Table</a></li>
-                    <li><a href="editable_table.html"> Edit Table</a></li>
+                    <li class="{{$menu_ads_index or ''}}"><a href="/bk_ads"> 广告列表</a></li>
+                    <li class="{{$menu_ads_add or ''}}"><a href="/bk_ads/add"> 添加广告</a></li>
                 </ul>
             </li>
 
-            <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+            <li class="menu-list {{$menu_links or ''}}">
+                <a href=""><i class="fa fa-link"></i> <span>友情链接</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="google_map.html"> Google Map</a></li>
-                    <li><a href="vector_map.html"> Vector Map</a></li>
+                    <li class="{{$menu_links_index or ''}}"><a href="/bk_links"> 友情链接列表</a></li>
+                    <li class="{{$menu_links_add or ''}}"><a href="/bk_links/add"> 添加友情链接</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>

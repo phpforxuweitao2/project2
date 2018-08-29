@@ -123,9 +123,9 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="/static/admin/login/js/jquery-1.10.2.min.js"></script>
-<script src="/static/admin/login/js/bootstrap.min.js"></script>
-<script src="/static/admin/login/js/modernizr.min.js"></script>
+<script src="/static/admin/js/jquery-1.10.2.min.js"></script>
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/modernizr.min.js"></script>
 <script>
 	$('.warning').click(function(){
 		$(this).css('display','none');
