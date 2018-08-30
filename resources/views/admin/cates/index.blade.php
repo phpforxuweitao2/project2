@@ -49,10 +49,15 @@
                                         <td class="center hidden-phone ">{{date('Y-m-d H:i:s',$v->updated_at)}}</td>
                                         <td class="center hidden-phone">
                                             @if($v->pid == '0')
-                                                <a class="btn btn-primary" href="/bk_cates/add/{{$v->id}}">添加子类</a>&nbsp;
+                                                <a class="label label-primary" href="/bk_cates/add/{{$v->id}}">添加子类</a>&nbsp;
                                             @endif
-                                            <a class="btn btn-success" href="/bk_cates/edit-{{$v->id}}">修改</a>&nbsp;&nbsp;
-                                            <a class="btn btn-warning" href="/bk_cates/del-{{$v->id}}">删除</a>
+                                            @if($v->status == '3')
+                                                    <a class="label label-danger" href="#-{{$v->id}}">取消热门</a>&nbsp;&nbsp;
+                                            @elseif($v->status == '0')
+                                                    <a class="label label-warning" href="#-{{$v->id}}">标记热门</a>&nbsp;&nbsp;
+                                            @endif
+                                            <a class="label label-success" href="/bk_cates/edit-{{$v->id}}">修改</a>&nbsp;&nbsp;
+                                            <a class="label label-warning" href="/bk_cates/del-{{$v->id}}">删除</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -15,6 +15,8 @@
     <link href="/static/admin/js/iCheck/skins/square/square.css" rel="stylesheet">
     <link href="/static/admin/js/iCheck/skins/square/red.css" rel="stylesheet">
     <link href="/static/admin/js/iCheck/skins/square/blue.css" rel="stylesheet">
+    <link href="/static/admin/js/iCheck/skins/minimal/purple.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/admin/js/ios-switch/switchery.css">
 
     <!--百度编辑器配置文件-->
     <script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
@@ -39,6 +41,7 @@
     <!--common-->
     <link href="/static/admin/css/style.css" rel="stylesheet">
     <link href="/static/admin/css/style-responsive.css" rel="stylesheet">
+    <script src="/static/admin/js/jquery-1.10.2.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -102,6 +105,10 @@ setInterval(function(){
 
 <script src="/static/admin/js/del.js"></script>
 
+<!--ios7-->
+<script src="/static/admin/js/ios-switch/switchery.js" ></script>
+<script src="/static/admin/js/ios-switch/ios-init.js" ></script>
+
 <!-- 图片预览 -->
 <script src="/static/admin/js/ads.js"></script>
 
@@ -122,6 +129,10 @@ setInterval(function(){
 <script src="/static/admin/js/flot-chart/jquery.flot.tooltip.js"></script>
 <script src="/static/admin/js/flot-chart/jquery.flot.resize.js"></script>
 
+<!--multi-select-->
+<script type="text/javascript" src="/static/admin/js/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery-multi-select/js/jquery.quicksearch.js"></script>
+<script src="/static/admin/js/multi-select-init.js"></script>
 
 <!--Morris Chart-->
 <script src="/static/admin/js/morris-chart/morris.js"></script>

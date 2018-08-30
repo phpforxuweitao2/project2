@@ -16,7 +16,7 @@ class CatesController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index() {
-        $cates = DB::table('cates')->where('status','0')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path','created_at','updated_at')->paginate(10);
+        $cates = DB::table('cates')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path','status','created_at','updated_at')->paginate(10);
         return view('admin.cates.index',[
             'menu_cates'   => 'active',
             'menu_cates_index'=>'active',

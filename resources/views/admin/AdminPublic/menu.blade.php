@@ -73,12 +73,12 @@
                 </ul>
             </li>
 
-            <li class="menu-list {{$menu_content or ''}}"><a href=""><i class="fa fa-envelope"></i> <span>日记管理</span></a>
+            <li class="menu-list {{$menu_content or ''}}"><a href=""><i class="fa fa-list"></i> <span>内容管理</span></a>
                 <ul class="sub-menu-list">
-                    <li class="{{$menu_content_riji_add or ''}}"><a href="/bk_content/riji/add"> 添加日记</a></li>
-                    <li class="{{$menu_content_riji or ''}}"><a href="/bk_content/riji"> 日记列表</a></li>
-                    <li class="{{$menu_content_riji_vali or ''}}"><a href="/bk_content/riji/vali"> 日记审核列表</a></li>
-                    <li class="{{$menu_content_riji_unpasslist or ''}}"><a href="/bk_content/riji/unpasslist"> 日记审核未通过列表</a></li>
+                    <li class="{{$menu_content_riji_add or ''}}"><a href="/bk_content/riji/add"> 添加内容</a></li>
+                    <li class="{{$menu_content_riji or ''}}"><a href="/bk_content/riji"> 内容列表</a></li>
+                    <li class="{{$menu_content_riji_vali or ''}}"><a href="/bk_content/riji/vali"> 内容审核列表</a></li>
+                    <li class="{{$menu_content_riji_unpasslist or ''}}"><a href="/bk_content/riji/unpasslist"> 内容审核未通过列表</a></li>
                 </ul>
             </li>
 
@@ -132,20 +132,11 @@
                     <li class="{{$menu_notice_add or ''}}"><a href="/bk_notice/add"> 添加公告</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
+            <li class="menu-list {{$menu_system or ''}}">
+                <a href=""><i class="fa fa-cogs"></i> <span>系统设置</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="profile.html"> Profile</a></li>
-                    <li><a href="invoice.html"> Invoice</a></li>
-                    <li><a href="pricing_table.html"> Pricing Table</a></li>
-                    <li><a href="timeline.html"> Timeline</a></li>
-                    <li><a href="blog_list.html"> Blog List</a></li>
-                    <li><a href="blog_details.html"> Blog Details</a></li>
-                    <li><a href="directory.html"> Directory </a></li>
-                    <li><a href="chat.html"> Chat </a></li>
-                    <li><a href="404.html"> 404 Error</a></li>
-                    <li><a href="500.html"> 500 Error</a></li>
-                    <li><a href="registration.html"> Registration Page</a></li>
-                    <li><a href="lock_screen.html"> Lockscreen </a></li>
+                    <li class="{{$menu_system_maintain_home or 'disabled'}}"><a href="/bk_system/homemaintain"> 前台维护设置</a></li>
+                    <li><a href="#"> 其他</a></li>
                 </ul>
             </li>
             <li><a href="/bk_logout"><i class="fa fa-sign-in"></i> <span>退出</span></a></li>

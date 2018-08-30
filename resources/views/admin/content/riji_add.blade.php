@@ -42,7 +42,7 @@
                                     <div class="col-xs-2">
                                         <select name="cid" class="form-control m-bot15">
                                             @foreach($cate_data as $k=>$v)
-                                                <option value="{{$v->id}}">{{$v->name}}日记</option>
+                                                <option value="{{$v->id}}">{{$v->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
