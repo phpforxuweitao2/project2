@@ -4,19 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Links;
-use App\Http\Requests\LinksEdit;
+use App\Http\Requests\Links\Links;
+use App\Http\Requests\Links\LinksEdit;
 use DB;
 
 class LinksController extends Controller
 {
 	//友情链接列表页
-    public function index() {
-    	$links = DB::table('links')->select()->paginate(4);
+    public function index(Request $req) {
+        $k = $req->input('keywords');
+    	$links = DB::table('links')->where('name','like','%'.$k.'%')->paginate(5);
     	return view('admin.links.index',[
     		'menu_links' => 'active',
     		'menu_links_index' => 'active',
-    		'links' => $links
+    		'links' => $links,
+            'request' => $req->all()
     		]);
     }
 
@@ -41,15 +43,15 @@ class LinksController extends Controller
     	}
     }
 
-    //友情链接删除处理
-    public function delete($id) {
-    	$del = DB::table('links')->where('id','=',$id)->delete();
-    	if($del){
-    		return back()->with('success','删除成功');
-    	}else{
-    		return back()->with('error','删除失败');
-    	}
-    }
+    // //友情链接删除处理
+    // public function delete($id) {
+    // 	$del = DB::table('links')->where('id','=',$id)->delete();
+    // 	if($del){
+    // 		return back()->with('success','删除成功');
+    // 	}else{
+    // 		return back()->with('error','删除失败');
+    // 	}
+    // }
 
     //友情链接修改页面
     public function edit($id) {
@@ -73,7 +75,7 @@ class LinksController extends Controller
     //启用和禁用轮播图
     public function change($id) {
         $arr = DB::table('links')->where('id','=',$id)->get();
-
+        //判断数据库状态值是否为0
         if($arr[0]->status == 0){
             $res = DB::table('links')->where('id','=',$id)->update(['status'=>'1']);
             return redirect('/bk_links')->with('success','修改成功');
@@ -81,6 +83,17 @@ class LinksController extends Controller
             $res = DB::table('links')->where('id','=',$id)->update(['status'=>'0']);
             return redirect('/bk_links')->with('success','修改成功');
         }   
+    }
+
+    //ajax删除处理
+    public function del(Request $req){
+        $id = $req->input('id');
+        $res = DB::table('links')->where('id','=',$id)->delete();
+        if($res){
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
 
 }

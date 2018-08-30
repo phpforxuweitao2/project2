@@ -54,9 +54,29 @@ class LoginController extends Controller
                         'adminName' => $user->name
                     ]
                 ]);
+                // 1.获取登录用户的所有访问权限
+                $list = DB::table('user_role as ur')
+                        ->join('role_node as rn','ur.rid','=','rn.rid')
+                        ->join('node as n','rn.nid','=','n.id')
+                        ->where('ur.uid',$user->id)
+                        ->select('n.name','n.mname','n.aname')
+                        ->get();
+                // 2.初始化权限信息，将后台首页写入权限
+                $node_list['IndexController'][] = 'index';
+                // 遍历写入
+                foreach ($list as $k => $v) {
+                    $node_list[$v->mname][] = $v->aname;
+                }
+                // 3.将登录用户的所有权限存储在session
+                session([
+                    'admin_node'=>[
+                        'node_list' => $node_list
+                    ]
+                ]);
                 //登录成功，跳转到后台首页并清空记录登录错误的cache
                 Cache::pull($ip);
     			return redirect('/bk_index')->with('success','登录成功');
+
             } else {
                 $err = $this->login_errorNum($this->limitNum,$this->limitTime);
                 if ($err < $this->limitNum) {
@@ -84,6 +104,7 @@ class LoginController extends Controller
 
     	//销毁session值
     	$request -> session()->pull('admin_info');
+        $request -> session()->pull('admin_node');
     	return redirect('/bk_login');
     }
 

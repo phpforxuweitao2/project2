@@ -40,7 +40,7 @@
                                     <th> ID</th>
                                     <th>发布者</th>
                                     <th>类别</th>
-                                    <th>标题</th>
+                                    <th class="col-md-6">标题</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>

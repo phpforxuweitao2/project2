@@ -64,6 +64,7 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_adminuser_index or ''}}"><a href="/bk_adminuser">管理团队</a></li>
                     <li class="{{$menu_adminuser_create or ''}}"><a href="/bk_adminuser/create">添加管理</a></li>
+                    <li class="{{$menu_adminuser_log or ''}}"><a href="/bk_adminuser/log">登录日志</a></li>
                     <li class="{{$menu_role_index or ''}}"><a href="/bk_role">角色列表</a></li>
                     <li class="{{$menu_role_create or ''}}"><a href="/bk_role/create">角色添加</a></li>
                     <li class="{{$menu_node_index or ''}}"><a href="/bk_node">权限列表</a></li>
@@ -122,6 +123,13 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_links_index or ''}}"><a href="/bk_links"> 友情链接列表</a></li>
                     <li class="{{$menu_links_add or ''}}"><a href="/bk_links/add"> 添加友情链接</a></li>
+                </ul>
+            </li>
+            <li class="menu-list {{$menu_notice or ''}}">
+                <a href=""><i class="fa fa-link"></i> <span>公告</span></a>
+                <ul class="sub-menu-list">
+                    <li class="{{$menu_notice_index or ''}}"><a href="/bk_notice"> 公告列表</a></li>
+                    <li class="{{$menu_notice_add or ''}}"><a href="/bk_notice/add"> 添加公告</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>

@@ -27,7 +27,25 @@
     <div class="row">
         <div class="col-sm-12">
             <section class="panel">
-                <header class="panel-heading">轮播图列表</header>
+                <div class="panel-body">                     
+                    <div class="row-fluid">
+                        <div class="col-xs-8">
+                            轮播图列表
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <form class="form" action="/bk_lunbo" method="get">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="keywords" placeholder="搜索...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit">搜索</button>
+                                         </span>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="panel-body">
                     <div class="adv-table">
                         <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline" role="grid">
@@ -37,7 +55,7 @@
                                         <th width="60">编号</th>
                                         <th>图片</th>
                                         <th>轮播图链接</th>
-                                        <th>是否上架</th>
+                                        <th>状态</th>
                                         <th>排序号</th>
                                         <th>修改时间</th>
                                         <th width="200">操作</th>
@@ -72,7 +90,7 @@
                             </table>
                             <div class="row-fluid">
                                 <div class="span6" style="text-align: right;">
-                                    
+                                    {{$data->appends($request)->render()}}
                                 </div>
                             </div>
                         </div>

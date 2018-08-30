@@ -119,7 +119,10 @@ class UsersController extends Controller
     {
         //获取需要修改的数据
         $user = DB::table('users')->where('id','=',$id)->first();
-        return view('admin.users.edit',['user'=>$user]);
+        return view('admin.users.edit',[
+                'user'          =>  $user,
+                'menu_users'    =>  'active'
+                ]);
     }
 
     /**
@@ -151,6 +154,8 @@ class UsersController extends Controller
             ->where('u.id',$id)
             ->get();
 
-        return view('admin.users.show',['user'=>$data[0]]);
+        return view('admin.users.show',['user'=>$data[0],'menu_users'=>'active']);
     }
+
+
 }

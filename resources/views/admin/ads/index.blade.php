@@ -27,7 +27,25 @@
     <div class="row">
         <div class="col-sm-12">
             <section class="panel">
-                <header class="panel-heading">广告列表</header>
+                <div class="panel-body">                     
+                    <div class="row-fluid">
+                        <div class="col-xs-8">
+                            广告列表
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <form class="form" action="/bk_ads" method="get">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <input type="text" name="keywords" class="form-control" placeholder="搜索...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit">搜索</button>
+                                         </span>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="panel-body">
                     <div class="adv-table">
                         <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline" role="grid">
@@ -68,7 +86,7 @@
                             </table>
                             <div class="row-fluid">
                                 <div class="span6" style="text-align: right;">
-                                    {{$ads->render()}}
+                                    {{$ads->appends($request)->render()}}
                                 </div>
                             </div>
                         </div>

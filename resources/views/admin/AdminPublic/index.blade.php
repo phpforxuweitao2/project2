@@ -91,6 +91,7 @@ setInterval(function(){
 </div>
 </section>
 
+
 <!-- Placed js at the end of the document so the pages load faster -->
 <script src="/static/admin/js/jquery-1.10.2.min.js"></script>
 <script src="/static/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -99,6 +100,9 @@ setInterval(function(){
 <script src="/static/admin/js/modernizr.min.js"></script>
 <script src="/static/admin/js/jquery.nicescroll.js"></script>
 
+<script src="/static/admin/js/del.js"></script>
+
+<!-- 图片预览 -->
 <script src="/static/admin/js/ads.js"></script>
 
 <!--easy pie chart-->
