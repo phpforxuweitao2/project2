@@ -26,7 +26,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_cates','CatesController@index');//分类模块列表页
     Route::get('bk_cates/add/{id?}','CatesController@add');//进入分类添加页面
     Route::post('bk_cates/doadd','CatesController@doadd');//处理分类添加数据
-<<<<<<< HEAD
     Route::get('bk_cates/del-{id}','CatesController@delete')->where(['id'=>'\d+']);//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit')->where(['id'=>'\d+']);//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
@@ -43,18 +42,10 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_content/riji/pass/{id}','ContentController@riji_pass')->where(['id'=>'\d+']);//日记通过审核
     Route::get('bk_content/riji/vali','ContentController@riji_vali');//进入日记审核页面
     Route::get('bk_content/riji/unpasslist','ContentController@unpass_list');//进入未通过审核日记列表页面
-=======
 
     Route::get('bk_del-{id}','CatesController@delete');//处理分类删除
-    Route::get('bk_cates/trash','CatesController@trash');//进入分类回收站
-
-    Route::get('bk_cates/down-{id}','CatesController@down');//处理分类禁用
-    Route::get('bk_cates/up-{id}','CatesController@up');//处理分类启用
-    Route::get('bk_cates/del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
-
->>>>>>> 65b1341e726cb1d64c3b98c8838f3d8e235214d3
 
     // 前台会员模块
     Route::get('bk_users','UsersController@index');//会员列表
@@ -66,11 +57,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_users/{id}/edit','UsersController@edit')->where(['id' => '\d+']);//会员修改页
     Route::post('bk_users/update','UsersController@update');//会员修改操作
     Route::get('bk_users/{id}/show','UsersController@show')->where(['id' => '\d+']);//会员详情页
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 65b1341e726cb1d64c3b98c8838f3d8e235214d3
     //轮播图模块
     Route::get('bk_lunbo','LunboController@index'); //轮播图列表页
     Route::get('bk_lunbo/add','LunboController@add'); //轮播图添加
@@ -97,11 +83,9 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_links/doedit','LinksController@doedit'); //处理修改
     Route::get('bk_link/change/{id}','LinksController@change')->where(['id'=>'\d+']); // 启用链接
 
-<<<<<<< HEAD
-=======
+
     //后台管理员模块
 
->>>>>>> 65b1341e726cb1d64c3b98c8838f3d8e235214d3
     //后台角色管理
     Route::get('bk_role','RoleController@index');//角色列表
     Route::get('bk_role/create','RoleController@create');//角色添加页
@@ -113,10 +97,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_role/update','RoleController@update');//角色修改操作
     Route::get('bk_role/{id}/node','RoleController@node')->where(['id' => '\d+']);//角色权限分配页
     Route::post('bk_role/donode','RoleController@donode');//角色权限分配操作
-<<<<<<< HEAD
-=======
-
->>>>>>> 65b1341e726cb1d64c3b98c8838f3d8e235214d3
 
     // 后台权限管理
     Route::get('bk_node','NodeController@index');//权限列表
