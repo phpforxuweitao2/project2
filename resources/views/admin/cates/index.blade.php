@@ -30,7 +30,7 @@
                                         <th>path</th>
                                         <th width="200">添加时间</th>
                                         <th width="200">修改时间</th>
-                                        <th width="200">操作</th>
+                                        <th width="260">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody role="alert" aria-live="polite" aria-relevant="all">
@@ -48,6 +48,9 @@
                                         <td class="center hidden-phone ">{{date('Y-m-d H:i:s',$v->created_at)}}</td>
                                         <td class="center hidden-phone ">{{date('Y-m-d H:i:s',$v->updated_at)}}</td>
                                         <td class="center hidden-phone">
+                                            @if($v->pid == '0')
+                                                <a class="btn btn-primary" href="/bk_cates/add/{{$v->id}}">添加子类</a>&nbsp;
+                                            @endif
                                             <a class="btn btn-success" href="/bk_cates/edit-{{$v->id}}">修改</a>&nbsp;&nbsp;
                                             <a class="btn btn-warning" href="/bk_cates/del-{{$v->id}}">删除</a>
                                         </td>

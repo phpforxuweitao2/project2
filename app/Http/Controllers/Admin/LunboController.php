@@ -5,18 +5,20 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Http\Requests\Lunbo;
-use App\Http\Requests\LunboEdit;
+use App\Http\Requests\Lunbo\Lunbo;
+use App\Http\Requests\Lunbo\LunboEdit;
 
 class LunboController extends Controller
 {
     //轮播图列表页
-    public function index() {
-    	$data = DB::table('lunbo')->select()->get();
+    public function index(Request $req) {
+        $k = $req->input('keywords');
+    	$data = DB::table('lunbo')->where('url','like','%'.$k.'%')->paginate(5);
     	return view('admin.lunbo.index',[
     		'menu_lunbo' => 'active',
     		'menu_lunbo_index' => 'active',
-    		'data' => $data
+    		'data' => $data,
+            'request' => $req->all()
     	]);
     }
 

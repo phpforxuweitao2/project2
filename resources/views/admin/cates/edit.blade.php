@@ -33,7 +33,7 @@
                             <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_cates/doedit">
                                 <div class="form-group ">
                                     <label for="name" class="control-label col-lg-2">类名称</label>
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-4">
                                         <input class="form-control" id="name" name="name" type="text" value="{{$info->name or ''}}">
                                     </div>
                                 </div>

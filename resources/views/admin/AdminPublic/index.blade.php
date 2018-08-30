@@ -16,6 +16,15 @@
     <link href="/static/admin/js/iCheck/skins/square/red.css" rel="stylesheet">
     <link href="/static/admin/js/iCheck/skins/square/blue.css" rel="stylesheet">
 
+    <!--百度编辑器配置文件-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
+    <!--编辑器源码文件-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.js"> </script>
+    <!--uparse-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.parse.min.js"></script>
+    <!--设置语言类型-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/lang/zh-cn/zh-cn.js"></script>
+
     <!--dashboard calendar-->
     <link href="/static/admin/css/clndr.css" rel="stylesheet">
 
@@ -82,6 +91,7 @@ setInterval(function(){
 </div>
 </section>
 
+
 <!-- Placed js at the end of the document so the pages load faster -->
 <script src="/static/admin/js/jquery-1.10.2.min.js"></script>
 <script src="/static/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -90,6 +100,9 @@ setInterval(function(){
 <script src="/static/admin/js/modernizr.min.js"></script>
 <script src="/static/admin/js/jquery.nicescroll.js"></script>
 
+<script src="/static/admin/js/del.js"></script>
+
+<!-- 图片预览 -->
 <script src="/static/admin/js/ads.js"></script>
 
 <!--easy pie chart-->
@@ -122,6 +135,5 @@ setInterval(function(){
 
 <!--common scripts for all pages-->
 <script src="/static/admin/js/scripts.js"></script>
-
 </body>
 </html>

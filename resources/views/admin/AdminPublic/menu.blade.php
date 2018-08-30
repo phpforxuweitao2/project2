@@ -73,7 +73,14 @@
                 </ul>
             </li>
 
-            <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>Fontawesome</span></a></li>
+            <li class="menu-list {{$menu_content or ''}}"><a href=""><i class="fa fa-envelope"></i> <span>日记管理</span></a>
+                <ul class="sub-menu-list">
+                    <li class="{{$menu_content_riji_add or ''}}"><a href="/bk_content/riji/add"> 添加日记</a></li>
+                    <li class="{{$menu_content_riji or ''}}"><a href="/bk_content/riji"> 日记列表</a></li>
+                    <li class="{{$menu_content_riji_vali or ''}}"><a href="/bk_content/riji/vali"> 日记审核列表</a></li>
+                    <li class="{{$menu_content_riji_unpasslist or ''}}"><a href="/bk_content/riji/unpasslist"> 日记审核未通过列表</a></li>
+                </ul>
+            </li>
 
             <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>Mail</span></a>
                 <ul class="sub-menu-list">
@@ -116,6 +123,13 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_links_index or ''}}"><a href="/bk_links"> 友情链接列表</a></li>
                     <li class="{{$menu_links_add or ''}}"><a href="/bk_links/add"> 添加友情链接</a></li>
+                </ul>
+            </li>
+            <li class="menu-list {{$menu_notice or ''}}">
+                <a href=""><i class="fa fa-link"></i> <span>公告</span></a>
+                <ul class="sub-menu-list">
+                    <li class="{{$menu_notice_index or ''}}"><a href="/bk_notice"> 公告列表</a></li>
+                    <li class="{{$menu_notice_add or ''}}"><a href="/bk_notice/add"> 添加公告</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>

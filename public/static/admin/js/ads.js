@@ -27,3 +27,4 @@ function getObjectURL(file)
     }
     return url ;
   }
+

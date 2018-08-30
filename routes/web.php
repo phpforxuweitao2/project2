@@ -13,9 +13,9 @@
 //前端
 Route::get('/','Home\IndexController@index');
 Route::group(['namespace'=>'Home'],function(){
-    Route::get('/home/{name?}','HomeController@index')->where([
-        'name'  => '\w+'
-    ]);
+
+
+
 });
 
 //后端
@@ -26,9 +26,34 @@ Route::group(['namespace'=>'Admin'],function(){
 
     //分类模块
     Route::get('bk_cates','CatesController@index');//分类模块列表页
-    Route::get('bk_cates/add','CatesController@add');//进入分类添加页面
+    Route::get('bk_cates/add/{id?}','CatesController@add');//进入分类添加页面
     Route::post('bk_cates/doadd','CatesController@doadd');//处理分类添加数据
+
     Route::get('bk_cates/del-{id}','CatesController@delete');//处理分类删除
+    Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
+    Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
+
+
+    Route::get('bk_cates/del-{id}','CatesController@delete')->where(['id'=>'\d+']);//处理分类删除
+    Route::get('bk_cates/edit-{id}','CatesController@edit')->where(['id'=>'\d+']);//进入分类修改页面
+    Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
+
+
+    //内容管理模块
+    Route::get('bk_content/riji','ContentController@riji');//日记列表页面
+    Route::get('bk_content/riji/add','ContentController@riji_add');//进入添加日记页面
+    Route::post('bk_content/riji/saveriji','ContentController@save_riji');//保存日记
+    Route::get('bk_content/riji/show/{id}','ContentController@riji_show')->where(['id'=>'\d+']);//日记详情页面
+    Route::get('bk_content/riji/del/{id}','ContentController@riji_del')->where(['id'=>'\d+']);//日记删除
+    Route::get('bk_content/riji/edit/{id}','ContentController@riji_edit')->where(['id'=>'\d+']);//日记修改页面
+    Route::post('bk_content/riji/rijieditsave','ContentController@riji_editsave');//保存日记修改
+    Route::get('bk_content/riji/unpass/{id}','ContentController@riji_unpass')->where(['id'=>'\d+']);//日记不通过审核
+    Route::get('bk_content/riji/pass/{id}','ContentController@riji_pass')->where(['id'=>'\d+']);//日记通过审核
+    Route::get('bk_content/riji/vali','ContentController@riji_vali');//进入日记审核页面
+    Route::get('bk_content/riji/unpasslist','ContentController@unpass_list');//进入未通过审核日记列表页面
+
+
+    Route::get('bk_del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
 
@@ -44,32 +69,43 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_users/update','UsersController@update');//会员修改操作
     Route::get('bk_users/{id}/show','UsersController@show')->where(['id' => '\d+']);//会员详情页
 
-
     //轮播图模块
     Route::get('bk_lunbo','LunboController@index'); //轮播图列表页
     Route::get('bk_lunbo/add','LunboController@add'); //轮播图添加
     Route::post('bk_lunbo/doadd','LunboController@doadd'); //轮播图添加处理
-    Route::get('bk_lunbo/del/{id}','LunboController@delete'); //处理删除
-    Route::get('bk_lunbo/edit/{id}','LunboController@edit'); //轮播图修改页
+    Route::get('bk_lunbo/del/{id}','LunboController@delete')->where(['id'=>'\d+']); //处理删除
+    Route::get('bk_lunbo/edit/{id}','LunboController@edit')->where(['id'=>'\d+']); //轮播图修改页
     Route::post('bk_lunbo/doedit','LunboController@doedit'); //处理修改
-    Route::get('bk_lunbo/change/{id}','LunboController@change'); //启用和禁用轮播图
+    Route::get('bk_lunbo/change/{id}','LunboController@change')->where(['id'=>'\d+']); //启用和禁用轮播图
 
     //广告模块
     Route::get('bk_ads','AdsController@index'); //广告列表页
     Route::get('bk_ads/add','AdsController@add'); //广告添加页
     Route::post('bk_ads/doadd','AdsController@doadd'); //广告添加处理
-    Route::get('bk_ads/del/{id}','AdsController@delete'); //删除处理
-    Route::get('bk_ads/edit/{id}','AdsController@edit'); //修改页面
+    Route::get('bk_ads/del/{id}','AdsController@delete')->where(['id'=>'\d+']); //删除处理
+    Route::get('bk_ads/edit/{id}','AdsController@edit')->where(['id'=>'\d+']); //修改页面
     Route::post('bk_ads/doedit','AdsController@doedit'); //处理修改
 
     //友情链接模块
     Route::get('bk_links','LinksController@index'); //友情链接列表页
     Route::get('bk_links/add','LinksController@add'); //友情链接添加页
     Route::post('bk_links/doadd','LinksController@doadd'); //处理添加页
-    Route::get('bk_links/del/{id}','LinksController@delete'); //删除处理
-    Route::get('bk_links/edit/{id}','LinksController@edit'); //修改页面
+    Route::get('bk_links/del/{id}','LinksController@delete')->where(['id'=>'\d+']); //删除处理
+    Route::get('bk_links/edit/{id}','LinksController@edit')->where(['id'=>'\d+']); //修改页面
     Route::post('bk_links/doedit','LinksController@doedit'); //处理修改
     Route::get('bk_link/change/{id}','LinksController@change'); // 启用链接
+
+    Route::get('bk_links/dels','LinksController@del'); //ajax删除
+
+
+    //公告模块
+    Route::get('bk_notice','NoticeController@index'); //公告列表页
+    Route::get('bk_notice/add','NoticeController@add'); //公告添加页
+    Route::post('bk_notice/doadd','NoticeController@doadd'); //添加处理
+    Route::get('bk_notice/edit/{id}','NoticeController@edit'); //修改页面
+    Route::post('bk_notice/doedit','NoticeController@doedit'); //处理修改
+
+
 
 
     //后台角色管理
@@ -114,11 +150,9 @@ Route::group(['namespace'=>'Admin'],function(){
 //后台登录模块
 Route::get('bk_login','Admin\LoginController@index'); //后台登录页面
 
-
 //后台登录处理
+
 Route::get('bk_dologin','Admin\LoginController@dologin');
-
 Route::post('bk_dologin','Admin\LoginController@dologin'); //后台登录处理
-
 Route::get('bk_logout','Admin\LoginController@logout'); //后台退出登录
 

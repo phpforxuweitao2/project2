@@ -35,23 +35,25 @@
                                 
                                 <div class="form-group ">
                                     <label for="name" class="control-label col-lg-2">友情链接名称</label>
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-8">
                                         <input class="form-control" id="name" name="name" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label for="name" class="control-label col-lg-2">友情链接url</label>
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-8">
                                         <input class="form-control" id="url" name="url" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
-							         <label class="control-label col-lg-2">是否上架 : </label>
-							         <input class="control-label col-lg-2" type="radio" value="0" name="status">上架
-							         <input class="control-label col-lg-2" type="radio" value="1" name="status">下架
+							        <label class="control-label col-lg-2">是否上架 : </label>
+                                    <div class="col-lg-8">
+    							         <input class="control-label" type="radio" value="0" name="status" checked>上架
+    							         <input class="control-label" type="radio" value="1" name="status">下架
+                                    </div>
 						        </div>
                                 <div class="form-group">
-                                    <div class="col-xs-offset-0 col-xs-10">
+                                    <div class="col-xs-offset-2 col-xs-10">
                                         {{csrf_field()}}
                                         <button class="btn btn-success col-xs-2" type="submit">添加</button>
                                     </div>

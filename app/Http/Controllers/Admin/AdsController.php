@@ -5,18 +5,20 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Http\Requests\Ads;
-use App\Http\Requests\AdsEdit;
+use App\Http\Requests\Ads\Ads;
+use App\Http\Requests\Ads\AdsEdit;
 
 class AdsController extends Controller
 {
     //广告首页
-    public function index() {
-    	$ads = DB::table('advertising')->select()->paginate(5);	
+    public function index(Request $req) {
+        $k = $req->input('keywords');
+    	$ads = DB::table('advertising')->where('name','like','%'.$k.'%')->paginate(5);
     	return view('admin.ads.index',[
     		'menu_ads' => 'active',
     		'menu_ads_index' => 'active',
-    		'ads' => $ads
+    		'ads' => $ads,
+            'request' => $req->all()
     	]);
     }
 
