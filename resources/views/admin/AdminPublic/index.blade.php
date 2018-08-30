@@ -16,6 +16,15 @@
     <link href="/static/admin/js/iCheck/skins/square/red.css" rel="stylesheet">
     <link href="/static/admin/js/iCheck/skins/square/blue.css" rel="stylesheet">
 
+    <!--百度编辑器配置文件-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
+    <!--编辑器源码文件-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.js"> </script>
+    <!--uparse-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.parse.min.js"></script>
+    <!--设置语言类型-->
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/lang/zh-cn/zh-cn.js"></script>
+
     <!--dashboard calendar-->
     <link href="/static/admin/css/clndr.css" rel="stylesheet">
 
@@ -30,11 +39,6 @@
     <!--common-->
     <link href="/static/admin/css/style.css" rel="stylesheet">
     <link href="/static/admin/css/style-responsive.css" rel="stylesheet">
-
-    <!-- 百度编辑器 -->
-    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/ueditor.all.min.js"> </script>
-    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -131,6 +135,5 @@ setInterval(function(){
 
 <!--common scripts for all pages-->
 <script src="/static/admin/js/scripts.js"></script>
-
 </body>
 </html>
