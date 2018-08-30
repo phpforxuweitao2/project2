@@ -31,6 +31,11 @@
     <link href="/static/admin/css/style.css" rel="stylesheet">
     <link href="/static/admin/css/style-responsive.css" rel="stylesheet">
 
+    <!-- 百度编辑器 -->
+    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="/static/admin/js/html5shiv.js"></script>
@@ -82,6 +87,7 @@ setInterval(function(){
 </div>
 </section>
 
+
 <!-- Placed js at the end of the document so the pages load faster -->
 <script src="/static/admin/js/jquery-1.10.2.min.js"></script>
 <script src="/static/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -90,6 +96,9 @@ setInterval(function(){
 <script src="/static/admin/js/modernizr.min.js"></script>
 <script src="/static/admin/js/jquery.nicescroll.js"></script>
 
+<script src="/static/admin/js/del.js"></script>
+
+<!-- 图片预览 -->
 <script src="/static/admin/js/ads.js"></script>
 
 <!--easy pie chart-->

@@ -117,6 +117,13 @@
                     <li class="{{$menu_links_add or ''}}"><a href="/bk_links/add"> 添加友情链接</a></li>
                 </ul>
             </li>
+            <li class="menu-list {{$menu_notice or ''}}">
+                <a href=""><i class="fa fa-link"></i> <span>公告</span></a>
+                <ul class="sub-menu-list">
+                    <li class="{{$menu_notice_index or ''}}"><a href="/bk_notice"> 公告列表</a></li>
+                    <li class="{{$menu_notice_add or ''}}"><a href="/bk_notice/add"> 添加公告</a></li>
+                </ul>
+            </li>
             <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="profile.html"> Profile</a></li>

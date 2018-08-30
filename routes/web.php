@@ -28,11 +28,6 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_cates/doadd','CatesController@doadd');//处理分类添加数据
 
     Route::get('bk_del-{id}','CatesController@delete');//处理分类删除
-    Route::get('bk_cates/trash','CatesController@trash');//进入分类回收站
-
-    Route::get('bk_cates/down-{id}','CatesController@down');//处理分类禁用
-    Route::get('bk_cates/up-{id}','CatesController@up');//处理分类启用
-    Route::get('bk_cates/del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
 
@@ -74,6 +69,14 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_links/edit/{id}','LinksController@edit'); //修改页面
     Route::post('bk_links/doedit','LinksController@doedit'); //处理修改
     Route::get('bk_link/change/{id}','LinksController@change'); // 启用链接
+    Route::get('bk_links/dels','LinksController@del'); //ajax删除
+
+    //公告模块
+    Route::get('bk_notice','NoticeController@index'); //公告列表页
+    Route::get('bk_notice/add','NoticeController@add'); //公告添加页
+    Route::post('bk_notice/doadd','NoticeController@doadd'); //添加处理
+    Route::get('bk_notice/edit/{id}','NoticeController@edit'); //修改页面
+    Route::post('bk_notice/doedit','NoticeController@doedit'); //处理修改
     
 
     //后台管理员模块
@@ -102,7 +105,7 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_node/update','NodeController@update');//权限修改操作
 
     //后台管理员模块
-                                                                                                                          Route::get('bk_adminuser','AdminUserController@index');//管理员列表
+    Route::get('bk_adminuser','AdminUserController@index');//管理员列表
     Route::get('bk_adminuser/create','AdminUserController@create');//管理员添加页
     Route::post('bk_adminuser/add','AdminUserController@add');//管理员添加方法
     Route::get('bk_adminuser/del/{id}','AdminUserController@del')->where(['id' => '\d+']);//管理员删除
@@ -121,8 +124,6 @@ Route::get('bk_login','Admin\LoginController@index'); //后台登录页面
 
 //后台登录处理
 Route::get('bk_dologin','Admin\LoginController@dologin');
-
 Route::post('bk_dologin','Admin\LoginController@dologin'); //后台登录处理
-
 Route::get('bk_logout','Admin\LoginController@logout'); //后台退出登录
 

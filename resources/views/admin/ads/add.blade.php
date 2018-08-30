@@ -12,13 +12,14 @@
         </div>
     @endif
     <!--右侧显示内容区域 开始-->
+
 <div class="wrapper">
     <div class="row">
         <div class="col-md-12">
             <!--breadcrumbs start -->
             <ul class="breadcrumb panel">
                 <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                <li><a href=""><i class="fa fa-book"></i> 广告页</a></li>
+                <li><a href="/bk_cates/add"><i class="fa fa-book"></i> 广告添加页</a></li>
             </ul>
             <!--breadcrumbs end -->
         </div>
@@ -27,35 +28,48 @@
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading">
-                    广告添加页
-                </header>
+                <header class="panel-heading">广告添加</header>
                 <div class="panel-body">
-                    <form role="form" action="/bk_ads/doadd" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">广告名称</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputFile">图片链接</label>
-                            <input type="file" name="pic" id="file0"><br>
-                            <img style="height: 60px" src="" id="img0" alt="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">广告链接</label>
-                            <input type="text" name="url" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">广告位置</label>
-                            <input type="text" name="pos" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">排序号</label>
-                            <input type="text" name="listorder" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-success">添加</button>
-                    </form>
+                    <div class="form">
+
+                        <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_lunbo/doadd" enctype="multipart/form-data">
+                            <div class="form-group ">
+                                <label for="name" class="control-label col-lg-2">广告名称</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" id="name" name="name" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="exampleInputFile">图片链接</label>
+                                <input class="control-label col-lg-4" type="file" name="pic" id="file0">
+                                <img class="control-label" style="height: 60px" src="" id="img0" alt="">
+                            </div>
+                            <div class="form-group ">
+                                <label for="name" class="control-label col-lg-2">广告链接</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" id="url" name="url" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="name" class="control-label col-lg-2">广告位置</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" id="pos" name="pos" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="name" class="control-label col-lg-2">排序号</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" id="orderlist" name="orderlist" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-offset-2 col-xs-10">
+                                    {{csrf_field()}}
+                                    <button class="btn btn-success col-xs-2" type="submit">添加</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
         </div>
