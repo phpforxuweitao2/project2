@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-sm-12">
             <section class="panel">
-                <div class="panel-body">                     
+                <div class="panel-body">
                     <div class="row-fluid">
                         <div class="col-xs-8">
                             公告列表
@@ -64,7 +64,7 @@
                                     <td class="center">{{$v->id}}</td>
                                     <td class="center">{{$v->title}}</td>
                                     <td class="center">
-                                        <a href="">{{$v->content}}</a>
+                                         <a href="javascript:void(0)" >{{$v->content}}</a>
                                     </td>
                                     <td class="center">
                                         {{date('Y-m-d H:i:s',$v->created_at)}}
@@ -79,7 +79,7 @@
                         </table>
                         <div class="row-fluid">
                             <div class="span6" style="text-align: right;">
-                        
+
                             </div>
                         </div>
                     </div>
@@ -90,4 +90,5 @@
 </div>
 
 <!--右侧显示内容区域 结束-->
+
 @endsection

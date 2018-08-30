@@ -84,21 +84,20 @@
 		$(this).css('display','none');
 	});
 </script>
-<<<<<<< HEAD
+
 
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
 
-=======
-<<<<<<< HEAD
+
+
 
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
 
-=======
+
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
->>>>>>> 58a511b5231a3dc384039fb60e54a40f38ce59d9
->>>>>>> f041533be0279fbb07fb1c2309688ac85faeeba8
+
 </body>
 </html>

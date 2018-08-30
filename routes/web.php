@@ -151,8 +151,6 @@ Route::group(['namespace'=>'Admin'],function(){
 Route::get('bk_login','Admin\LoginController@index'); //后台登录页面
 
 //后台登录处理
-
-Route::get('bk_dologin','Admin\LoginController@dologin');
 Route::post('bk_dologin','Admin\LoginController@dologin'); //后台登录处理
 Route::get('bk_logout','Admin\LoginController@logout'); //后台退出登录
 

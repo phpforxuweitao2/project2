@@ -20,22 +20,25 @@
                 <section class="panel">
                     <header class="panel-heading">日记详情</header>
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-2">发布者: {{$info->uname}}</div>
+                        <div class="row text-center">
+                            <div class="col-xs-3">发布者: {{$info->uname}}</div>
                             <div class="col-xs-2">分类: {{$info->name}}日记</div>
-                            <div class="col-xs-2">时间: {{date('Y-m-d H:i:s',$info->created_at)}}</div>
+                            <div class="col-xs-3">时间: {{date('Y-m-d H:i:s',$info->created_at)}}</div>
                             <div class="col-xs-1">天气: {{$info->weather}}</div>
                             <div class="col-xs-1">大小: {{$info->size}}</div>
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-xs-8">
-                                内容: {{strip_tags($info->content,'')}}
+                            <div class="col-xs-1 text-right">
+                                内容：
+                            </div>
+                            <div class="col-xs-10 ">
+                                {{strip_tags($info->content,'')}}
                             </div>
                         </div>
                         <br><br>
                         <div class="row">
-                            <div class="col-xs-8">
+                            <div class="col-xs-2 text-center">
                                 <a href="{{$backUrl}}" class="btn btn-info btn-small">返回</a>
                             </div>
                         </div>
