@@ -11,11 +11,14 @@
 |
 */
 //前端
-Route::get('/','Home\IndexController@index');
 Route::group(['namespace'=>'Home'],function(){
+    Route::get('/','IndexController@index');
 
-
-
+    Route::get('/login','LoginController@login');//登录页面
+    Route::post('/login_check','LoginController@login_check');//验证登录
+    Route::get('/logout','LoginController@logout');//退出登录
+    Route::get('/reg','LoginController@register');//进入注册页面
+    Route::post('/reg_check','LoginController@register_check');//验证注册
 });
 
 //后端
