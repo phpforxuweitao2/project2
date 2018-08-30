@@ -20,12 +20,19 @@ class IndexController extends Controller
         return $data;
     }
 
+    /**
+     * 前台首页
+     * @return [type] [description]
+     */
     public function index() {
+
         $cate = $this->getCatesBypid(0);
         $data = DB::table('cates')->where('status','3')->get();
         return view('home.index',[
             'cates' =>  $cate,
             'data'  => $data
         ]);
+        return view('home.index.index');
+
     }
 }

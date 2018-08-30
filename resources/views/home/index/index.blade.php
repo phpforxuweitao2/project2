@@ -12,6 +12,7 @@
   <script type="text/javascript">
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 window.location = "https://m.riji.cn";
+}
 </script>
   <script src="/static/home/index/js/jquery-1.8.1.min.js" type="text/javascript"></script>
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
