@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
@@ -14,7 +12,6 @@
   <script type="text/javascript">
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 window.location = "https://m.riji.cn";
-}
 </script>
   <script src="/static/home/index/js/jquery-1.8.1.min.js" type="text/javascript"></script>
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
@@ -384,4 +381,3 @@ SlideShow(2500);
   <script src="/static/home/index/js/newfix.js"></script>
  </body>
 </html>
->>>>>>> 3705f6c7fcb46131d79f118d2f4a504f01df659f

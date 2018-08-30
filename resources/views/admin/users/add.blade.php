@@ -24,11 +24,11 @@
           </button>
           @foreach ($errors->all() as $error)
             <strong>{{ $error }}...</strong>
-                    
+
           @endforeach
     </div>
   @endif
-	<div class="wrapper "> 
+	<div class="wrapper ">
    <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
@@ -40,35 +40,36 @@
                                 <div class="form-group ">
                                     <label class="col-lg-2 control-label">账号：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="f-name" class="form-control" name="name">   
+                                        <input type="text" placeholder="" id="f-name" class="form-control" name="name">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">密码：</label>
                                     <div class="col-lg-8">
-                                        <input type="password" placeholder="" id="l-name" class="form-control" name="pass"> 
-                              
+                                        <input type="password" placeholder="" id="l-name" class="form-control" name="pass">
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">确认密码：</label>
                                     <div class="col-lg-8">
                                         <input type="password" placeholder="" id="email2" class="form-control" name="repass">
-                                        
+
                                     </div>
                                 </div>
                                  <div class="form-group">
                                     <label class="col-lg-2 control-label">邮箱：</label>
                                     <div class="col-lg-8">
                                         <input type="email" placeholder="" id="email2" class="form-control" name="email">
-                                        
+
                                     </div>
                                 </div>
                                  <div class="form-group">
                                     <label class="col-lg-2 control-label">QQ：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" name="qq">     
+                                        <input type="text" placeholder="" id="email2" class="form-control" name="qq">
                                     </div>
+
                                 </div>
                                 {{csrf_field()}}
                                 <div class="form-group">
@@ -81,7 +82,7 @@
                     </section>
                 </div>
             </div>
-    </div> 
+    </div>
   </div>
 <!--右侧显示内容区域 结束-->
 
