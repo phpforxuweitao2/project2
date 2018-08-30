@@ -1,5 +1,5 @@
 @extends('admin.AdminPublic.index')
-@section('title','管理员管理-角色修改')
+@section('title','管理员管理-管理员修改')
 @section('container')
 
 <!-- 右侧顶部搜索部分 开始 -->
@@ -12,8 +12,8 @@
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
                     <li><a href="/bk_adminuser">管理员管理</a></li>
-                    <li><a href="/bk_role">角色列表</a></li>
-                    <li class="active">角色修改</li>
+                    <li><a href="/bk_adminuser">管理团队</a></li>
+                    <li class="active">管理员修改</li>
                 </ul>
                 <!--breadcrumbs end -->
             </div>
@@ -37,18 +37,18 @@
                         Role modification
                         </header>
                         <div class="panel-body">
-                            <form  class="form-horizontal adminex-form" method="post" action="/bk_role/update">
+                            <form  class="form-horizontal adminex-form" method="post" action="/bk_adminuser/update">
                                 <input type="hidden" name="id" value="{{$data->id}}">
                                 <div class="form-group ">
-                                    <label class="col-lg-2 control-label">角色名：</label>
+                                    <label class="col-lg-2 control-label">管理名：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="f-name" class="form-control" name="name" value="{{$data->name}}">
+                                        <input class="form-control" id="disabledInput" type="text" placeholder="{{$data->name}}" disabled="" >
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label class="col-lg-2 control-label">角色管理描述：</label>
+                                    <label class="col-lg-2 control-label">密码：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" name="remark" value="{{$data->remark}}">
+                                        <input type="password" placeholder="" id="email2" class="form-control" name="pass" value="">
                                     </div>
                                 </div>
                                 {{csrf_field()}}

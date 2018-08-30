@@ -64,6 +64,7 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_adminuser_index or ''}}"><a href="/bk_adminuser">管理团队</a></li>
                     <li class="{{$menu_adminuser_create or ''}}"><a href="/bk_adminuser/create">添加管理</a></li>
+                    <li class="{{$menu_adminuser_log or ''}}"><a href="/bk_adminuser/log">登录日志</a></li>
                     <li class="{{$menu_role_index or ''}}"><a href="/bk_role">角色列表</a></li>
                     <li class="{{$menu_role_create or ''}}"><a href="/bk_role/create">角色添加</a></li>
                     <li class="{{$menu_node_index or ''}}"><a href="/bk_node">权限列表</a></li>

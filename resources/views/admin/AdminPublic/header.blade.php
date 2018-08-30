@@ -189,7 +189,7 @@
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                    <li><a href="#"><i class="fa fa-wrench"></i>  修改密码</a></li>
+                    <li><a href="/bk_index/edit"><i class="fa fa-wrench"></i>  修改密码</a></li>
                     <li><a href="/bk_logout"><i class="fa fa-sign-out"></i> 退出</a></li>
                 </ul>
             </li>

@@ -1,5 +1,5 @@
 @extends('admin.AdminPublic.index')
-@section('title','管理员管理-角色修改')
+@section('title','修改密码')
 @section('container')
 
 <!-- 右侧顶部搜索部分 开始 -->
@@ -11,9 +11,7 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="/bk_adminuser">管理员管理</a></li>
-                    <li><a href="/bk_role">角色列表</a></li>
-                    <li class="active">角色修改</li>
+                    <li class="active">修改密码</li>
                 </ul>
                 <!--breadcrumbs end -->
             </div>
@@ -34,21 +32,35 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                        Role modification
+                        Password modification
                         </header>
                         <div class="panel-body">
-                            <form  class="form-horizontal adminex-form" method="post" action="/bk_role/update">
-                                <input type="hidden" name="id" value="{{$data->id}}">
+                            <form  class="form-horizontal adminex-form" method="post" action="/bk_index/update">
                                 <div class="form-group ">
-                                    <label class="col-lg-2 control-label">角色名：</label>
+                                    <label class="col-lg-2 control-label">用户：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="f-name" class="form-control" name="name" value="{{$data->name}}">
+                                        <input class="form-control" id="disabledInput" type="text" placeholder="{{session('admin_info')['adminName']}}" disabled="" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">原密码：</label>
+                                    <div class="col-lg-8">
+                                        <input type="password" placeholder="" id="l-name" class="form-control" name="pass">
+
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label class="col-lg-2 control-label">角色管理描述：</label>
+                                    <label class="col-lg-2 control-label">新密码：</label>
                                     <div class="col-lg-8">
-                                        <input type="text" placeholder="" id="email2" class="form-control" name="remark" value="{{$data->remark}}">
+                                        <input type="password" placeholder="" id="l-name" class="form-control" name="newpass">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">确认密码：</label>
+                                    <div class="col-lg-8">
+                                        <input type="password" placeholder="" id="email2" class="form-control" name="repass">
+
                                     </div>
                                 </div>
                                 {{csrf_field()}}

@@ -111,7 +111,7 @@ class NodeController extends Controller
     {
         //获取需要修改的数据
         $data = DB::table('node')->where('id','=',$id)->first();
-        return view('admin.AdminUser.node.edit',['data'=>$data]);
+        return view('admin.AdminUser.node.edit',['data'=>$data,'menu_admin'=> 'active']);
     }
 
     /**

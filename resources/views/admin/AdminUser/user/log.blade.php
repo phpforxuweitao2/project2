@@ -1,5 +1,5 @@
 @extends('admin.AdminPublic.index')
-@section('title','管理员管理-权限列表')
+@section('title','后台登录日志')
 @section('container')
 
 
@@ -9,14 +9,14 @@
 <!-- 右侧顶部链接导航区域 开始 -->
     <div class="row">
         <div class="col-md-12">
-          <!--breadcrumbs start -->
+            <!--breadcrumbs start -->
             <ul class="breadcrumb panel">
-              <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-              <li><a href="">管理员管理</a></li>
-              <li class="active">权限列表</li>
+                <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
+                <li><a href="/bk_adminuser">管理员管理</a></li>
+                <li class="active">登录日志</li>
             </ul>
-          <!--breadcrumbs end -->
-      </div>
+        <!--breadcrumbs end -->
+        </div>
    </div>
     <div class="wrapper">
    <div class="row">
@@ -24,12 +24,12 @@
      <section class="panel">
      <!-- 搜索  -->
      <div class="panel-body col-sm-6">
-        <h4>权限列表</h4>
+        <h4>登录日志</h4>
      </div>
       <div class="panel-body col-sm-6 text-right">
-       <form class="form-inline" role="form" method="get" action="/bk_node">
+       <form class="form-inline" role="form" method="get" action="/bk_adminuser/log">
         <div class="form-group">
-         <label class="sr-only" for="exampleInputEmail2">账号搜索</label>
+         <label class="sr-only" for="exampleInputEmail2">用户名搜索</label>
          <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Enter name" name="keywords" />
         </div>
 
@@ -41,11 +41,11 @@
         <thead>
          <tr>
           <th> ID</th>
-          <th class="hidden-phone">权限名</th>
-          <th>控制器</th>
-          <th>方法</th>
-          <th>状态</th>
-          <th>操作</th>
+          <th class="hidden-phone">用户名</th>
+          <th>内容</th>
+          <th>操作时间</th>
+          <th>操作IP</th>
+          <th class="col-md-1">操作</th>
          </tr>
         </thead>
         <tbody>
@@ -53,23 +53,11 @@
          <tr>
           <td>{{$row->id}}</td>
           <td class="hidden-phone">{{$row->name}}</td>
-          <td>{{$row->mname}}</td>
-          <td>{{$row->aname}}</td>
+          <td>{{$row->desc}}</td>
+          <td>{{date('Y-m-d h:i:s',$row->login_time)}}</td>
+          <td>{{$row->ip}}</td>
           <td>
-          @if($row->status == 0)
-            <span class="badge badge-success">正常</span>
-          @else
-            <span class="badge badge-important">锁定</span>
-          @endif
-          </td>
-          <td>
-                <a class="label label-info" id="add-without-image" href="/bk_node/{{$row->id}}/edit">修改</a>
-              @if($row->status == 0)
-                <a class="label label-danger" id="remove-all" href="/bk_node/close/{{$row->id}}">锁定</a>
-              @else
-                <a  class="label label-success" id="add-without-image" href="/bk_node/open/{{$row->id}}">启用</a>
-               @endif
-            <a class="label label-default" id="add-max" href="/bk_node/del/{{$row->id}}">删除</a>
+            <a class="label label-warning" id="add-without-image" href="/bk_adminuser/logdel/{{$row->id}}">删除</a>
           </td>
          </tr>
          @endforeach
@@ -77,10 +65,9 @@
        </table>
        <!-- 分页 -->
          <div class="row">
-
            <div class="col-lg-6" >
                 <div class="dataTables_info" id="editable-sample_info">
-                Mr red is Ang. 28st, 2018
+                Mr red is Ang. 29st, 2018
                 </div>
            </div>
            <div class="col-lg-6" style="text-align: right;" >
@@ -96,3 +83,4 @@
 <!--右侧显示内容区域 结束-->
 
 @endsection
+
