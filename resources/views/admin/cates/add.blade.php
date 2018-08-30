@@ -34,7 +34,7 @@
                             <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_cates/doadd">
                                 <div class="form-group ">
                                     <label for="firstname" class="control-label col-lg-2">父类名称</label>
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-4">
                                         <select name="pid" class="form-control m-bot15">
                                             <option value="0">顶级类</option>
                                         @foreach($cates as $k=>$v)
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="form-group ">
                                     <label for="name" class="control-label col-lg-2">子类名称</label>
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-4">
                                         <input class="form-control" id="name" name="name" type="text">
                                     </div>
                                 </div>

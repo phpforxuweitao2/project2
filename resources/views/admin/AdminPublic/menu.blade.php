@@ -72,11 +72,12 @@
                 </ul>
             </li>
 
-            <li class="menu-list {{$menu_content or ''}}"><a href=""><i class="fa fa-envelope"></i> <span>内容管理</span></a>
+            <li class="menu-list {{$menu_content or ''}}"><a href=""><i class="fa fa-envelope"></i> <span>日记管理</span></a>
                 <ul class="sub-menu-list">
-                    <li class="{{$menu_content_riji or ''}}"><a href="/bk_content/riji"> 日记列表</a></li>
                     <li class="{{$menu_content_riji_add or ''}}"><a href="/bk_content/riji/add"> 添加日记</a></li>
-                    <li><a href="mail_view.html"> View Mail</a></li>
+                    <li class="{{$menu_content_riji or ''}}"><a href="/bk_content/riji"> 日记列表</a></li>
+                    <li class="{{$menu_content_riji_vali or ''}}"><a href="/bk_content/riji/vali"> 日记审核列表</a></li>
+                    <li class="{{$menu_content_riji_unpasslist or ''}}"><a href="/bk_content/riji/unpasslist"> 日记审核未通过列表</a></li>
                 </ul>
             </li>
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Content;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Content_riji extends FormRequest
+class ContentRijiEdit extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class Content_riji extends FormRequest
     public function rules()
     {
         return [
-            'title'     => 'required|max:100',
+            'title'     => 'required|max:50',
             'content'   => 'required|regex:/\w+/'
         ];
     }
@@ -32,7 +32,7 @@ class Content_riji extends FormRequest
     public function messages(){
         return [
             'title.required'    => '标题不能为空',
-            'title.max'         => '标题不能超过100个字符',
+            'title.max'         => '标题不能超过50个字符',
             'content.required'  => '内容不能为空',
             'content.regex'     => '内容不符合规则'
         ];

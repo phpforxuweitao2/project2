@@ -69,15 +69,19 @@ class LoginController extends Controller
     }
 
     //退出登录
-    public function logout(Request $request,$uid) {
+    public function logout(Request $request) {
         //将当前用户退出信息插入到admin_log表中
-        $admin_log = [
-            'uid'       => $uid,
-            'ip'        => $_SERVER['REMOTE_ADDR'],
-            'desc'      => '退出',
-            'login_time'=> time()
-        ];
-        DB::table('admin_log')->insert($admin_log);
+        $uid = session('admin_info')['uid'];
+        if ($uid) {
+            $admin_log = [
+                'uid'       => $uid,
+                'ip'        => $_SERVER['REMOTE_ADDR'],
+                'desc'      => '退出',
+                'login_time'=> time()
+            ];
+            DB::table('admin_log')->insert($admin_log);
+        }
+
     	//销毁session值
     	$request -> session()->pull('admin_info');
     	return redirect('/bk_login');

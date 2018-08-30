@@ -23,7 +23,8 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="/bk_content/riji/add"><i class="fa fa-book"></i> 日记添加页</a></li>
+                    <li><a href="#">内容管理</a></li>
+                    <li class="active">日记修改页面</li>
                 </ul>
                 <!--breadcrumbs end -->
             </div>
@@ -32,59 +33,59 @@
         <div class="row">
             <div class="col-lg-12">
                 <section class="panel">
-                    <header class="panel-heading">日记添加</header>
+                    <header class="panel-heading">日记修改</header>
                     <div class="panel-body">
                         <div class="form">
-
-                            <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_content/riji/saveriji">
+                            <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_content/riji/rijieditsave">
                                 <div class="form-group ">
                                     <label for="firstname" class="control-label col-xs-1">类别</label>
                                     <div class="col-xs-2">
                                         <select name="cid" class="form-control m-bot15">
                                             @foreach($cate_data as $k=>$v)
-                                                <option value="{{$v->id}}">{{$v->name}}日记</option>
+                                                <option value="{{$v->id}}" @if($info->cid == $v->id) selected @endif>{{$v->name}}日记</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <label for="firstname" class="control-label col-xs-1">星期</label>
                                     <div class="col-xs-2">
                                         <select name="week" class="form-control m-bot15">
-                                            <option value="星期一">星期一</option>
-                                            <option value="星期二">星期二</option>
-                                            <option value="星期三">星期三</option>
-                                            <option value="星期四">星期四</option>
-                                            <option value="星期五">星期五</option>
-                                            <option value="星期六">星期六</option>
-                                            <option value="星期日">星期日</option>
+                                            <option value="星期一" @if($info->week == '星期一') selected @endif>星期一</option>
+                                            <option value="星期二" @if($info->week == '星期二') selected @endif>星期二</option>
+                                            <option value="星期三" @if($info->week == '星期三') selected @endif>星期三</option>
+                                            <option value="星期四" @if($info->week == '星期四') selected @endif>星期四</option>
+                                            <option value="星期五" @if($info->week == '星期五') selected @endif>星期五</option>
+                                            <option value="星期六" @if($info->week == '星期六') selected @endif>星期六</option>
+                                            <option value="星期日" @if($info->week == '星期日') selected @endif>星期日</option>
                                         </select>
                                     </div>
                                     <label for="firstname" class="control-label col-xs-1">天气</label>
                                     <div class="col-xs-2">
                                         <select name="weather" class="form-control m-bot15">
-                                            <option value="晴">晴</option>
-                                            <option value="多云">多云</option>
-                                            <option value="阴">阴</option>
-                                            <option value="雨">雨</option>
-                                            <option value="雪">雪</option>
+                                            <option value="晴" @if($info->weather == '晴') selected @endif>晴</option>
+                                            <option value="多云" @if($info->weather == '多云') selected @endif>多云</option>
+                                            <option value="阴" @if($info->weather == '阴') selected @endif>阴</option>
+                                            <option value="雨" @if($info->weather == '雨') selected @endif>雨</option>
+                                            <option value="雪" @if($info->weather == '雪') selected @endif>雪</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label for="name" class="control-label col-xs-1">标题</label>
                                     <div class="col-xs-6">
-                                        <input class="form-control" id="title" name="title" type="text">
+                                        <input class="form-control" id="title" name="title" type="text" value="{{$info->title}}">
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label for="name" class="control-label col-xs-1">日记内容</label>
                                     <div class="col-xs-4">
-                                        <div id="editorCont" name="content" type="text/plain" style="width: 800px;height: 400px;"></div>
+                                        <div id="editorCont" name="content" type="text/plain" style="width: 800px;height: 400px;" ></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xs-offset-1 col-xs-11">
                                         {{csrf_field()}}
-                                        <button class="btn btn-success col-xs-2" type="submit">添加</button>
+                                        <input type="hidden" name="con_id" value="{{$info->id}}">
+                                        <button class="btn btn-success col-xs-2" type="submit">修改</button>
                                     </div>
                                 </div>
                             </form>
@@ -124,8 +125,9 @@
         wordCountMsg:'{#count} / {#leave} 字',   //输入字体数提示
         allowDivTransToP: false
     });
-</script>
-<script>
+    ue.addListener('ready',function(){
+        ue.setContent('{{strip_tags($info->content)}}');
+    });
     uParse('#editorCont',{
         rootPath: '/static/ueditor/'
     });

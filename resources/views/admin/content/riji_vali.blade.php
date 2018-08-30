@@ -1,5 +1,5 @@
 @extends('admin.AdminPublic.index')
-@section('title','会员列表')
+@section('title','日记审核列表页面')
 @section('container')
     <!-- 右侧顶部搜索部分 开始 -->
     @include('admin.AdminPublic.header')
@@ -11,7 +11,7 @@
             <ul class="breadcrumb panel">
                 <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
                 <li><a href="#">内容管理</a></li>
-                <li class="active">内容列表</li>
+                <li class="active">日记审核列表页面</li>
             </ul>
             <!--breadcrumbs end -->
         </div>
@@ -22,13 +22,13 @@
                 <section class="panel">
                     <!-- 搜索  -->
                     <div class="panel-body col-sm-6">
-                        <h4>内容列表</h4>
+                        <h4>未审核列表</h4>
                     </div>
                     <div class="panel-body col-sm-6 text-right">
-                        <form class="form-inline" role="form" method="get" action="/bk_content/riji">
+                        <form class="form-inline" role="form" method="get" action="/bk_content/riji/vali">
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputEmail2">内容搜索</label>
-                                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="发布者/标题" name="keywords" />
+                                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="发布者" name="keywords" value="{{$req['keywords'] or ''}}" />
                             </div>
                             <button type="submit" class="btn btn-primary">搜索</button>
                         </form>
@@ -41,7 +41,6 @@
                                     <th>发布者</th>
                                     <th>类别</th>
                                     <th>标题</th>
-                                    <th>大小</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
@@ -52,12 +51,14 @@
                                     <td>{{$v->uname}}</td>
                                     <td>{{$v->cname}}</td>
                                     <td>
-                                        <a href="/bk_content/riji/show/{{$v->id}}">{{$v->title}}</a>
+                                        @php
+                                            $title = changeStr($v->title,'10','...');
+                                        @endphp
+                                        <a href="/bk_content/riji/show/{{$v->id}}">{{$title}}</a>
                                     </td>
-                                    <td>{{$v->size}}</td>
                                     <td>
-                                        <a class="label label-info" id="add-without-image" href="/bk_content/riji/edit/{{$v->id}}">修改</a>
-                                        <a class="label label-default" id="add-max" href="/bk_content/riji/del/{{$v->id}}" onclick="return confirm('确定删除吗?')">删除</a>
+                                        <a class="label label-info" id="add-without-image" href="/bk_content/riji/pass/{{$v->id}}">通过</a>
+                                        <a class="label label-danger" id="add-max" href="/bk_content/riji/unpass/{{$v->id}}">不通过</a>
                                     </td>
                                 </tr>
                             @endforeach
