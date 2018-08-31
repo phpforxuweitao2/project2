@@ -33,7 +33,7 @@
                                 内容：
                             </div>
                             <div class="col-xs-10 ">
-                                {{strip_tags($info->content,'')}}
+                                <div disabled id="editorCont" name="content" type="text/plain" style="width: 800px;height: 400px;"></div>
                             </div>
                         </div>
                         <br><br>
@@ -52,23 +52,6 @@
     var ue = UE.getEditor('editorCont',{
         toolbars:[
             [
-                'undo', //撤销
-                'redo', //重做
-                'fontfamily', //字体
-                'fontsize', //字号
-                'forecolor', //字体颜色
-                'backcolor', //背景色
-                'indent', //首行缩进
-                'bold', //加粗
-                'italic', //斜体
-                'underline', //下划线
-                'strikethrough', //删除线
-                'horizontal', //分隔线
-                'link', //超链接
-                'searchreplace', //查询替换
-                'rowspacingtop', //段前距
-                'rowspacingbottom', //段后距
-                'lineheight', //行间距
             ]
         ],
         enableContextMenu:false,    //内容区域右击菜单 默认为true
@@ -77,8 +60,9 @@
         wordCountMsg:'{#count} / {#leave} 字',   //输入字体数提示
         allowDivTransToP: false
     });
-</script>
-<script>
+    ue.addListener('ready',function(){
+        ue.setContent('{{strip_tags($info->content)}}');
+    });
     uParse('#editorCont',{
         rootPath: '/static/ueditor/'
     });

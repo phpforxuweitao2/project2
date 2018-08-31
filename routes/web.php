@@ -35,7 +35,8 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_cates/del-{id}','CatesController@delete');//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit');//进入分类修改页面
     Route::post('bk_cates/doedit','CatesController@doedit');//处理分类修改数据
-
+    Route::get('bk_cates/{id}/signhot','CatesController@signHot');//标记分类为热门分类
+    Route::get('bk_cates/{id}/cancelhost','CatesController@cancelHot');//取消标记为热门分类
 
     Route::get('bk_cates/del-{id}','CatesController@delete')->where(['id'=>'\d+']);//处理分类删除
     Route::get('bk_cates/edit-{id}','CatesController@edit')->where(['id'=>'\d+']);//进入分类修改页面
@@ -54,6 +55,8 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_content/riji/pass/{id}','ContentController@riji_pass')->where(['id'=>'\d+']);//日记通过审核
     Route::get('bk_content/riji/vali','ContentController@riji_vali');//进入日记审核页面
     Route::get('bk_content/riji/unpasslist','ContentController@unpass_list');//进入未通过审核日记列表页面
+    Route::get('bk_content/riji/{id}/recommand','ContentController@recommand');//根据id将内容标记为推荐内容
+    Route::get('bk_content/riji/{id}/unrecommand','ContentController@unrecommand');//根据id取消内容标记为推荐内容
 
 
     Route::get('bk_del-{id}','CatesController@delete');//处理分类删除

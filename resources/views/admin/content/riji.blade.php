@@ -41,7 +41,7 @@
                                     <th>发布者</th>
                                     <th>类别</th>
                                     <th>标题</th>
-                                    <th>大小</th>
+                                    <th>字数</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
@@ -56,6 +56,11 @@
                                     </td>
                                     <td>{{$v->size}}</td>
                                     <td>
+                                        @if($v->recommand == '0')
+                                            <a class="label label-success" id="add-without-image" href="/bk_content/riji/{{$v->id}}/recommand">标记推荐</a>
+                                        @elseif($v->recommand == '1')
+                                            <a class="label label-warning" id="add-without-image" href="/bk_content/riji/{{$v->id}}/unrecommand">取消推荐</a>
+                                        @endif
                                         <a class="label label-info" id="add-without-image" href="/bk_content/riji/edit/{{$v->id}}">修改</a>
                                         <a class="label label-default" id="add-max" href="/bk_content/riji/del/{{$v->id}}" onclick="return confirm('确定删除吗?')">删除</a>
                                     </td>

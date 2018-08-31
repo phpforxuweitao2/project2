@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
@@ -92,7 +90,7 @@ SlideShow(2500);
       <div class="term_list">
        <ul>
        @foreach($data as $row)
-        <li><a href="https://www.riji.cn/wuyijie/" target="_blank">{{$row->name}}</a></li>
+        <li><a href="#" target="_blank">{{$row->name}}</a></li>
        @endforeach
        </ul>
       </div>
@@ -100,142 +98,44 @@ SlideShow(2500);
     </div>
     <div class="middle_box">
      <div class="riji">
-      <a href="javascript:vod(0);" onclick="tougao();" target="_blank">我要投稿</a>原创日记
+      <a href="javascript:void(0);" onclick="return confirm('投稿!');" target="_blank">我要投稿</a>原创日记
      </div>
      <div class="moveAr" id="scrollDiv">
       <ul>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
+       <li>
+        <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
         <div class="con_tit">
          <div class="ys_icon">
           <span class="data">08-23</span>
           <span class="writer">夏沫洛梨</span>
           <a href="https://www.riji.cn/html/55234.html" target="_blank">下雨了，快跑</a>
          </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13275/" target="_blank"><img src="/static/home/index/picture/6660768e35f74cbca49f8b5b861c3c1e.gif" alt="小建哥" /></a></p>
+        </div>
+       </li>
+       <li>
+        <p class="photo">
+         <a href="https://www.riji.cn/user/13275/" target="_blank">
+          <img src="/static/home/index/picture/6660768e35f74cbca49f8b5b861c3c1e.gif" alt="小建哥" />
+         </a>
+        </p>
         <div class="con_tit">
          <div class="ys_icon">
           <span class="data">08-23</span>
           <span class="writer">小建哥</span>
           <a href="https://www.riji.cn/html/54907.html" target="_blank">夏云.童年.捉虾米</a>
          </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13077/" target="_blank"><img src="/static/home/index/picture/736ea988b3c042e6a852e30d5006f214.gif" alt="刺" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">刺</span>
-          <a href="https://www.riji.cn/html/55237.html" target="_blank">意外吃鸡</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13500/" target="_blank"><img src="/static/home/index/picture/boy.jpg" alt="李思萌" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">李思萌</span>
-          <a href="https://www.riji.cn/html/55247.html" target="_blank">暑假过去一半了</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13491/" target="_blank"><img src="/static/home/index/picture/ec724c590abd45b6b96f8cc2d4985b3a.gif" alt="寒乔雨露" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">寒乔雨露</span>
-          <a href="https://www.riji.cn/html/55238.html" target="_blank">有点不开心 非常不开心</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">夏沫洛梨</span>
-          <a href="https://www.riji.cn/html/55233.html" target="_blank">百香果绿茶</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">夏沫洛梨</span>
-          <a href="https://www.riji.cn/html/55230.html" target="_blank">我的手肿了</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">夏沫洛梨</span>
-          <a href="https://www.riji.cn/html/55229.html" target="_blank">老酸奶</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13467/" target="_blank"><img src="/static/home/index/picture/139469515bfa4eb3b37ec091e6f06fae.gif" alt="惜羽纤" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">惜羽纤</span>
-          <a href="https://www.riji.cn/html/55219.html" target="_blank">碰伤</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13529/" target="_blank"><img src="/static/home/index/picture/27a1051a9c2f4d1dacf6df51acc8d2eb.gif" alt="妖熘D麟韬" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">妖熘D麟韬</span>
-          <a href="https://www.riji.cn/html/55214.html" target="_blank">无聊</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/11540/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="乐呵呵" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">乐呵呵</span>
-          <a href="https://www.riji.cn/html/55213.html" target="_blank">开心的一天</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/12487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="菜丶晓刻" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">菜丶晓刻</span>
-          <a href="https://www.riji.cn/html/55204.html" target="_blank">说实话“有点心痛”</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13515/" target="_blank"><img src="/static/home/index/picture/4b9ae38302e6487199009f5364f7f5fe.gif" alt="洋葱" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">洋葱</span>
-          <a href="https://www.riji.cn/html/55203.html" target="_blank">悲惨的一天</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/12487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="菜丶晓刻" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">菜丶晓刻</span>
-          <a href="https://www.riji.cn/html/55186.html" target="_blank">刺激战场真刺激</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/12487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="菜丶晓刻" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">菜丶晓刻</span>
-          <a href="https://www.riji.cn/html/55175.html" target="_blank">眼睛进入“灰尘”了</a>
-         </div>
-        </div> </li>
+        </div>
+       </li>
       </ul>
      </div>
      <div class="riji_list">
       <ul>
-       <li><a href="https://www.riji.cn/html/55237.html" target="_blank">意外吃鸡</a></li>
-       <li><a href="https://www.riji.cn/html/55234.html" target="_blank">下雨了，快跑</a></li>
-       <li><a href="https://www.riji.cn/html/55233.html" target="_blank">百香果绿茶</a></li>
-       <li><a href="https://www.riji.cn/html/55232.html" target="_blank">军训完了...</a></li>
-       <li><a href="https://www.riji.cn/html/55231.html" target="_blank">菜、晓刻你给我记住！</a></li>
-       <li><a href="https://www.riji.cn/html/55230.html" target="_blank">我的手肿了</a></li>
-       <li><a href="https://www.riji.cn/html/55229.html" target="_blank">老酸奶</a></li>
-       <li><a href="https://www.riji.cn/html/55219.html" target="_blank">碰伤</a></li>
+       @foreach($data_recommand as $k=>$v)
+        @php
+         $title = changeStr($v->title,'10','...');
+        @endphp
+        <li><a href="#" target="_blank">{{$title}}</a></li>
+       @endforeach
       </ul>
      </div>
     </div>
@@ -384,4 +284,3 @@ SlideShow(2500);
   <script src="/static/home/index/js/newfix.js"></script>
  </body>
 </html>
->>>>>>> 3705f6c7fcb46131d79f118d2f4a504f01df659f

@@ -1,0 +1,74 @@
+.inp {
+        border: 1px solid gray;
+        padding: 0 10px;
+        width: 200px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .btn {
+        border: 1px solid gray;
+        width: 100px;
+        height: 30px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    #embed-captcha {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    #notice {
+        color: red;
+    }
+    .wawa{
+        position:absolute;
+        left: 0px;
+        top:57px;
+    }
+    .tupian{
+        position: relative;
+    }
+    .yay{
+        position: relative;
+        left: 50px;
+        top: 330px;
+    }
+    .ht{
+        padding-top: 33px;
+        text-align: left;
+    }
+    .htt{
+        padding-top:0;
+    }
+    .form-group{
+        height: 46px;
+    }
+    .form-group input[type='text'],.form-group input[type='password']{
+        height: 38px;
+        border:#AFCBAD 1px solid;
+    }
+    .form-group input[type='radio']{
+        margin-right:10px;
+    }
+    .sex{
+        height:43px;
+        padding-top: 7px;
+    }
+    .reg_btn{
+        width: 380px;
+        margin: 0 40px;
+    }
+    input[type='text']:focus,input[type='password']:focus{
+    border-style:solid;
+    border-color:#339933
+    }
