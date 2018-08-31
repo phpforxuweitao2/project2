@@ -81,7 +81,7 @@ window.location = "https://m.riji.cn";
    <div class="main2">
     <div class="subNav2 fl">
      <a href="https://www.riji.cn/">首页</a>
-     @foreach($cates as $v)
+    @foreach($cates as $v)
      <span class="subNav-more2"> {{$v->name}}<em class="subNav-more-btn2"></em>
       <ul class="subNav-more-ul2">
         @foreach($v->dev as $val)
@@ -101,8 +101,8 @@ window.location = "https://m.riji.cn";
         <div class="block">
          <div class="cl">
           <ul class="slideshow" id="slidesImgs">
-           <li><a href="https://www.riji.cn/shujiariji/" target="_blank"><img src="/static/home/index/picture/shujia.jpg" alt="暑假日记" width="248" height="200" /></a></li>
-           <li><a href="https://www.riji.cn/shujiariji/" target="_blank"><img src="/static/home/index/picture/shujia.jpg" alt="暑假日记" width="248" height="200" /></a></li>
+           <li><a href="https://www.riji.cn/shujiariji/" target="_blank"><img src="static/picture/shujia.jpg" alt="暑假日记" width="248" height="200" /></a></li>
+           <li><a href="https://www.riji.cn/shujiariji/" target="_blank"><img src="static/picture/shujia.jpg" alt="暑假日记" width="248" height="200" /></a></li>
           </ul>
          </div>
          <div class="slidebar" id="slideBar">
@@ -117,8 +117,8 @@ window.location = "https://m.riji.cn";
        </div>
       </div>
       <script type="text/javascript">
-SlideShow(2500);
-</script>
+                    SlideShow(2500);
+                    </script>
       <div class="survey_block_index">
        <div class="title_survey_block_index">
         <ul class="scrollUl">
@@ -135,7 +135,7 @@ SlideShow(2500);
       </div>
       <div class="term_list">
        <ul>
-       @foreach($data as $row)
+        @foreach($data as $row)
         <li><a href="#" target="_blank">{{$row->name}}</a></li>
        @endforeach
        </ul>
@@ -144,56 +144,28 @@ SlideShow(2500);
     </div>
     <div class="middle_box">
      <div class="riji">
-      <a href="javascript:void(0);" onclick="return confirm('投稿!');" target="_blank">我要投稿</a>原创日记
+      <a href="javascript:vod(0);" onclick="tougao();" target="_blank">我要投稿</a>原创日记
      </div>
      <div class="moveAr" id="scrollDiv">
       <ul>
-       <li>
-        <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
+       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="static/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
         <div class="con_tit">
          <div class="ys_icon">
           <span class="data">08-23</span>
           <span class="writer">夏沫洛梨</span>
           <a href="https://www.riji.cn/html/55234.html" target="_blank">下雨了，快跑</a>
          </div>
-<<<<<<< HEAD
-        </div>
-       </li>
-       <li>
-        <p class="photo">
-         <a href="https://www.riji.cn/user/13275/" target="_blank">
-          <img src="/static/home/index/picture/6660768e35f74cbca49f8b5b861c3c1e.gif" alt="小建哥" />
-         </a>
-        </p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">小建哥</span>
-          <a href="https://www.riji.cn/html/54907.html" target="_blank">夏云.童年.捉虾米</a>
-         </div>
-        </div>
-       </li>
-=======
         </div> </li>
-
-
-
->>>>>>> 12c4b2d4bcb90177b7eea496e8ed3c38b8ea1588
       </ul>
      </div>
      <div class="riji_list">
       <ul>
-<<<<<<< HEAD
-       @foreach($data_recommand as $k=>$v)
+        @foreach($data_recommand as $k=>$v)
         @php
          $title = changeStr($v->title,'10','...');
         @endphp
         <li><a href="#" target="_blank">{{$title}}</a></li>
        @endforeach
-=======
-       <li><a href="https://www.riji.cn/html/55237.html" target="_blank">意外吃鸡</a></li>
-
->>>>>>> 12c4b2d4bcb90177b7eea496e8ed3c38b8ea1588
       </ul>
      </div>
     </div>

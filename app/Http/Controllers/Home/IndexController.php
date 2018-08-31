@@ -26,7 +26,7 @@ class IndexController extends Controller
      * 前台首页
      * @return [type] [description]
      */
-<<<<<<< HEAD
+
     public function index() {
         $cate = $this->getCatesBypid(0);
         $data = DB::table('cates')->where('status','3')->limit(5)->get();
@@ -48,23 +48,8 @@ class IndexController extends Controller
         return view('home.index.index',[
             'cates' =>  $cate,
             'data'  => $data,
-            'data_recommand'    => $data_recommand,
-            'data_content'      => $data_content
+            'data_recommand'    => $data_recommand
+            // 'data_content'      => $data_content
         ]);
-=======
-    public function index(Request $req) {
-
-
-
-        $cate = $this->getCatesBypid(0);
-        $data = DB::table('cates')->where('status','3')->get();
-        return view('home.index.index',[
-            'cates' =>  $cate,
-            'data'  =>  $data
-        ]);
-
-        return view('home.index.index');
->>>>>>> 12c4b2d4bcb90177b7eea496e8ed3c38b8ea1588
-
     }
 }
