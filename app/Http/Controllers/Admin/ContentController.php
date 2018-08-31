@@ -40,15 +40,10 @@ class ContentController extends Controller
      */
     public function riji_add() {
         $cates = DB::table('cates')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path')->get();
-        foreach ($cates as $k=>$v){
-            if ($v->pid != 0) {
-                $data[] = $v;
-            }
-        }
         return view('admin.content.riji_add',[
             'menu_content'          => 'active',
             'menu_content_riji_add' => 'active',
-            'cate_data'             => $data
+            'cate_data'             => $cates
         ]);
     }
 

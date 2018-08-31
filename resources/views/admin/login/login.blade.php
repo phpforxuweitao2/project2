@@ -84,20 +84,30 @@
 		$(this).css('display','none');
 	});
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3705f6c7fcb46131d79f118d2f4a504f01df659f
+
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/modernizr.min.js"></script>
+
+<<<<<<< HEAD
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/modernizr.min.js"></script>
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/modernizr.min.js"></script>
+=======
+
 
 
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
 
 
-
-
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
 
-
-<script src="/static/admin/js/bootstrap.min.js"></script>
-<script src="/static/admin/js/modernizr.min.js"></script>
-
+>>>>>>> 3705f6c7fcb46131d79f118d2f4a504f01df659f
 </body>
 </html>

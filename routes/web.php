@@ -11,7 +11,7 @@
 |
 */
 //前端
-Route::group(['namespace'=>'Home'],function(){
+Route::group(['middleware'=>'homemaintain','namespace'=>'Home'],function(){
     Route::get('/','IndexController@index');
 
     Route::get('/login','LoginController@login');//登录页面
@@ -110,7 +110,6 @@ Route::group(['namespace'=>'Admin'],function(){
 
 
 
-
     //后台角色管理
     Route::get('bk_role','RoleController@index');//角色列表
     Route::get('bk_role/create','RoleController@create');//角色添加页
@@ -147,6 +146,9 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::get('bk_adminuser/log','AdminUserController@log');//登录日志页面
     Route::get('bk_adminuser/logdel/{id}','AdminUserController@logdel')->where(['id' => '\d+']);//登录日志删除
 
+    //系统设置模块
+    Route::get('/bk_system/homemaintain','SystemController@maintain_home');//前台维护页面
+    Route::post('/bk_system/homemaintainDownUp','SystemController@homemaintainDownUp');//关闭/开启前台访问
 });
 
 

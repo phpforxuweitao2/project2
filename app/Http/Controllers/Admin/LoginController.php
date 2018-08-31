@@ -18,7 +18,7 @@ class LoginController extends Controller
 	//登录
     public function index() {
         if ( session('admin_info')['islogin'] ) {
-            return back();
+            return back()->with('error','用户已登录');
         }
     	return view('admin.login.login');
     }
@@ -30,6 +30,10 @@ class LoginController extends Controller
     	$user = DB::table('admin_users')
     	    ->where('name','=',$name)
     	    ->first(); //获取数据库中匹配的用户名
+
+        if ($user && session('admin_info')['uid']){
+            redirect('/bk_login')->with('error','用户已登录!');
+        }
 
         $ip     = 'bk_login_'.$_SERVER['REMOTE_ADDR'];
         $err    = Cache::get($ip);

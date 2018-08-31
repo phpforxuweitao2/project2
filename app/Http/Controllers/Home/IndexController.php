@@ -28,11 +28,16 @@ class IndexController extends Controller
      */
     public function index(Request $req) {
 
+
+
         $cate = $this->getCatesBypid(0);
         $data = DB::table('cates')->where('status','3')->get();
         return view('home.index.index',[
             'cates' =>  $cate,
             'data'  =>  $data
         ]);
+
+        return view('home.index.index');
+
     }
 }
