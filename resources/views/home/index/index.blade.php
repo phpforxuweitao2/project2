@@ -9,6 +9,7 @@
   <link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.riji.cn/" />
   <link href="/static/home/index/css/index.css" rel="stylesheet" type="text/css" />
   <link href="/static/home/index/css/newfix.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="/static/home/index/css/iconfont.css">
   <script type="text/javascript">
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 window.location = "https://m.riji.cn";
@@ -18,6 +19,51 @@ window.location = "https://m.riji.cn";
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
   <script src="/static/home/index/js/slideshow.js" type="text/javascript"></script>
   <script src="/static/home/index/js/g.js" type="text/javascript"></script>
+  <style type="text/css">
+  .longd{
+    width:222px;
+    height: 30px;
+    padding:0px 5px 0px 34px;
+    margin-bottom:20px;
+    border: 1px solid #ccc;
+    position: relative;
+  }
+  .longd i{
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    font-size: 18px;
+    color: #ccc;
+  }
+  .longd input{
+    height:30px;
+    border: none;
+  }
+  .cbx{
+    border: none;
+    line-height: 20px;
+    padding-left: 5px;
+  }
+  .cbx span{
+    position: relative;
+    top:-11px;
+    left: 3px;
+  }
+  #ddlulu{
+    height: 30px;
+    width: 264px;
+    background: #ccc;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    line-height: 30px;
+  }
+  #ddlulu:hover{
+    background:#FC6F31;
+    cursor:pointer;
+  }
+  </style>
  </head>
  <body id="Jbody">
   <div class="main" id="main1">
@@ -110,6 +156,7 @@ SlideShow(2500);
           <span class="writer">夏沫洛梨</span>
           <a href="https://www.riji.cn/html/55234.html" target="_blank">下雨了，快跑</a>
          </div>
+<<<<<<< HEAD
         </div>
        </li>
        <li>
@@ -126,16 +173,27 @@ SlideShow(2500);
          </div>
         </div>
        </li>
+=======
+        </div> </li>
+
+
+
+>>>>>>> 12c4b2d4bcb90177b7eea496e8ed3c38b8ea1588
       </ul>
      </div>
      <div class="riji_list">
       <ul>
+<<<<<<< HEAD
        @foreach($data_recommand as $k=>$v)
         @php
          $title = changeStr($v->title,'10','...');
         @endphp
         <li><a href="#" target="_blank">{{$title}}</a></li>
        @endforeach
+=======
+       <li><a href="https://www.riji.cn/html/55237.html" target="_blank">意外吃鸡</a></li>
+
+>>>>>>> 12c4b2d4bcb90177b7eea496e8ed3c38b8ea1588
       </ul>
      </div>
     </div>
@@ -150,11 +208,49 @@ SlideShow(2500);
      </div>
      <div class="tb-slide05">
       <div id="_userlogin">
+      @if(!session('home_user'))
+      <!-- 登录的表单 -->
        <div class="c nq-center">
         <div class="loginCon">
-
+           <form>
+            <div class="longd">
+              <i class="iconfont icon-yonghu"></i>
+              <input type="text" name="name" value="{{cache('home_info')['name']}}">
+            </div>
+            <div class="longd">
+              <i class="iconfont icon-icon_password"></i>
+              <input type="password" name="pass" value="{{cache('home_info')['pass']}}">
+            </div class="longd">
+            <div class="longd cbx">
+              <label>
+                <input type="checkbox" checked="true" name="rem" value="1">
+                <span>下次自动登录</span>
+              </label>
+            </div class="longd">
+            <a id="ddlulu" href="javascript:void(0)">登  录</a>
+          </form>
         </div>
        </div>
+      <!-- 登录结束 -->
+      @else
+       <div class="c nq-center">
+         <div style="height:226px">
+          <a class="first pc-edit"><img class="fl" src="//thirdqq.qlogo.cn/qqapp/101394506/3AEFBFD228E301EB7E78F6D140943B0D/100" width="68" height="68" /> <span class="art-tit">夜凌弃</span> <span class="art-des">积分：15 </span></a>
+          <div class="user_menu">
+           <ul>
+            <li><a href="/user/riji_add" target="_blank">发表文章</a></li>
+            <li><a href="/user/wenzhang/" target="_blank">我的投稿</a></li>
+            <li><a href="/user/lipin" target="_blank">积分兑换</a></li>
+            <li><a href="/user/touxiang" target="_blank">头像管理</a></li>
+            <li><a href="/user/13560/" target="_blank">我的主页</a></li>
+            <li><a href="/out/" target="_blank">退出登录</a></li>
+            <span><a href="/user/" target="_blank">进入会员中心</a></span>
+           </ul>
+          </div>
+         </div>
+        </div>
+        <!-- 登录过 -->
+        @endif
       </div>
        </div>
      <div style="clear:both"></div>
@@ -230,17 +326,7 @@ SlideShow(2500);
     </ul>
    </div>
   </div>
-
-
-
     </div>
-
-
-
-
-
-
-
   <div style="clear:both"></div>
   <div class="main mb30">
    <div class="i3_lBox border shadow">
@@ -283,4 +369,31 @@ SlideShow(2500);
   <script src="/static/home/index/js/dpl-tab_v2.js" type="text/javascript"></script>
   <script src="/static/home/index/js/newfix.js"></script>
  </body>
+ <script type="text/javascript">
+    $('#ddlulu').click(function(){
+        name = $("input[name='name']").val();
+        pass = $("input[name='pass']").val();
+        rem = $("input[name='rem']").attr('checked');
+        // alert(name);
+        if (rem == 'checked') {
+          rem = 1;
+        } else {
+          rem = 0;
+        }
+          $.ajax({
+          url: '/login_check',
+          type:'post',
+          dataType:'json',
+          data:{name:name,pass:pass,rem:rem},
+          success:function(res){
+            alert(res.msg);
+          }, error:function(err){
+            console.log('网络错误');
+          },beforeSend:function(xhr){
+            xhr.setRequestHeader('X-CSRF-TOKEN','{{csrf_token()}}');
+          }
+       });
+    });
+
+ </script>
 </html>
