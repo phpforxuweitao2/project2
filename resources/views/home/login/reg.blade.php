@@ -9,6 +9,7 @@
     <link href="/static/home/register/css/reg_1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/static/home/register/bs/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/home/register/static/css/mycss1.css">
+    <link rel="stylesheet" href="/static/home/register/static/js/jquery-3.1.1.js">
     <style>
 
     </style>
@@ -41,9 +42,9 @@
                     <div class="form-group ">
                         <label class="col-lg-2 control-label">账号</label>
                         <div class="col-lg-7">
-                            <input type="text" placeholder="建议用拼音名字QQ号" id="f-name" class="form-control" name="name">
+                            <input type="text" id="f-name" class="form-control" name="name" placeholder="建议用拼音名字QQ号"/>
                         </div>
-                        <span  class="col-lo-3">账号名不符合规则密码错误为啥啊</span>
+                        <span class="col-lo-3 hide">账号名不符合规则密码错误为啥啊</span>
                     </div>
 
                     <div class="form-group">
@@ -51,21 +52,21 @@
                         <div class="col-lg-7">
                             <input type="password" placeholder="设置密码（6-16位字符）" id="l-name" class="form-control" name="pass">
                         </div>
-                        <span  class="col-lo-3">账号名不符合规则密码错误为啥啊</span>
+                        <span  class="col-lo-3 hide">账号名不符合规则密码错误为啥啊</span>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-2 control-label">重复密码</label>
                         <div class="col-lg-7">
                             <input type="password" placeholder="请重复上面密码" id="email2" class="form-control" name="repass">
                         </div>
-                        <span  class="col-lo-3">账号名不符合规则密码错误为啥啊</span>
+                        <span  class="col-lo-3 hide">账号名不符合规则密码错误为啥啊</span>
                     </div>
                     <div class="form-group ">
                         <label class="col-lg-2 control-label">笔名/昵称</label>
                         <div class="col-lg-7">
-                            <input type="text" placeholder="笔名站内昵称仅允许汉字" id="f-name" class="form-control" name="name">
+                            <input type="text"  placeholder="笔名站内昵称仅允许汉字" id="f-name" class="form-control" name="name">
                         </div>
-                        <span  class="col-lo-3">账号名不符合规则密码错误为啥啊</span>
+                        <span  class="col-lo-3 hide">账号名不符合规则密码错误为啥啊</span>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-2 control-label">性别</label>

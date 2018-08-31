@@ -26,45 +26,15 @@ class IndexController extends Controller
      * 前台首页
      * @return [type] [description]
      */
-<<<<<<< HEAD
-    public function index() {
-        $cate = $this->getCatesBypid(0);
-        $data = DB::table('cates')->where('status','3')->limit(5)->get();
-        $data_recommand = DB::table('content')->where('recommand','=','1')->limit(8)->get();
-//        $data1  = DB::table('content as a')
-//            ->join('admin_users as au','a.uid','=','au.id')
-//            ->select('a.id','a.uid','a.title','a.uname','a.created_at')
-//            ->where('a.is_admin','=','1')
-//            ->limit(8)
-//            ->get();
-//        $data_content  = DB::table('content as a')
-//            ->join('users as u','a.uid','=','u.id')
-//            ->join('users_detail as ud','u.name','=','ud.uid')
-//            ->select('a.id','a.uid','a.title','a.uname','a.created_at','ud.uface')
-//            ->where('a.is_admin','=','0')
-//            ->limit(8)
-//            ->get();
-//        dd($data_content);
-        return view('home.index.index',[
-            'cates' =>  $cate,
-            'data'  => $data,
-            'data_recommand'    => $data_recommand,
-            'data_content'      => $data_content
-        ]);
-=======
     public function index(Request $req) {
-
-
-
         $cate = $this->getCatesBypid(0);
-        $data = DB::table('cates')->where('status','3')->get();
+        $data = DB::table('cates')->where('status', '3')->limit(5)->get();
+        $data_recommand = DB::table('content')->where('recommand', '=', '1')->limit(8)->get();
         return view('home.index.index',[
-            'cates' =>  $cate,
-            'data'  =>  $data
+            'cates' => $cate,
+            'data' => $data,
+            'data_recommand' => $data_recommand,
         ]);
-
-        return view('home.index.index');
->>>>>>> 12c4b2d4bcb90177b7eea496e8ed3c38b8ea1588
 
     }
 }

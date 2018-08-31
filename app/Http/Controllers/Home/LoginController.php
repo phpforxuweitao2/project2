@@ -72,4 +72,9 @@ class LoginController extends Controller
         return view('home.login.reg');
     }
 
+    //处理注册页面数据
+    public function doregister() {
+
+    }
+
 }
