@@ -9,6 +9,7 @@
   <link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.riji.cn/" />
   <link href="/static/home/index/css/index.css" rel="stylesheet" type="text/css" />
   <link href="/static/home/index/css/newfix.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="/static/home/index/css/iconfont.css">
   <script type="text/javascript">
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 window.location = "https://m.riji.cn";
@@ -18,6 +19,51 @@ window.location = "https://m.riji.cn";
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
   <script src="/static/home/index/js/slideshow.js" type="text/javascript"></script>
   <script src="/static/home/index/js/g.js" type="text/javascript"></script>
+  <style type="text/css">
+  .longd{
+    width:222px;
+    height: 30px;
+    padding:0px 5px 0px 34px;
+    margin-bottom:20px;
+    border: 1px solid #ccc;
+    position: relative;
+  }
+  .longd i{
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    font-size: 18px;
+    color: #ccc;
+  }
+  .longd input{
+    height:30px;
+    border: none;
+  }
+  .cbx{
+    border: none;
+    line-height: 20px;
+    padding-left: 5px;
+  }
+  .cbx span{
+    position: relative;
+    top:-11px;
+    left: 3px;
+  }
+  #ddlulu{
+    height: 30px;
+    width: 264px;
+    background: #ccc;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    line-height: 30px;
+  }
+  #ddlulu:hover{
+    background:#FC6F31;
+    cursor:pointer;
+  }
+  </style>
  </head>
  <body id="Jbody">
   <div class="main" id="main1">
@@ -110,130 +156,15 @@ SlideShow(2500);
           <a href="https://www.riji.cn/html/55234.html" target="_blank">下雨了，快跑</a>
          </div>
         </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13275/" target="_blank"><img src="/static/home/index/picture/6660768e35f74cbca49f8b5b861c3c1e.gif" alt="小建哥" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">小建哥</span>
-          <a href="https://www.riji.cn/html/54907.html" target="_blank">夏云.童年.捉虾米</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13077/" target="_blank"><img src="/static/home/index/picture/736ea988b3c042e6a852e30d5006f214.gif" alt="刺" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">刺</span>
-          <a href="https://www.riji.cn/html/55237.html" target="_blank">意外吃鸡</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13500/" target="_blank"><img src="/static/home/index/picture/boy.jpg" alt="李思萌" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">李思萌</span>
-          <a href="https://www.riji.cn/html/55247.html" target="_blank">暑假过去一半了</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13491/" target="_blank"><img src="/static/home/index/picture/ec724c590abd45b6b96f8cc2d4985b3a.gif" alt="寒乔雨露" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">寒乔雨露</span>
-          <a href="https://www.riji.cn/html/55238.html" target="_blank">有点不开心 非常不开心</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">夏沫洛梨</span>
-          <a href="https://www.riji.cn/html/55233.html" target="_blank">百香果绿茶</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">夏沫洛梨</span>
-          <a href="https://www.riji.cn/html/55230.html" target="_blank">我的手肿了</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">夏沫洛梨</span>
-          <a href="https://www.riji.cn/html/55229.html" target="_blank">老酸奶</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13467/" target="_blank"><img src="/static/home/index/picture/139469515bfa4eb3b37ec091e6f06fae.gif" alt="惜羽纤" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">惜羽纤</span>
-          <a href="https://www.riji.cn/html/55219.html" target="_blank">碰伤</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13529/" target="_blank"><img src="/static/home/index/picture/27a1051a9c2f4d1dacf6df51acc8d2eb.gif" alt="妖熘D麟韬" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">妖熘D麟韬</span>
-          <a href="https://www.riji.cn/html/55214.html" target="_blank">无聊</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/11540/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="乐呵呵" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">乐呵呵</span>
-          <a href="https://www.riji.cn/html/55213.html" target="_blank">开心的一天</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/12487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="菜丶晓刻" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">菜丶晓刻</span>
-          <a href="https://www.riji.cn/html/55204.html" target="_blank">说实话“有点心痛”</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13515/" target="_blank"><img src="/static/home/index/picture/4b9ae38302e6487199009f5364f7f5fe.gif" alt="洋葱" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">洋葱</span>
-          <a href="https://www.riji.cn/html/55203.html" target="_blank">悲惨的一天</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/12487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="菜丶晓刻" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">菜丶晓刻</span>
-          <a href="https://www.riji.cn/html/55186.html" target="_blank">刺激战场真刺激</a>
-         </div>
-        </div> </li>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/12487/" target="_blank"><img src="/static/home/index/picture/myface.jpg" alt="菜丶晓刻" /></a></p>
-        <div class="con_tit">
-         <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">菜丶晓刻</span>
-          <a href="https://www.riji.cn/html/55175.html" target="_blank">眼睛进入“灰尘”了</a>
-         </div>
-        </div> </li>
+
+
+
       </ul>
      </div>
      <div class="riji_list">
       <ul>
        <li><a href="https://www.riji.cn/html/55237.html" target="_blank">意外吃鸡</a></li>
-       <li><a href="https://www.riji.cn/html/55234.html" target="_blank">下雨了，快跑</a></li>
-       <li><a href="https://www.riji.cn/html/55233.html" target="_blank">百香果绿茶</a></li>
-       <li><a href="https://www.riji.cn/html/55232.html" target="_blank">军训完了...</a></li>
-       <li><a href="https://www.riji.cn/html/55231.html" target="_blank">菜、晓刻你给我记住！</a></li>
-       <li><a href="https://www.riji.cn/html/55230.html" target="_blank">我的手肿了</a></li>
-       <li><a href="https://www.riji.cn/html/55229.html" target="_blank">老酸奶</a></li>
-       <li><a href="https://www.riji.cn/html/55219.html" target="_blank">碰伤</a></li>
+
       </ul>
      </div>
     </div>
@@ -248,11 +179,49 @@ SlideShow(2500);
      </div>
      <div class="tb-slide05">
       <div id="_userlogin">
+      @if(!session('home_user'))
+      <!-- 登录的表单 -->
        <div class="c nq-center">
         <div class="loginCon">
-
+           <form>
+            <div class="longd">
+              <i class="iconfont icon-yonghu"></i>
+              <input type="text" name="name" value="{{cache('home_info')['name']}}">
+            </div>
+            <div class="longd">
+              <i class="iconfont icon-icon_password"></i>
+              <input type="password" name="pass" value="{{cache('home_info')['pass']}}">
+            </div class="longd">
+            <div class="longd cbx">
+              <label>
+                <input type="checkbox" checked="true" name="rem" value="1">
+                <span>下次自动登录</span>
+              </label>
+            </div class="longd">
+            <a id="ddlulu" href="javascript:void(0)">登  录</a>
+          </form>
         </div>
        </div>
+      <!-- 登录结束 -->
+      @else
+       <div class="c nq-center">
+         <div style="height:226px">
+          <a class="first pc-edit"><img class="fl" src="//thirdqq.qlogo.cn/qqapp/101394506/3AEFBFD228E301EB7E78F6D140943B0D/100" width="68" height="68" /> <span class="art-tit">夜凌弃</span> <span class="art-des">积分：15 </span></a>
+          <div class="user_menu">
+           <ul>
+            <li><a href="/user/riji_add" target="_blank">发表文章</a></li>
+            <li><a href="/user/wenzhang/" target="_blank">我的投稿</a></li>
+            <li><a href="/user/lipin" target="_blank">积分兑换</a></li>
+            <li><a href="/user/touxiang" target="_blank">头像管理</a></li>
+            <li><a href="/user/13560/" target="_blank">我的主页</a></li>
+            <li><a href="/out/" target="_blank">退出登录</a></li>
+            <span><a href="/user/" target="_blank">进入会员中心</a></span>
+           </ul>
+          </div>
+         </div>
+        </div>
+        <!-- 登录过 -->
+        @endif
       </div>
        </div>
      <div style="clear:both"></div>
@@ -328,17 +297,7 @@ SlideShow(2500);
     </ul>
    </div>
   </div>
-
-
-
     </div>
-
-
-
-
-
-
-
   <div style="clear:both"></div>
   <div class="main mb30">
    <div class="i3_lBox border shadow">
@@ -381,4 +340,31 @@ SlideShow(2500);
   <script src="/static/home/index/js/dpl-tab_v2.js" type="text/javascript"></script>
   <script src="/static/home/index/js/newfix.js"></script>
  </body>
+ <script type="text/javascript">
+    $('#ddlulu').click(function(){
+        name = $("input[name='name']").val();
+        pass = $("input[name='pass']").val();
+        rem = $("input[name='rem']").attr('checked');
+        // alert(name);
+        if (rem == 'checked') {
+          rem = 1;
+        } else {
+          rem = 0;
+        }
+          $.ajax({
+          url: '/login_check',
+          type:'post',
+          dataType:'json',
+          data:{name:name,pass:pass,rem:rem},
+          success:function(res){
+            alert(res.msg);
+          }, error:function(err){
+            console.log('网络错误');
+          },beforeSend:function(xhr){
+            xhr.setRequestHeader('X-CSRF-TOKEN','{{csrf_token()}}');
+          }
+       });
+    });
+
+ </script>
 </html>

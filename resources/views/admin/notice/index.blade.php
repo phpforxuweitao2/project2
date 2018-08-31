@@ -64,7 +64,7 @@
                                     <td class="center">{{$v->id}}</td>
                                     <td class="center">{{$v->title}}</td>
                                     <td class="center">
-                                         <a href="javascript:void(0)" >{{$v->content}}</a>
+                                         <a href="javascript:void(0)" >{!!$v->content!!}</a>
                                     </td>
                                     <td class="center">
                                         {{date('Y-m-d H:i:s',$v->created_at)}}
