@@ -14,6 +14,18 @@
 Route::get('/','Home\IndexController@index');
 Route::group(['namespace'=>'Home'],function(){
 
+    //个人中心模块
+    Route::group(['namespace'=>'Person'],function(){
+
+        Route::get('ps_index','IndexController@index');//我的个人中心
+        Route::get('ps_riji','RijiController@index'); //日记投稿
+        Route::post('ps_riji/doadd','RijiController@doadd'); //日记添加处理
+        Route::get('ps_article','ArticleController@index'); //我的文章
+        Route::get('ps_article/del/{id}','ArticleController@delete'); //删除日记
+        Route::get('ps_qianming','QianmingController@index'); //个性签名
+        Route::post('ps_qianming/doadd','QianmingController@doadd'); //个性签名添加处理
+        Route::get('ps_guanzhu','GuanzhuController@index'); //粉丝关注
+    });
 
 
 });
@@ -94,7 +106,9 @@ Route::group(['namespace'=>'Admin'],function(){
     Route::post('bk_notice/doadd','NoticeController@doadd'); //添加处理
     Route::get('bk_notice/edit/{id}','NoticeController@edit'); //修改页面
     Route::post('bk_notice/doedit','NoticeController@doedit'); //处理修改
-    
+    Route::get('bk_notice/del/{id}','NoticeController@delete'); //处理修改
+    Route::get('bk_notice/content/{id}','NoticeController@content'); //公告内容页
+    Route::get('bk_notice/page','NoticeController@page'); //ajax分页
 
     //后台管理员模块
 
@@ -138,8 +152,6 @@ Route::group(['namespace'=>'Admin'],function(){
 Route::get('bk_login','Admin\LoginController@index'); //后台登录页面
 
 //后台登录处理
-
-Route::get('bk_dologin','Admin\LoginController@dologin');
 Route::post('bk_dologin','Admin\LoginController@dologin'); //后台登录处理
 Route::get('bk_logout','Admin\LoginController@logout'); //后台退出登录
 

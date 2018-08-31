@@ -45,6 +45,7 @@
     <script src="/static/admin/js/html5shiv.js"></script>
     <script src="/static/admin/js/respond.min.js"></script>
     <![endif]-->
+    <script src="/static/admin/js/jquery-1.10.2.min.js"></script>
 </head>
 
 <body class="sticky-header">
@@ -93,7 +94,7 @@ setInterval(function(){
 
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="/static/admin/js/jquery-1.10.2.min.js"></script>
+
 <script src="/static/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
 <script src="/static/admin/js/jquery-migrate-1.2.1.min.js"></script>
 <script src="/static/admin/js/bootstrap.min.js"></script>

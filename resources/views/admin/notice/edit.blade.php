@@ -31,7 +31,8 @@
                     <div class="panel-body">
                         <div class="form">
 
-                            <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_notice/doadd">    
+                            <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_notice/doedit">
+                                <input type="hidden" name="id" value="{{$data->id}}">    
                                 <div class="form-group ">
                                     <label for="name" class="control-label col-lg-2">公告标题</label>
                                     <div class="col-lg-8">
@@ -47,7 +48,7 @@
                                 <div class="form-group">
                                     <div class="col-xs-offset-2 col-xs-10">
                                         {{csrf_field()}}
-                                        <button class="btn btn-success col-xs-2" type="submit">添加</button>
+                                        <button class="btn btn-success col-xs-2" type="submit">修改</button>
                                     </div>
                                 </div>
                             </form>

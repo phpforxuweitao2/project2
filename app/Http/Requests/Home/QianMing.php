@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Notice;
+namespace App\Http\Requests\Home;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Notice extends FormRequest
+class QianMing extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,14 @@ class Notice extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50',
-            'content' => 'required'
+            'sign' => 'required|max:200'
         ];
     }
 
-    //自定义错误信息
     public function messages() {
         return [
-            'title.required' => '公告标题不能为空',
-            'title.max' => '公告标题不能超过50个字符',
-            'content.required' => '公告内容不能为空'
+            'sign.required' => '个性签名内容不能为空',
+            'sign.max' => '内容字符不能超过200个字符'
         ];
     }
 }
