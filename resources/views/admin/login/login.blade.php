@@ -70,8 +70,6 @@
 
 </div>
 
-
-
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -84,30 +82,15 @@
 		$(this).css('display','none');
 	});
 </script>
-<<<<<<< HEAD
-
-=======
->>>>>>> b92f4875f2ca72c39402092faaa70723d13824f0
-
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
-
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
-<<<<<<< HEAD
-
-=======
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
-
-
-
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
-
-
 <script src="/static/admin/js/bootstrap.min.js"></script>
 <script src="/static/admin/js/modernizr.min.js"></script>
->>>>>>> b92f4875f2ca72c39402092faaa70723d13824f0
 </body>
 </html>
