@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
@@ -371,4 +369,3 @@ window.location = "https://m.riji.cn";
 
  </script>
 </html>
->>>>>>> 307aa881978e57a7c8687e0ee23c15475f1d7cda
