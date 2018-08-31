@@ -11,8 +11,8 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="/bk_/role">管理员管理</a></li>
-                    <li><a href="/bk_/role">角色列表</a></li>
+                    <li><a href="/bk_adminuser">管理员管理</a></li>
+                    <li><a href="/bk_role">角色列表</a></li>
                     <li class="active">角色修改</li>
                 </ul>
                 <!--breadcrumbs end -->

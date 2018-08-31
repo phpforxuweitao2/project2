@@ -26,8 +26,8 @@ class AdminInsert extends FormRequest
         return [
             // 管理名
             'name'=>'required|unique:admin_users',
-            // 控制器名
-            'pass'=>'required|regex:/\w{6,18}/',
+            // 密码
+            'pass'=>'required|regex:/\w{6,18}/'
         ];
     }
 
@@ -37,7 +37,7 @@ class AdminInsert extends FormRequest
             'name.required'=>'管理员名字不能为空',
             'name.unique'=>'管理员名字重复',
             'pass.required'=>'密码不能为空',
-            'pass.regex'=>'密码为6到18为任意字母下划线数字'
+            'pass.regex'=>'密码为6到18位任意字母下划线数字'
             ];
     }
 }

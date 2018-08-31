@@ -134,7 +134,7 @@ class RoleController extends Controller
     {
         //获取需要修改的数据
         $data = DB::table('role')->where('id','=',$id)->first();
-        return view('admin.AdminUser.role.edit',['data'=>$data]);
+        return view('admin.AdminUser.role.edit',['data'=>$data,'menu_admin'=> 'active']);
     }
 
      /**
@@ -161,9 +161,11 @@ class RoleController extends Controller
      */
     public function node($id)
     {
-        // 获取权限列表 跟已有权限
+        // 获取该角色信息
         $role = DB::table('role')->where('id','=',$id)->first();
+        // 获取所有权限
         $node = DB::table('node')->where('status',0)->select('id','name')->get();
+        // 获取该角色的权限
         $data = DB::table('role_node')->where('rid','=',$id)->select('nid')->get();
         // 判断是否之前分配过权限
         if ($data) {
@@ -171,9 +173,9 @@ class RoleController extends Controller
             foreach ($data as $v) {
                 $datas[] = $v->nid;
             }
-            return view('admin.AdminUser.role.node',['data'=>$datas,'node'=>$node,'role'=>$role]);
+            return view('admin.AdminUser.role.node',['data'=>$datas,'node'=>$node,'role'=>$role,'menu_admin'=>'active']);
         } else {
-            return view('admin.AdminUser.role.node',['data'=>array(),'node'=>$node,'role'=>$role]);
+            return view('admin.AdminUser.role.node',['data'=>array(),'node'=>$node,'role'=>$role,'menu_admin'=>'active']);
         }
     }
 

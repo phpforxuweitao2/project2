@@ -8,15 +8,15 @@
 <!-- 右侧顶部搜索部分 结束 -->
 <!-- 右侧顶部链接导航区域 开始 -->
     <div class="row">
-            <div class="col-md-12">
-                <!--breadcrumbs start -->
-                <ul class="breadcrumb panel">
-                    <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="">管理员管理</a></li>
-                    <li class="active">权限列表</li>
-                </ul>
-                <!--breadcrumbs end -->
-            </div>
+        <div class="col-md-12">
+          <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+              <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
+              <li><a href="">管理员管理</a></li>
+              <li class="active">权限列表</li>
+            </ul>
+          <!--breadcrumbs end -->
+      </div>
    </div>
     <div class="wrapper">
    <div class="row">
@@ -80,7 +80,7 @@
 
            <div class="col-lg-6" >
                 <div class="dataTables_info" id="editable-sample_info">
-                Mr red is Ang. 28st, 2009
+                Mr red is Ang. 28st, 2018
                 </div>
            </div>
            <div class="col-lg-6" style="text-align: right;" >

@@ -16,7 +16,7 @@ class CatesController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index() {
-        $cates = DB::table('cates')->where('status','0')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path','created_at','updated_at')->paginate(10);
+        $cates = DB::table('cates')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path','status','created_at','updated_at')->paginate(10);
         return view('admin.cates.index',[
             'menu_cates'   => 'active',
             'menu_cates_index'=>'active',
@@ -24,6 +24,11 @@ class CatesController extends Controller
         ]);
     }
 
+    /**
+     * 进入分类添加页面
+     * @param string $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function add($id='') {
         $cates = DB::table('cates')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path','created_at')->get();
         return view('admin.cates.add',[
@@ -50,7 +55,7 @@ class CatesController extends Controller
         }
         //执行数据库插入
         if ( DB::table('cates')->insert($data) ) {
-            return  redirect('/bk_cates')->with('success','添加分类成功');
+            return  back()->with('success','添加分类成功');
         } else {
             return  back()->with('error','添加分类失败');
         }
@@ -99,6 +104,31 @@ class CatesController extends Controller
             return back()->with('success','删除成功');
         } else {
             return back()->with('error','删除失败');
+        }
+    }
+
+    /**
+     * 标记分类为热门分类
+     * @param $id
+     */
+    public function signHot($id) {
+        if ( DB::table('cates')->where('id','=',$id)->update(['status'=>'3']) ) {
+            return back()->with('success',"标记成功");
+        } else {
+            return back()->with('error',"标记失败");
+        }
+    }
+
+    /**
+     * 取消标记为热门分类
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function cancelHot($id) {
+        if ( DB::table('cates')->where('id','=',$id)->update(['status'=>'0']) ) {
+            return back()->with('success',"标记成功");
+        } else {
+            return back()->with('error',"标记失败");
         }
     }
 

@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class ContentController extends Controller
 {
     /**
-     * 进入通过审核日记列表
+     * 进入已通过审核日记列表
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function riji(Request $req) {
@@ -24,8 +24,8 @@ class ContentController extends Controller
             ->select('a.*','b.name as cname')
             ->where('a.status','0')
             ->where('a.uname','like','%'.$keywords.'%')
-            ->orderBy('a.id')
-            ->paginate(3);
+            ->orderBy('a.id','desc')
+            ->paginate(6);
         return view('admin.content.riji',[
             'menu_content'      => 'active',
             'menu_content_riji' => 'active',
@@ -40,15 +40,10 @@ class ContentController extends Controller
      */
     public function riji_add() {
         $cates = DB::table('cates')->orderBy('id','asc')->orderByRaw('concat(path,id)')->select('id','name','pid','path')->get();
-        foreach ($cates as $k=>$v){
-            if ($v->pid != 0) {
-                $data[] = $v;
-            }
-        }
         return view('admin.content.riji_add',[
             'menu_content'          => 'active',
             'menu_content_riji_add' => 'active',
-            'cate_data'             => $data
+            'cate_data'             => $cates
         ]);
     }
 
@@ -59,11 +54,13 @@ class ContentController extends Controller
      */
     public function save_riji(ContentRijiSave $req) {
         $data = $req->only(['cid','title','content','week','weather']);
-        $data['size'] = mb_strlen($data['content']);
-        $data['uname'] = session('admin_info')['adminName'];
+        $data['size'] = mb_strlen(strip_tags($data['content']));
+        $data['uname'] = '匿名';
         $data['created_at'] = time();
         $data['updated_at'] = time();
         $data['status']     = '0';
+        $data['is_admin']   = '1';
+        $data['uid']        = '0';
         if ( DB::table('content')->insert($data) ) {
             return redirect('/bk_content/riji')->with('success','添加日记成功');
         } else {
@@ -76,6 +73,7 @@ class ContentController extends Controller
      * @param $id
      */
     public function riji_show($id) {
+
         $info = DB::table('content as a')
             ->join('cates as b','a.cid','=','b.id')
             ->where('a.id',$id)
@@ -191,6 +189,24 @@ class ContentController extends Controller
             'data'                  => $data,
             'req'                   => $req->all()
         ]);
+    }
+
+    //标记内容为推荐
+    public function recommand($id) {
+        if ( DB::table('content')->where('id','=',$id)->update(['recommand'=>'1']) ) {
+            return back()->with('success','标记成功');
+        }else {
+            return back()->with('success','标记失败');
+        }
+    }
+
+    //取消内容标记为推荐
+    public function unrecommand($id) {
+        if ( DB::table('content')->where('id','=',$id)->update(['recommand'=>'0']) ) {
+            return back()->with('success','取消标记成功');
+        }else {
+            return back()->with('success','取消标记失败');
+        }
     }
 
 }

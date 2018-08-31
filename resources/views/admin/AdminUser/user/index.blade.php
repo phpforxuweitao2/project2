@@ -12,7 +12,7 @@
                 <!--breadcrumbs start -->
                 <ul class="breadcrumb panel">
                     <li><a href="/bk_index"><i class="fa fa-home"></i> 首页</a></li>
-                    <li><a href="#">管理员管理</a></li>
+                    <li><a href="">管理员管理</a></li>
                     <li class="active">管理员列表</li>
                 </ul>
                 <!--breadcrumbs end -->
@@ -52,7 +52,7 @@
          <tr>
           <td>{{$row->id}}</td>
           <td class="hidden-phone">{{$row->name}}</td>
-          <td>{{$row->created_at}}</td>
+          <td>{{date('Y-m-d h:i:s',$row->created_at)}}</td>
           <td>
           @if($row->status == 0)
             <span class="badge badge-success">正常</span>
@@ -61,7 +61,7 @@
           @endif
           </td>
           <td>
-              <a class="label label-warning" id="add-without-image" href="/bk_adminuser/{{$row->id}}/node">分配角色</a>
+              <a class="label label-warning" id="add-without-image" href="/bk_adminuser/{{$row->id}}/role">分配角色</a>
               <a class="label label-info" id="add-without-image" href="/bk_adminuser/{{$row->id}}/edit">修改</a>
               @if($row->status == 0)
                 <a class="label label-danger" id="remove-all" href="/bk_adminuser/close/{{$row->id}}">锁定</a>
@@ -79,7 +79,7 @@
 
            <div class="col-lg-6" >
                 <div class="dataTables_info" id="editable-sample_info">
-                Mr red is Ang. 28st, 2009
+                Mr red is Ang. 29st, 2018
                 </div>
            </div>
            <div class="col-lg-6" style="text-align: right;" >

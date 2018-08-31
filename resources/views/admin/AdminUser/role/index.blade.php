@@ -79,7 +79,7 @@
 
 		   <div class="col-lg-6" >
 		    	<div class="dataTables_info" id="editable-sample_info">
-		    	Mr red is Ang. 28st, 2009
+		    	Mr red is Ang. 28st, 2018
 		    	</div>
 		   </div>
 		   <div class="col-lg-6" style="text-align: right;" >
