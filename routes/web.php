@@ -18,7 +18,12 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::post('/login_check', 'LoginController@login_check');//验证登录
     Route::get('/logout', 'LoginController@logout');//退出登录
     Route::get('/reg', 'LoginController@register');//进入注册页面
-    Route::post('/reg_check', 'LoginController@register_check');//验证注册
+    Route::post('/register_check', 'LoginController@registerCheck');//验证注册
+    Route::post('/regCheckName','LoginController@checkName');//检测注册用户名
+    Route::post('/regCheckNickname','LoginController@checkNickname');//检测注册笔名/妮称
+    Route::post('/regCheckEmail','LoginController@checkEmail');//检测注册邮箱
+    Route::post('/checkVcode','LoginController@checkVcode');//检测注册邮箱
+    Route::post('/regSendMail','LoginController@regSendMail');//将验证码发送至 邮箱
 
     //个人中心模块
     Route::group(['namespace' => 'Person'], function () {
