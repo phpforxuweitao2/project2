@@ -1,0 +1,47 @@
+.clock {
+    width: 2px;
+    height: 100px;
+    margin: 30px auto;
+    position: relative;
+}
+
+.clock::after {
+    position: absolute;
+    bottom: -20px;
+    left: -9px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #ff0000;
+}
+
+.clock {
+    -webkit-animation: go 1s ease-in-out alternate infinite;
+    -moz-animation: go 1s ease-in-out alternate infinite;
+    animation: go 1s ease-in-out alternate infinite;
+}
+
+@keyframes go {
+    0% {
+        -webkit-transform: rotate(30deg);
+        -webkit-transform-origin: top center;
+        -moz-transform: rotate(30deg);
+        -moz-transform-origin: top center;
+        transform: rotate(30deg);
+        transform-origin: top center;
+    }
+    100% {
+        -webkit-transform: rotate(-30deg);
+        -webkit-transform-origin: top center;
+        -moz-transform: rotate(-30deg);
+        -moz-transform-origin: top center;
+        transform: rotate(-30deg);
+        transform-origin: top center;
+    }
+}
+
+#qingtian {
+    width: 200px;
+    position: absolute;
+    left: -100px;
+}
