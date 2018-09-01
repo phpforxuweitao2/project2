@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/jifen.css">
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/fensi.css">
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/fajianxiang.css">
+<link rel="stylesheet" type="text/css" href="/static/home/person/css/guanzhu.css">
 <!-- <link rel="stylesheet" type="text/css" href="/static/admin/css/bootstrap.min.css"> -->
 
 
@@ -87,7 +88,6 @@ setInterval(function(){
   <!-- 右侧区域结束 -->
 </div>
 </body>
-<script>
-
-</script>
+<!-- 图片预览 -->
+<script src="/static/admin/js/ads.js"></script>
 </html>

@@ -18,11 +18,17 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::post('/login_check', 'LoginController@login_check');//验证登录
     Route::get('/logout', 'LoginController@logout');//退出登录
     Route::get('/reg', 'LoginController@register');//进入注册页面
-    Route::post('/reg_check', 'LoginController@register_check');//验证注册
+    Route::post('/register_check', 'LoginController@registerCheck');//验证注册
+    Route::post('/regCheckName','LoginController@checkName');//检测注册用户名
+    Route::post('/regCheckNickname','LoginController@checkNickname');//检测注册笔名/妮称
+    Route::post('/regCheckEmail','LoginController@checkEmail');//检测注册邮箱
+    Route::post('/checkVcode','LoginController@checkVcode');//检测注册邮箱
+    Route::post('/regSendMail','LoginController@regSendMail');//将验证码发送至 邮箱
 
     //个人中心模块
     Route::group(['namespace' => 'Person'], function () {
         Route::get('ps_index', 'IndexController@index');//我的个人中心
+        Route::get('ps_index/qiandao','IndexController@qiandao'); //个人中心是否签到
         Route::get('ps_riji', 'RijiController@index'); //日记投稿
         Route::post('ps_riji/doadd', 'RijiController@doadd'); //日记添加处理
         Route::get('ps_article', 'ArticleController@index'); //我的文章
@@ -30,6 +36,11 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         Route::get('ps_qianming', 'QianmingController@index'); //个性签名
         Route::post('ps_qianming/doadd', 'QianmingController@doadd'); //个性签名添加处理
         Route::get('ps_guanzhu', 'GuanzhuController@index'); //粉丝关注
+        Route::get('ps_guanzhu/fensi', 'GuanzhuController@fensi'); //粉丝关注
+        Route::get('ps_guanzhu/quxiao/{id}','GuanzhuController@quxiao'); //取消关注
+        Route::get('ps_qiandao','QiandaoController@index'); //签到记录
+        Route::get('ps_msg','MsgController@index'); //修改资料页面
+        Route::post('ps_msg/doedit','MsgController@doedit'); //处理修改
     });
 });
 
