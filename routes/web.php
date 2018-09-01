@@ -23,6 +23,7 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     //个人中心模块
     Route::group(['namespace' => 'Person'], function () {
         Route::get('ps_index', 'IndexController@index');//我的个人中心
+        Route::get('ps_index/qiandao','IndexController@qiandao'); //个人中心是否签到
         Route::get('ps_riji', 'RijiController@index'); //日记投稿
         Route::post('ps_riji/doadd', 'RijiController@doadd'); //日记添加处理
         Route::get('ps_article', 'ArticleController@index'); //我的文章
@@ -30,6 +31,11 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         Route::get('ps_qianming', 'QianmingController@index'); //个性签名
         Route::post('ps_qianming/doadd', 'QianmingController@doadd'); //个性签名添加处理
         Route::get('ps_guanzhu', 'GuanzhuController@index'); //粉丝关注
+        Route::get('ps_guanzhu/fensi', 'GuanzhuController@fensi'); //粉丝关注
+        Route::get('ps_guanzhu/quxiao/{id}','GuanzhuController@quxiao'); //取消关注
+        Route::get('ps_qiandao','QiandaoController@index'); //签到记录
+        Route::get('ps_msg','MsgController@index'); //修改资料页面
+        Route::post('ps_msg/doedit','MsgController@doedit'); //处理修改
     });
 });
 
