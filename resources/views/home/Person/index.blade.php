@@ -6,35 +6,52 @@
   <div class="ab_right">
     <div class="shop-nav"><a>会员中心</a></div>
     <div class="moudle-one new_moudle">
-      @foreach($data as $v)
+      
       <div class="infor-div clearfix">
-        <div class="fl portrait"><img src="{{$v->uface}}" width="98" height="98"></div>
+        <div class="fl portrait"><img src="{{$data->uface}}" width="98" height="98"></div>
         <div class="kinds_of fl">
           <div class="name-user clearfix">
-            <div class="notice-i fl">
-                          </div>
-            <div class="say-hello fl"><span>{{$v->ncikname}} ( ID：{{$v->name}} )</span></div>
+            <div class="notice-i fl"></div>
+            <div class="say-hello fl"><span>{{$data->nickname}} ( ID：{{$data->name}} )</span></div>
           </div>
           <div class="kinds_state clearfix">
             <div class="every  fl">
               <i class="bd-qq every-i"></i>
               <div class="notice">
-                <i class="triangle"></i>{{$v->qq}}
+                <i class="triangle"></i>{{$data->qq}}
               </div>            
             </div>
             <!--<div class="every  fl"> <a href="#"><i class="no-phone every-i"></i></a>
               <div class="notice"> <i class="triangle"></i>点击绑定</div>
             </div>-->
             <div class="every fl">
-              <i class="bd-mail every-i"></i><div class="notice" style="width: 200px"><i class="triangle"></i>{{$v->email}}</div>            </div>
+              <i class="bd-mail every-i"></i>
+              <div class="notice" style="width: 200px">
+                <i class="triangle"></i>{{$data->email}}
+              </div>
+            </div>
           </div>
           <div class="Balance  new_balance">
-            <p class="fl">积分：<span>{{$v->score}}</span> 人气：<span>{{$v->fame}}</span>  粉丝：<span>{{$to_uid}}</span></p> 
-            <!--<a href="/user/lipin" class="jf_btn fl">积分兑换</a>-->  <a href="https://www.riji.cn/user/qiandao" class="qd_btn fl">签到得积分</a> <a class="join_btn" target="_blank" href="https://shang.qq.com/wpa/qunwpa?idkey=86c09783d5cd8b3ae99bee5c629c7cf59885420ace300849c313c79f6ba0b296"><img src="/static/home/person/images/group.png" title="点击加入小作者QQ群" border="0"></a></div>
+            <p class="fl">
+              积分：<span id="jf">{{$data->score}}</span> 
+              人气：<span>{{$data->fame}}</span>  
+              粉丝：<span>{{$to_uid}}</span>
+            </p> 
+            <a href="javascript:void(0)" class="qd_btn fl">
+              @if($qd->status == 0)
+              未签到
+              @elseif($qd->status == 1)
+              已签到
+              @endif
+            </a> 
+            <a class="join_btn" target="_blank" href="">
+             <img src="/static/home/person/images/group.png" title="点击加入小作者QQ群" border="0">
+            </a>
+          </div>
         </div>
         <div class="fl reply-box"> </div>
       </div>
-      @endforeach
+      
       <div style="clear:both"></div>
       <div class="context">
       	<div class="zb_wrap">
@@ -95,4 +112,18 @@
       </div>
     </div>
   </div>
+<script>
+  $('.qd_btn').click(function(){
+    qd = $(this);
+    $.get('/ps_index/qiandao',{},function(data){
+      if(data.code == 1){
+        alert('签到成功，获得'+data.num+'积分');
+        qd.text('已签到');
+        $('#jf').text(data.score);
+      }else if(data == 0){
+        alert('今日已签到过,请不要重复签到');
+      }
+    },'json');
+  });
+</script>
 @endsection
