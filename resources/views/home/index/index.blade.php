@@ -80,9 +80,11 @@
      <span class="subNav-more2"> {{$v->name}}<em class="subNav-more-btn2"></em>
       <ul class="subNav-more-ul2">
         @foreach($v->dev as $val)
-       <li class="subNav-more-li"><a href="https://www.riji.cn/1/" target="_blank" title="一年级日记">{{$val->name}}</a></li>
+       <li class="subNav-more-li"><a href="/list/{{$val->id}}" target="_blank" title="一年级日记">{{$val->name}}</a>
+       </li>
         @endforeach
-      </ul> </span>
+      </ul>
+     </span>
       @endforeach
     </div>
    </div>
@@ -112,8 +114,8 @@
        </div>
       </div>
       <script type="text/javascript">
-                    SlideShow(2500);
-                    </script>
+        SlideShow(2500);
+      </script>
       <div class="survey_block_index">
        <div class="title_survey_block_index">
         <ul class="scrollUl">
@@ -131,7 +133,7 @@
       <div class="term_list">
        <ul>
         @foreach($data as $row)
-        <li><a href="#" target="_blank">{{$row->name}}</a></li>
+        <li><a href="/list/{{$row->id}}" target="_blank">{{$row->name}}</a></li>
        @endforeach
        </ul>
       </div>
@@ -207,9 +209,9 @@
             <li><a href="/user/wenzhang/" target="_blank">我的投稿</a></li>
             <li><a href="/user/lipin" target="_blank">积分兑换</a></li>
             <li><a href="/user/touxiang" target="_blank">头像管理</a></li>
-            <li><a href="/user/13560/" target="_blank">我的主页</a></li>
+            <li><a href="/" target="_blank">我的主页</a></li>
             <li><a href="/logout">退出登录</a></li>
-            <span><a href="/usercenter/" target="_blank">进入会员中心</a></span>
+            <span><a href="/ps_index" target="_blank">进入会员中心</a></span>
            </ul>
           </div>
          </div>
