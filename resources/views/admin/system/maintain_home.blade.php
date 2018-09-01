@@ -28,39 +28,53 @@
 
         <div class="col-md-12">
             <section class="panel">
-                <header class="panel-heading">前台维护</header>
-                <div class="panel-body">
-                    <div class="col-xs-12">
-                        <div class="col-xs-2">
-                            维护时间(小时):
-                        </div>
-                        <div class="col-xs-10 left">
-                            <input type="text" id="homemaintain_time" placeholder="维护时间(默认永久)">
-                        </div>
-                    </div>
-                    <br><br><br>
-                    <div class="col-xs-12">
-                        @php
-                            if ( !cache()->has('homemaintain') ) {
-                            cache()->forever('homemaintain','close');
-                            }
-                        @endphp
-                        <div class="col-xs-2">
-                            开关:
-                        </div>
-                        <div class="col-xs-10 left">
-                            <label style="cursor: pointer;" for="open">
-                                <input type="radio" name="homemaintain" @if(cache('homemaintain')=='open') checked @endif id="open">   开启
-                            </label>
-                            <label style="cursor: pointer;" for="close">
-                                <input type="radio" @if(cache('homemaintain')=='close') checked @endif name="homemaintain" id="close">   关闭
-                            </label>
-                        </div>
+                <header class="panel-heading">前台维护
+
+                </header>
+                <div class="panel-body col-xs-6">
+                        <br><br>
                         <div class="col-xs-12">
-                            <button class="btn btn-info" id="save">保存</button>
+                            <div class="col-xs-4">
+                                维护时间(小时):
+                            </div>
+                            <div class="col-xs-8 left">
+                                <input type="text" id="homemaintain_time" placeholder="维护时间(默认永久)">
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <div class="col-xs-12">
+                            @php
+                                if ( !cache()->has('homemaintain') ) {
+                                cache()->forever('homemaintain','close');
+                                }
+                            @endphp
+                            <div class="col-xs-2">
+                                开关:
+                            </div>
+
+                            <div class="col-xs-10 left">
+                                <label style="cursor: pointer;" for="open">
+                                    <input type="radio" name="homemaintain" @if(cache('homemaintain')=='open') checked @endif id="open">   开启
+                                </label>
+                                <label style="cursor: pointer;" for="close">
+                                    <input type="radio" @if(cache('homemaintain')=='close') checked @endif name="homemaintain" id="close">   关闭
+                                </label>
+                            </div>
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-info" id="save">保存</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="">
+                        @if(cache('homemaintain')=='close')
+                            <br>
+                             <img src="/static/admin/images/xiaoya.png" width="420px;">
+                        @else
+                            <br><br>
+                             <img src="/static/admin/images/zhengchangya.png" width="450px;">
+                        @endif
+                    </div>
             </section>
         </div>
     </div>
