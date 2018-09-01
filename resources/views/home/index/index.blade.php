@@ -10,11 +10,6 @@
   <link href="/static/home/index/css/index.css" rel="stylesheet" type="text/css" />
   <link href="/static/home/index/css/newfix.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="/static/home/index/css/iconfont.css">
-  <script type="text/javascript">
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-window.location = "https://m.riji.cn";
-}
-</script>
   <script src="/static/home/index/js/jquery-1.8.1.min.js" type="text/javascript"></script>
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
   <script src="/static/home/index/js/slideshow.js" type="text/javascript"></script>
@@ -175,7 +170,7 @@ window.location = "https://m.riji.cn";
      <div class="control">
       <ul id="myTab666">
        <li class="active"><a>会员登录<em></em></a></li>
-       <li class="normal"><a href="https://www.riji.cn/user/reg" target="_blank">会员注册<em></em></a></li>
+       <li class="normal"><a href="/reg">会员注册<em></em></a></li>
       </ul>
      </div>
      <div class="tb-slide05">
@@ -184,7 +179,6 @@ window.location = "https://m.riji.cn";
       <!-- 登录的表单 -->
        <div class="c nq-center">
         <div class="loginCon">
-           <form>
             <div class="longd">
               <i class="iconfont icon-yonghu"></i>
               <input type="text" name="name" value="{{cache('home_info')['name']}}">
@@ -192,15 +186,14 @@ window.location = "https://m.riji.cn";
             <div class="longd">
               <i class="iconfont icon-icon_password"></i>
               <input type="password" name="pass" value="{{cache('home_info')['pass']}}">
-            </div class="longd">
+            </div>
             <div class="longd cbx">
               <label>
-                <input type="checkbox" checked="true" name="rem" value="1">
+                <input type="checkbox" name="rem" value="1">
                 <span>下次自动登录</span>
               </label>
-            </div class="longd">
+            </div>
             <a id="ddlulu" href="javascript:void(0)">登  录</a>
-          </form>
         </div>
        </div>
       <!-- 登录结束 -->
@@ -215,8 +208,8 @@ window.location = "https://m.riji.cn";
             <li><a href="/user/lipin" target="_blank">积分兑换</a></li>
             <li><a href="/user/touxiang" target="_blank">头像管理</a></li>
             <li><a href="/user/13560/" target="_blank">我的主页</a></li>
-            <li><a href="/out/" target="_blank">退出登录</a></li>
-            <span><a href="/user/" target="_blank">进入会员中心</a></span>
+            <li><a href="/logout">退出登录</a></li>
+            <span><a href="/usercenter/" target="_blank">进入会员中心</a></span>
            </ul>
           </div>
          </div>
@@ -339,7 +332,6 @@ window.location = "https://m.riji.cn";
    </div>
   </div>
   <script src="/static/home/index/js/dpl-tab_v2.js" type="text/javascript"></script>
-  <script src="/static/home/index/js/newfix.js"></script>
  </body>
  <script type="text/javascript">
     $('#ddlulu').click(function(){
@@ -358,7 +350,10 @@ window.location = "https://m.riji.cn";
           dataType:'json',
           data:{name:name,pass:pass,rem:rem},
           success:function(res){
-            alert(res.msg);
+              if ( res.code === 0 ) {
+                  window.location.reload();
+              }
+              alert(res.msg);
           }, error:function(err){
             console.log('网络错误');
           },beforeSend:function(xhr){
@@ -366,6 +361,5 @@ window.location = "https://m.riji.cn";
           }
        });
     });
-
  </script>
 </html>
