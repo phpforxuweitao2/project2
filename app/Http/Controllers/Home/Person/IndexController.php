@@ -9,7 +9,9 @@ use DB;
 class IndexController extends Controller
 {
 	//我的个人中心
-    public function index() {
+    public function index(Request $req) {
+        $id = $req->session()->get("home_user['id']");
+        dd($id);
         //用户详情与用户表关联
     	$data = DB::table('users as u')
     		->join('users_detail as ud','u.id','=','ud.uid')
