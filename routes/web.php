@@ -24,8 +24,14 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::post('/regCheckEmail','LoginController@checkEmail');//检测注册邮箱
     Route::post('/checkVcode','LoginController@checkVcode');//检测注册邮箱
     Route::post('/regSendMail','LoginController@regSendMail');//将验证码发送至 邮箱
+
     Route::get('/list/{id}','IndexController@list');
     Route::get('/index/show','IndexController@show');//前台公告 详情的AJAX
+
+    Route::get('/list/{id}','ListController@index');//列表页面
+    Route::get('/{id}/show','ListController@show');//详情页面
+
+
 
     //个人中心模块
     Route::group(['namespace' => 'Person'], function () {
@@ -43,6 +49,11 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         Route::get('ps_qiandao','QiandaoController@index'); //签到记录
         Route::get('ps_msg','MsgController@index'); //修改资料页面
         Route::post('ps_msg/doedit','MsgController@doedit'); //处理修改
+        Route::get('ps_pass','PassController@index'); //处理修改
+        Route::post('ps_pass/doedit','PassController@doedit'); //处理修改
+        Route::get('ps_space','SpaceController@index'); //个人空间主页
+        Route::get('ps_letter/in','LetterController@in'); //收件箱
+        Route::get('ps_letter/out','LetterController@out'); //发件箱
     });
 });
 

@@ -1,5 +1,5 @@
 @extends('home.PersonPublic.index')
-@section('title','粉丝关注') 
+@section('title','签到记录') 
 @section('container')
   <div class="ab_right">
   <div class="shop-nav"><a>签到记录</a></div>
@@ -14,18 +14,18 @@
                 </tr>
               </thead>
               <tbody>
-
+                @foreach($data as $v)
                 <tr>
-                  <td class="hy_title">7799</td>
-                  <td>admin123</td>
-                  <td>17</td>
-                  <td>2018-08-24 15:34:52</td>
+                  <td class="hy_title">{{$v->id}}</td>
+                  <td>{{$v->name}}</td>
+                  <td>{{$v->score}}</td>
+                  <td>{{date("Y-m-d H:i:s",$v->created_at)}}</td>
                 </tr>
-                
+                @endforeach
               </tbody> 
             </table>
-      <div class="ar_bjPage">
-       <span>共 1 页/1条记录</span>
+      <div class="article_pages">
+       <span>{{$data->render()}}</span>
       </div>
     </div>
   </div>

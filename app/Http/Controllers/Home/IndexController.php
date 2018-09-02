@@ -11,10 +11,10 @@ use Cache;
 use Cookie;
 class IndexController extends Controller
 {
-    //无限级递归方法
+    //鏃犵嚎閫掑綊鏂规硶
     public function getCatesBypid($pid){
         $s = DB::table('cates')->where('pid','=',$pid)->orderBy('id','asc')->get();
-        //遍历
+        //卤茅脌煤
         $data=[];
         foreach($s as $key=>$value){
             $value->dev=$this->getCatesBypid($value->id);
@@ -24,17 +24,17 @@ class IndexController extends Controller
     }
 
     /**
-     * 前台首页
+     * 鍓嶅彴椤甸潰
      * @return [type] [description]
      */
     public function index(Request $req) {
-        // 获取栏目分类的数据
+        // 禄帽脠隆脌赂脛驴路脰脌脿碌脛脢媒戮脻
         $cate = $this->getCatesBypid(0);
-        // 热门类的数据
+        // 脠脠脙脜脌脿碌脛脢媒戮脻
         $data = DB::table('cates')->where('status', '3')->limit(5)->get();
-        // 原创推荐的这块的的内容
+        // 脭颅麓麓脥脝录枚碌脛脮芒驴茅碌脛碌脛脛脷脠脻
         $data_recommand = DB::table('content')->where('recommand', '=', '1')->limit(8)->get();
-        // 原创下的轮播
+        // 脭颅麓麓脧脗碌脛脗脰虏楼
         $new = DB::table('content as c')
                     ->join('users_detail as u','c.uid','=','u.uid')
                     ->where('c.is_admin','0')
@@ -43,12 +43,12 @@ class IndexController extends Controller
                     ->select('c.title','c.created_at','u.nickname','u.uface','c.uid','c.id')
                     ->limit(10)
                     ->get();
-        // 首页轮播图
+        // 脢脳脪鲁脗脰虏楼脥录
         $pic = DB::table('lunbo')
                     ->where('status','0')
                     ->limit(4)
                     ->get();
-        // 获取首页的公告
+        // 禄帽脠隆脢脳脪鲁碌脛鹿芦赂忙
         $notice = DB::table('notice')
                     ->orderBy('id','desc')
                     ->limit(3)
@@ -63,8 +63,9 @@ class IndexController extends Controller
         ]);
     }
 
+
     /**
-     * 前台ajax获取公告详情
+     * 脟掳脤篓ajax禄帽脠隆鹿芦赂忙脧锚脟茅
      * @param $id
      */
     public function show() {
@@ -77,3 +78,5 @@ class IndexController extends Controller
 
 
 }
+
+
