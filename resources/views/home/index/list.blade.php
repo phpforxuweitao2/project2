@@ -47,7 +47,7 @@
             <a href="/">首页</a>
         @foreach($cates as $k => $v)
             <span class="subNav-more2">
-                <a href="/list/{{$v->id}}">{{$v->name}}</a>
+                <a style="cursor:pointer;" href="/list/{{$v->id}}">{{$v->name}}</a>
                 <em class="subNav-more-btn2"></em>
             @if( !empty($v->child) )
                 <ul class="subNav-more-ul2">
@@ -77,7 +77,7 @@
                             <span class="fr lgray">{{date('Y-m-d',$v->created_at)}}</span>
                             <span class="fr lgray">{{$v->size}}字</span>
                             <span class="fr pAuthor">{{$v->uname}}</span>
-                            <a href="/{{$v->id}}/show">{{$v->title}}</a>
+                            <a style="cursor:pointer;" href="/{{$v->id}}/show">{{$v->title}}</a>
                         </p>
                     </li>
                 @endforeach
