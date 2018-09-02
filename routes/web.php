@@ -24,7 +24,9 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::post('/regCheckEmail','LoginController@checkEmail');//检测注册邮箱
     Route::post('/checkVcode','LoginController@checkVcode');//检测注册邮箱
     Route::post('/regSendMail','LoginController@regSendMail');//将验证码发送至 邮箱
-    Route::get('/list/{id}','IndexController@list');
+    Route::get('/list/{id}','ListController@index');//列表页面
+    Route::get('/{id}/show','ListController@show');//详情页面
+
 
     //个人中心模块
     Route::group(['namespace' => 'Person'], function () {
