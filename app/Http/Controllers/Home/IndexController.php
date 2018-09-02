@@ -37,13 +37,4 @@ class IndexController extends Controller
         ]);
     }
 
-    /**
-     * 列表页面, 根据$id(分类id) 将这个分类的所有数据 列出来
-     * @param $id
-     */
-    public function list($id) {
-        return '列表页面'.$id;
-    }
-
-
 }
