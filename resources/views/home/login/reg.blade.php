@@ -8,14 +8,28 @@
     <link href="/static/home/register/static/css/reg_1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/static/home/register/bs/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/home/register/static/css/mycss1.css">
+    <link rel="stylesheet" type="text/css" href="/static/home/register/mycss/mycss.css">
     <script type="text/javascript" src="/static/home/register/static/js/jquery-3.1.1.js"></script>
+    <style type="text/css">
+        .wawa{
+            left: -50px;
+        }
+        .tupian{
+            z-index:50;
+        }
+        .regNew_top{
+            z-index: 50;
+        }
+    </style>
 </head>
 
 <body>
 <div class="regNew_top">
     <div class="reg_topCon tupian">
-        <div class="logo"></div>
-        <img src="/static/home/register/img/sss1.png" width="100px" class="wawa">
+        <div class="logo" style="z-index: 50"></div>
+        <div class="clock">
+            <img src="/static/home/register/img/aa.png" width="100px" class="wawa">
+        </div>
         <div class="regNew_enter">
             <a href="/login">登录</a> <a href="/reg">注册</a>
         </div>

@@ -10,6 +10,7 @@
   <link href="/static/home/index/css/index.css" rel="stylesheet" type="text/css" />
   <link href="/static/home/index/css/newfix.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="/static/home/index/css/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="static/home/index/mycss/iconfont.css">
   <script src="/static/home/index/js/jquery-1.8.1.min.js" type="text/javascript"></script>
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
   <script src="/static/home/index/js/slideshow.js" type="text/javascript"></script>
@@ -58,6 +59,86 @@
     background:#FC6F31;
     cursor:pointer;
   }
+  .gonggao{
+    width: 600px;
+    height: 450px;
+    position: fixed;
+    top: 80px;
+    left: 350px;
+    background: #fff;
+    z-index: 999;
+    font-family: "微软雅黑";
+    background: url('/static/home/index/images/gonggao1.png') no-repeat 0 80px #fff;
+  }
+  .gonggao h2{
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    font-size: 24px;
+    background: #c7f8da;
+    border-bottom: 1px solid #ccc;
+    color:#da9b14;
+    font-weight: 500;
+  }
+  .gonggao p{
+    padding:20px;
+    font-size: 16px;
+    line-height: 32px;
+    padding-left: 100px;
+  }
+  .gonggao div{
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    padding:30px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .gonggao i{
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    top:0;
+  }
+  .gonggao i:hover{
+    color: red;
+    cursor: pointer;
+  }
+  .gonggao button{
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 30px;
+    left: 260px;
+  }
+  .motai{
+    height: 100%;
+    width: 100%;
+    background: rgba(204,204,204,0.4);
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    display: none;
+  }
+  a{
+    cursor: pointer;
+  }
   </style>
  </head>
  <body id="Jbody">
@@ -75,9 +156,11 @@
   <div class="nav2">
    <div class="main2">
     <div class="subNav2 fl">
-     <a href="https://www.riji.cn/">首页</a>
+     <a href="/">首页</a>
     @foreach($cates as $v)
-     <span class="subNav-more2"> {{$v->name}}<em class="subNav-more-btn2"></em>
+     <span class="subNav-more2">
+      <a href="/list/{{$v->id}}" target="_blank" > {{$v->name}} </a>
+      <em class="subNav-more-btn2"></em>
       <ul class="subNav-more-ul2">
         @foreach($v->dev as $val)
        <li class="subNav-more-li"><a href="/list/{{$val->id}}" target="_blank" title="一年级日记">{{$val->name}}</a>
@@ -98,8 +181,9 @@
         <div class="block">
          <div class="cl">
           <ul class="slideshow" id="slidesImgs">
-           <li><a href="https://www.riji.cn/shujiariji/" target="_blank"><img src="static/picture/shujia.jpg" alt="暑假日记" width="248" height="200" /></a></li>
-           <li><a href="https://www.riji.cn/shujiariji/" target="_blank"><img src="static/picture/shujia.jpg" alt="暑假日记" width="248" height="200" /></a></li>
+            @foreach($pic as $p)
+           <li><a href="{{$p->url}}" target="_blank"><img src="{{$p->pic}}" alt="暑假日记" width="248" height="200" /></a></li>
+           @endforeach
           </ul>
          </div>
          <div class="slidebar" id="slideBar">
@@ -145,14 +229,16 @@
      </div>
      <div class="moveAr" id="scrollDiv">
       <ul>
-       <li> <p class="photo"><a href="https://www.riji.cn/user/13487/" target="_blank"><img src="static/picture/myface.jpg" alt="夏沫洛梨" /></a></p>
+        @foreach($new as $list)
+       <li> <p class="photo"><a href="" target="_blank"><img src="{{$list->uface}}" alt="{{$list->nickname}}" /></a></p>
         <div class="con_tit">
          <div class="ys_icon">
-          <span class="data">08-23</span>
-          <span class="writer">夏沫洛梨</span>
-          <a href="https://www.riji.cn/html/55234.html" target="_blank">下雨了，快跑</a>
+          <span class="data">{{date('m-d',$list->created_at)}}</span>
+          <span class="writer">{{$list->nickname}}</span>
+          <a href="https://www.riji.cn/html/55234.html" target="_blank">{{$list->title}}</a>
          </div>
         </div> </li>
+        @endforeach
       </ul>
      </div>
      <div class="riji_list">
@@ -183,16 +269,16 @@
         <div class="loginCon">
             <div class="longd">
               <i class="iconfont icon-yonghu"></i>
-              <input type="text" name="name" value="{{cache('home_info')['name']}}">
+              <input type="text" name="name" value="{{Cookie::get('home_info')['name']}}">
             </div>
             <div class="longd">
               <i class="iconfont icon-icon_password"></i>
-              <input type="password" name="pass" value="{{cache('home_info')['pass']}}">
+              <input type="password" name="pass" value="{{Cookie::get('home_info')['pass']}}">
             </div>
             <div class="longd cbx">
               <label>
                 <input type="checkbox" name="rem" value="1">
-                <span>下次自动登录</span>
+                <span>记住密码</span>
               </label>
             </div>
             <a id="ddlulu" href="javascript:void(0)">登  录</a>
@@ -202,7 +288,7 @@
       @else
        <div class="c nq-center">
          <div style="height:226px">
-          <a class="first pc-edit"><img class="fl" src="//thirdqq.qlogo.cn/qqapp/101394506/3AEFBFD228E301EB7E78F6D140943B0D/100" width="68" height="68" /> <span class="art-tit">夜凌弃</span> <span class="art-des">积分：15 </span></a>
+          <a class="first pc-edit"><img class="fl" src="{{session('home_user')['uface']}}" width="68" height="68" /> <span class="art-tit">{{session('home_user')['nickname']}}</span> <span class="art-des">积分：{{session('home_user')['score']}} </span></a>
           <div class="user_menu">
            <ul>
             <li><a href="/user/riji_add" target="_blank">发表文章</a></li>
@@ -226,9 +312,9 @@
      </div>
      <div class="iiarList">
       <ul>
-       <li><a>本站已全新改版</a><span class="iar_time">12/8</span></li>
-       <li><a>注册本站会员用户须知</a><span class="iar_time">12/8</span></li>
-       <li><a>关于会员投稿的说明</a><span class="iar_time">12/8</span></li>
+        @foreach($notice as $not)
+       <li><a href="javascript:void(0)" onclick="cont({{$not->id}})">{{$not->title}}</a><span class="iar_time">{{date('m/d',$not->created_at)}}</span></li>
+       @endforeach
       </ul>
      </div>
     </div>
@@ -333,19 +419,34 @@
     <img src="/static/home/index/picture/gongan.png" width="20" height="20" />苏公网安备 32132202000332号
    </div>
   </div>
+  <div class="motai">
+    <div class="gonggao">
+        <h2 id="notitle">哈哈哈</h2>
+        <p id="nocontent">
+          本站第一帅哥,w我发送的发放防风网rwefsfadfsfsfasdfffffffffffffffff的定位费我无法东方闪电fdsfdsfdsffa而非第三方第三方
+        </p>
+        <div id="notiem">
+          发布时间
+        </div>
+        <button class="g-but">确定</button>
+        <i class="iconfont icon-guanbi"></i>
+    </div>
+  </div>
   <script src="/static/home/index/js/dpl-tab_v2.js" type="text/javascript"></script>
  </body>
  <script type="text/javascript">
+    // 登录的ajax
     $('#ddlulu').click(function(){
         name = $("input[name='name']").val();
         pass = $("input[name='pass']").val();
         rem = $("input[name='rem']").attr('checked');
-        // alert(name);
+        // alert(rem);
         if (rem == 'checked') {
           rem = 1;
         } else {
           rem = 0;
         }
+        // alert(rem);
           $.ajax({
           url: '/login_check',
           type:'post',
@@ -363,5 +464,22 @@
           }
        });
     });
+
+    // 公告框隐藏
+    $('.icon-guanbi,.g-but').click(function(){
+      $('.motai').css('display','none');
+    });
+
+    // 公告内容ajax
+    function cont(id){
+
+      $.get('/index/show',{id:id},function(res){
+        $('#notitle').html(res.title);
+        $('#nocontent').html(res.content);
+        $('#notiem').html(res.created_at);
+        $('.motai').css('display','block');
+
+      },'json');
+    }
  </script>
 </html>

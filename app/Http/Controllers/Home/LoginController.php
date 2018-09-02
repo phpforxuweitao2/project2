@@ -9,6 +9,7 @@ use Hash;
 use Cache;
 use Mail;
 use Illuminate\Http\Request;
+use Cookie;
 
 class LoginController extends Controller
 {
@@ -40,20 +41,26 @@ class LoginController extends Controller
         }
         // 判断密码跟用户是否存在
         if ( $row && Hash::check($_POST['pass'],$row->pass)) {
+            $user = DB::table('users_detail')
+                    ->where('uid',$row->id)
+                    ->first();
             session([
                 'home_user' =>[
-                    'name'  =>  $row->name,
-                    'id'    =>  $row->id
+                    'name'      =>  $row->name,
+                    'id'        =>  $row->id,
+                    'nickname'  =>  $user->nickname,
+                    'uface'     =>  $user->uface,
+                    'score'     =>  $row->score
                 ]
             ]);
             // 判断该用户是否记住密码
             if ( $_POST['rem'] == 1 ) {
-                Cache::put('home_info', [
+                Cookie::queue('home_info', [
                     'name' => $row->name,
                     'pass' => $_POST['pass']
                 ], 10080);
             } else {
-                Cache::forget('home_info');
+               Cookie::queue(Cookie::forget('home_info'));
             }
             // 将用户登录信息写入数据库
             DB::table('users_detail')
