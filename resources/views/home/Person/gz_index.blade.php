@@ -23,14 +23,16 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             积分：{{$v->fame}}
           </span>
-          <a href="">发送短信</a>
+          <a href="/ps_letter/send/{{$v->to_uid}}">发送短信</a>
           <a href="/ps_guanzhu/quxiao/{{$v->to_uid}}">取消关注</a>
         </div>
       </li>
       @endforeach
     </ul>
     <div class="gz_page">   
-      <span>共 1 页/1条记录</span>
+      <span>
+        {{$data->render()}}
+      </span>
     </div> 
   </div>
 @endsection

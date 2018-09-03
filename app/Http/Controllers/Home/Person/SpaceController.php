@@ -32,7 +32,8 @@ class SpaceController extends Controller
 		//获取我关注人数
     	$msg[0]->from_uid = count($msg); 
     	
-    	$content = DB::table('content')->select('title','content','num','laud','updated_at')->where('uid','=',$id)->get();
+        //获取该用户发表过的日记
+    	$content = DB::table('content')->select('title','content','num','laud','updated_at')->where('uid','=',$id)->paginate(6);
     	// dd($content);
     	return view('home.Person.space',[
 			'name'=>$name,

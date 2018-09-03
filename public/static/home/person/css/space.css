@@ -27,34 +27,34 @@ a img{ border:none;}
 .blur-img img,.blur-mask,.blur-wrap {width:100%}
 .blur-wrap {height:100%;z-index:-2;top:0;left:0}
 .blur-img {
-text-align:center;
-left:-20px;
-top:-40px;
-right:-20px;
-bottom:-20px;
-z-index:-1;
--webkit-filter:blur(20px);
--moz-filter:blur(20px);
--ms-filter:blur(20px);
-filter:blur(20px);
-filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=20, MakeShadow=false);
-background-size:cover;
-background-position:50% 50%
+	text-align:center;
+	left:-20px;
+	top:-40px;
+	right:-20px;
+	bottom:-20px;
+	z-index:-1;
+	-webkit-filter:blur(20px);
+	-moz-filter:blur(20px);
+	-ms-filter:blur(20px);
+	filter:blur(20px);
+	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=20, MakeShadow=false);
+	background-size:cover;
+	background-position:50% 50%
 }
 .blur-mask {
-left:0;
-top:0;
-height:100%;
-filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr='#7F000000');
-background:rgba(0,0,0,.5)
+	left:0;
+	top:0;
+	height:100%;
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr='#7F000000');
+	background:rgba(0,0,0,.5)
 }
 
 :root .blur-mask {filter:none!important}
 .item {height:300px;position:relative;overflow:hidden}
 @media only screen and (max-width:1320px) {
-.side-ext-bar {
-margin-left:5px
-}
+	.side-ext-bar {
+	margin-left:5px
+	}
 }
 
 .album-summary {height:300px;position:relative;overflow:hidden;color:#FFF;text-shadow:0 1px 3px rgba(0,0,0,.5)}
@@ -70,11 +70,11 @@ margin-left:5px
 .t_main{width:980px;height:auto;margin: 0 auto;overflow: hidden;background:#FFF;opacity: 0.9; margin-top:28px;padding-bottom:16px;}
 .t_left{width:708px; height:auto;overflow: hidden;float:left; margin-top:18px; border-right:1px solid #ebebeb;}
 .t_left ul{ width:auto; padding:0px 26px 0px 26px;}
-.t_left ul li{ width:auto; height:auto; overflow:hidden;padding-bottom:12px;}
+/*.t_left>ul>li{ width:auto; height:auto; overflow:hidden;padding-bottom:12px;}*/
 .title{ width:656px; height:34px;background:#F2F2F2; overflow:hidden; line-height:34px;}
 .zw_tit a{ display:block; float:left; margin-left:15px; width:auto; font-size:18px; font-weight:600; color:#101111;}
 .zw_tit a:hover{ color:#f40b37;}
-.zw_grade{display:block; float:right; margin-right:12px; width:auto; font-size:14px; color:#333;padding: 0 0 0 26px;background: url(/images/icon_book.png) no-repeat scroll left 10px transparent;}
+.zw_grade{display:block; float:right; margin-right:12px; width:auto; font-size:14px; color:#333;padding: 0 0 0 26px;background: url({{$msg->uface}}) no-repeat scroll left 10px transparent;}
 .summary{padding:26px 0px 15px 0px;}
 .summary p { font-size:14px;text-indent:2em; text-align:left; line-height:24px;}
 .artinfo {padding:0px 12px 6px 0px;height: 30px;text-align: right;color: #B9A086;font-size: 12px; margin-bottom:4px;}

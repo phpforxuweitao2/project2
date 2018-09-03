@@ -3,6 +3,7 @@
  <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
   <link rel="stylesheet" type="text/css" href="/static/home/person/css/space.css" /> 
+  <link rel="stylesheet" type="text/css" href="/static/home/person/css/article.css" /> 
   <title>{{$msg->nickname}}的日记与作文</title> 
  </head> 
  <body> 
@@ -36,7 +37,7 @@
        {{$msg->signatrue}}
       </div> 
       <div class="per_xgBtn"> 
-       @if($msg->uid != session('home_user')['id'])
+       @if($msg->uid != session('home_user')['id'] && $msg->uid > 10000)
        <a class="per_btn gz_btn" href="/ps_space/gz/{{$msg->uid}}">关注</a> 
        <button class="per_btn sx_btn"><a href="/ps_letter/send/{{$msg->uid}}" target="_blank">私信</a></button> 
        @endif
@@ -45,10 +46,10 @@
      </div> 
      <div class="clear"></div> 
     </div> 
-    <span class="blur-wrap"> <span class="blur-img" style="background-image: url(/static/home/person/images/myface.jpg)"> </span> <span class="blur-mask"></span> </span> 
+    <span class="blur-wrap"> <span class="blur-img" style="background-image: url({{$msg->uface}})"> </span> <span class="blur-mask"></span> </span> 
    </div> 
    <!-- 毛玻璃背景 --> 
-   <span class="blur-wrap"> <span class="blur-img" style="background-image:url(/static/home/person/css/images/myface.jpg)"> </span> <span class="blur-mask"></span> </span> 
+   <span class="blur-wrap"> <span class="blur-img" style="background-image:url({{$msg->uface}})"> </span> <span class="blur-mask"></span> </span> 
   </div> 
   <div class="t_main"> 
    <div class="t_left"> 
@@ -68,7 +69,12 @@
       </div>
      </li>
      @endforeach
-    </ul> 
+    </ul>
+    <div class="article_pages">   
+      <span>
+        {{$content->render()}}
+      </span>
+    </div> 
     <br /> 
    </div> 
    <div class="t_rights"> 
@@ -103,12 +109,6 @@
       <strong>{{date('Y-m-d H:i:s',$msg->last_login_time)}}</strong>
      </dd> 
     </dl> 
-    <!-- <div class="user_visitor"> 
-     <h2>最近访客</h2> 
-     <ul class="avatar_list"> 
-      <li> <a href=""> <img src="/static/home/person/images/myface_002.jpg" title="二年级小学生" alt="二年级小学生" width="42" height="42" /></a> </li> 
-     </ul> 
-    </div> --> 
    </div> 
   </div> 
   <div class="footer">

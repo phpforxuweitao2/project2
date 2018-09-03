@@ -11,11 +11,17 @@
         <img src="{{$data->uface}}" id="img0" alt="" style="width: 100px;height: 100px;border-radius: 100px">
         <input type="file" id="file0" name="pic" style="position: relative;top: 30px;left: -100px">
       </dd>
-      <dd style="clear: both">帐号：<span>{{$data->name}}</span></dd>
+      <dd style="clear: both">帐号：<span>&nbsp;{{$data->name}}</span></dd>
       <dd>
         笔名：
         <span>
-          <input name="nickname" id="uname" value="{{$data->nickname}}" class="intxt" style="width:100px" type="text">
+          <input name="nickname" id="uname" value="{{$data->nickname}}" class="intxt" style="width: auto;height: 24px;border-radius: 3px;border:1px solid #ccc;" type="text">
+        </span>
+      </dd>
+      <dd>
+        生日：
+        <span>
+          <input type="date" name="birthday" class="date" value="{{$data->birthday}}" style="width: 130px;height: 24px;border-radius: 3px;border:1px solid #ccc;">
         </span>
       </dd>
       <dd>

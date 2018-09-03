@@ -38,6 +38,8 @@
 <script language="javascript" src="/static/home/person/js/riji.js"></script>
 <!-- 我的文章 -->
 <script language="javascript" src="/static/home/person/js/wenzhang.js"></script>
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/modernizr.min.js"></script>
 
 
 </head>
@@ -67,6 +69,7 @@
     <strong>{{session('success')}}</strong>
 </div>
 <script>
+
 setInterval(function(){
     $('#success').trigger('click');
 },2500)
