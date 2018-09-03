@@ -22,12 +22,17 @@
     <script src="/static/home/show/js/d0d59938f54c4522be984a8f5a3352d3.js" type="text/javascript"></script>
     <script src="/static/home/show/js/layer_3.js" type="text/javascript"></script>
     <script src="/static/home/show/js/zan_3.js" type="text/javascript"></script>
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="head">
     <div class="main">
-        <a class="logo" href="http://www.project2.com"></a>
-        <a href="http://www.project2.com" class="name fl">日记大全</a>
+        <a class="logo" href="/"></a>
+        <a href="/" class="name fl">日记大全</a>
     </div>
 </div>
 <div class="nav2">
@@ -35,7 +40,7 @@
         <div class="subNav2 fl">
             <a href="http://www.project2.com">首页</a>
         @foreach($cates as $k=>$v)
-            <a href="/list/{{$v->id}}" title="小学生日记">{{$v->name}}</a>
+            <a href="/list/{{$v->id}}" style="cursor:pointer;" title="小学生日记">{{$v->name}}</a>
         @endforeach
         </div>
     </div>
@@ -45,23 +50,43 @@
         <div class="mb30 shadow border">
             <div id="path">
                 <a href='/'>日记网</a> >
-                <a href='/fanwen/'>小学生日记</a> >
-                <a href='/6/'>六年级日记</a> >
+                <a href='/list/{{$parent_cate->id}}'>{{$parent_cate->name}}</a> >
+                <a href='/list/{{$childrent_cate->id}}'>{{$childrent_cate->name}}</a> >
             </div>
-            <div class="l-th mb16 ar2_bt">
-                <h1>我的手肿了</h1>
+            <div class="l-th mb16 ar2_bt" style="height: 100px;">
+                <h1>{{$contents->title}}</h1>
             </div>
             <div class="wgt_main">
                 <div class="wgt_box">
                     <div class="grid">
-                        <p class="wgt_photo"><a rel="nofollow" href="https://www.riji.cn/user/13487/" target="_blank"><img src="/static/home/show/picture/myface_3.jpg"></a></p>
+                        <p class="wgt_photo">
+                        @if($contents->is_admin === '0')
+                            <a rel="nofollow" href="/user/{{$contents->uid}}" target="_blank">
+                                <img src="{{$contents->uface}}">
+                            </a>
+                        @else
+                            <a href="javascript:void(0);">
+                                <img src="/static/home/person/images/boy.jpg">
+                            </a>
+                        @endif
+                        </p>
                     </div>
                     <div class="wgt_right">
                         <div class="wgt_name clearfix">
-                            <a class="user_name" rel="nofollow" href="https://www.riji.cn/user/13487/" target="_blank">夏沫洛梨</a>
-                            <a class="gzBtn" href="/user/13487/guanzhu/" target="_blank">关注</a>
+                            @if( $contents->is_admin === '0' )
+                                <a class="user_name" rel="nofollow" href="/user/{{$contents->uid}}" target="_blank">{{$contents->uname}}</a>
+                                <a class="gzBtn" href="/user/{{$contents->uid}}/guanzhu" target="_blank">关注</a>
+                            @else
+                                <a class="user_name" rel="nofollow" href="javascript:void(0);" target="_blank">{{$contents->uname}}</a>
+                            @endif
                         </div>
-                        <div class="carefield"><span class="mr_15">发布时间：2018-08-23 13:12:54</span><span class="mr_15">星期四</span><span class="mr_15">晴</span><span id="click"> </span><span>人看过</span></div>
+                        <div class="carefield">
+                            <span class="mr_15">发布时间：{{date('Y-m-d H:i:s',$contents->created_at)}}</span>
+                            <span class="mr_15">{{$contents->week}}</span>
+                            <span class="mr_15">{{$contents->weather}}</span>
+                            <span>{{$contents->num}}</span>
+                            <span>人看过</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,31 +95,21 @@
                     <div style="float:right; width:336px; height:250px;padding-left:15px; padding-top:8px; padding-bottom:5px;">
                         <script type="text/javascript">a300();</script>
                     </div>
-                    　　今天，我和爸爸妈妈在来福士吃完晚饭&mdash;&mdash;&ldquo;麻将&rdquo;以后，逛起了商场。<br />
-                    <br />
-                    　　突然，我的手臂上似乎被蚊子叮了一口，肿了一小块，痒痒的。我立刻拿起无比滴在痒的位置涂抹。过了一会儿，我的整只手臂竟都肿了起来。我吓了一跳，不停地涂抹着无比滴，可是，手还是越来越重，越来越红。妈妈看到了，也吓了一跳，两条秀气的眉毛立刻拧了起来，急声道：&ldquo;这里怎么啦？&rdquo;我有些无奈：&ldquo;刚才被什么虫子给咬了吧！刚才明明只有一个小小的红点的，会不会是过敏了？&rdquo;妈妈一听，马上把妹妹丢给正在试穿鞋子的爸爸，抓起了我的手，飞快地朝洗手台跑去。<br />
-                    <br />
-                    　　妈妈打开水龙头，把我的手臂上的无比滴全部洗去，再用纸擦干，抹上了风油精。回到刚才的店里，爸爸凑了过来，看到我肿胀的手臂，说了一句让我十分害怕的话：&ldquo;哎呦，你的手不行了，要截肢啦！&rdquo;我吓了一大跳，焦急地喃喃道：&ldquo;快、快点，我要去医院！&rdquo;妈妈见了，哈哈大笑起来，冲爸爸说：&ldquo;好了，别逗她了，这人可不，最怕死了！&rdquo;<br />
-                    <br />
-                    　　&ldquo;我不能死啊！我要死了，所有游戏账号怎么办？练了好久的级！我死了，我的热带鱼怎么办？我死了，还得拖着一个死丑死丑的手臂怎么办？我不能死啊&hellip;&hellip;&rdquo;我哭丧地大叫。<br />
-                    <br />
-                    　　妈妈哭笑不得，重重地拍了一下我的后脑勺：&ldquo;让你再乱说，死什么死！别听你爸乱说话！&rdquo;<br />
-                    <br />
-                    　　回到家里，我大声说：&ldquo;我要吃棒冰，要玩游戏!&rdquo;&ldquo;你要是说出个原因，我就给你玩。&rdquo;妈妈说。因为按照常规，我玩个游戏，是没有什么理由的。我这次可是有了十足的理由，大义凌然地说：&ldquo;你看看，我都快截肢了！&rdquo;于是，我悠闲地在沙发上一躺，一边玩游戏，一边拿无纺布包裹冰块冰敷，大包很快消下去了。<br />
-                    <br />
-                    　　不用截肢了，真好!<br />
+                    <div>
+                        {!! $contents->content !!}
+                    </div>
                     <div class="xg" id="newdigg">
                         <div class="vote_box">
-                            <a onclick="javascript:postDigg('good',55230)" class="vote_recommend">
-                                <span class="vote_icon"><i class="face_happy face_happyPlay"></i></span>
-                                <span class="vote_number" id="voteLike"  data-likenum="点赞">点赞<i>（8）</i></span>
-                                <span class="vote_text">点赞<i>（8）</i></span>
-                            </a>
-                            <a onclick="javascript:postDigg('bad',55230)" class="vote_not_recommend">
-                                <span class="vote_icon"><i class="face_unhappy face_unhappyPlay"></i></span>
-                                <span class="vote_number" id="voteUnLike"  data-unlikenum="呵呵">呵呵<i>（3）</i></span>
-                                <span class="vote_text">呵呵<i>（3）</i></span>
-                            </a>
+                            {{--<a onclick="javascript:postDigg('good',55230)" class="vote_recommend">--}}
+                                {{--<span class="vote_icon"><i class="face_happy face_happyPlay"></i></span>--}}
+                                {{--<span class="vote_number" id="voteLike"  data-likenum="点赞">点赞<i>（8）</i></span>--}}
+                                {{--<span class="vote_text">点赞<i>（8）</i></span>--}}
+                            {{--</a>--}}
+                            {{--<a onclick="javascript:postDigg('bad',55230)" class="vote_not_recommend">--}}
+                                {{--<span class="vote_icon"><i class="face_unhappy face_unhappyPlay"></i></span>--}}
+                                {{--<span class="vote_number" id="voteUnLike"  data-unlikenum="呵呵">呵呵<i>（3）</i></span>--}}
+                                {{--<span class="vote_text">呵呵<i>（3）</i></span>--}}
+                            {{--</a>--}}
                         </div>
                     </div>
                     <ul>
@@ -103,142 +118,143 @@
                     </ul>
                     <div style="clear:both"></div>
                     <script type="text/javascript" src="static/js/jquery.emoticons_3.js"></script>
-                    <script>
-                        $.emoticons({
-                            'activeCls':'trigger-active'
-                        },function(api){
-                            var $content = $('textarea[name="msg"]');
-                            var $result  = $('#result');
-                            $('#format').click(function(){
-                                $result.html(api.format($content.val()));
-                            });
-                        });
-                    </script>
+                    {{--<script>--}}
+                        {{--$.emoticons({--}}
+                            {{--'activeCls':'trigger-active'--}}
+                        {{--},function(api){--}}
+                            {{--var $content = $('textarea[name="msg"]');--}}
+                            {{--var $result  = $('#result');--}}
+                            {{--$('#format').click(function(){--}}
+                                {{--$result.html(api.format($content.val()));--}}
+                            {{--});--}}
+                        {{--});--}}
+                    {{--</script>--}}
 
-                    <div class="emoticons">
-                        <div style="width:682px; margin-top:15px;">
-                            <div class="publisher">
-                                <textarea name="msg" id="msg" class="comment-msg-txt"></textarea>
-                                <div style="width:704px"><a class="trigger" href="javascript:;">☺</a><span id="a" style="margin-left:20px">最可输入200字 </span>
-                                    <button type="button" class="button" onClick='AjaxComment()'>评论</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list"> </div>
-                    <div class="comment-more"> <a href="javascript:void(0);" onClick='ListComment()'>加载更多</a> </div>
-                    <script type="text/javascript">
-                        var aid = "55230";
-                        var page = 1;
-                        ListComment(1);
-                        function ListComment() {
-                            $(".comment-more a").html("加载ing..");
-                            $.ajax({
-                                type : 'post',
-                                url : "/plus/comment.php?action=list",
-                                data : { aid: aid,page:page},
-                                dataType : 'JSON',
-                                success: function(jsonData ) {
-                                    if (jsonData.totalcount<4) {
-                                        $(".comment-more").hide();
-                                    }
-                                    if (jsonData.status == 1) {
-                                        $(".comment-list").append(jsonData.info);
-                                        $(".comment-more a").html("加载更多");
-                                        page++;
-                                    }
-                                    else {
-                                        $(".comment-more a").html(jsonData.info);
-                                        return false;
-                                    }
+                    {{--<div class="emoticons">--}}
+                        {{--<div style="width:682px; margin-top:15px;">--}}
+                            {{--<div class="publisher">--}}
+                                {{--<textarea name="msg" placeholder="" id="msg" class="comment-msg-txt"></textarea>--}}
+                                {{--<div style="width:704px">--}}
+                                    {{--<span id="a" style="margin-left:20px">最可输入200字 </span>--}}
+                                    {{--<button type="button" class="button" onClick='AjaxComment()'>评论</button>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="comment-list"> </div>--}}
+                    {{--<div class="comment-more"> <a href="javascript:void(0);" onClick='ListComment()'>加载更多</a> </div>--}}
+                    {{--<script type="text/javascript">--}}
+                        {{--var aid = "55230";--}}
+                        {{--var page = 1;--}}
+                        {{--ListComment(1);--}}
+                        {{--function ListComment() {--}}
+                            {{--$(".comment-more a").html("加载ing..");--}}
+                            {{--$.ajax({--}}
+                                {{--type : 'post',--}}
+                                {{--url : "/plus/comment.php?action=list",--}}
+                                {{--data : { aid: aid,page:page},--}}
+                                {{--dataType : 'JSON',--}}
+                                {{--success: function(jsonData ) {--}}
+                                    {{--if (jsonData.totalcount<4) {--}}
+                                        {{--$(".comment-more").hide();--}}
+                                    {{--}--}}
+                                    {{--if (jsonData.status == 1) {--}}
+                                        {{--$(".comment-list").append(jsonData.info);--}}
+                                        {{--$(".comment-more a").html("加载更多");--}}
+                                        {{--page++;--}}
+                                    {{--}--}}
+                                    {{--else {--}}
+                                        {{--$(".comment-more a").html(jsonData.info);--}}
+                                        {{--return false;--}}
+                                    {{--}--}}
 
 
-                                }
-                            });
-                        };
-                        function AjaxComment() {
-                            var content = $("#msg");
-                            if (content.val().length < 5) {
-                                alert('评论内容必须大于5个字');
-                                return false;
-                            }
-                            $.ajax({
-                                type : 'post',
-                                url : "/plus/comment.php?action=save",
-                                data : { aid: aid,content:content.val()},
-                                dataType : 'JSON',
-                                success: function(jsonData ) {
-                                    if (jsonData.status == 1) {
-                                        $(content).val(''); //发布后置空评论内容
-                                        $(".comment-list").prepend(jsonData.info); //加载到列表顶部
-                                    }
-                                    else {
-                                        alert(jsonData.info);
-                                        return false;
+                                {{--}--}}
+                            {{--});--}}
+                        {{--};--}}
+                        {{--function AjaxComment() {--}}
+                            {{--var content = $("#msg");--}}
+                            {{--if (content.val().length < 5) {--}}
+                                {{--alert('评论内容必须大于5个字');--}}
+                                {{--return false;--}}
+                            {{--}--}}
+                            {{--$.ajax({--}}
+                                {{--type : 'post',--}}
+                                {{--url : "/plus/comment.php?action=save",--}}
+                                {{--data : { aid: aid,content:content.val()},--}}
+                                {{--dataType : 'JSON',--}}
+                                {{--success: function(jsonData ) {--}}
+                                    {{--if (jsonData.status == 1) {--}}
+                                        {{--$(content).val(''); //发布后置空评论内容--}}
+                                        {{--$(".comment-list").prepend(jsonData.info); //加载到列表顶部--}}
+                                    {{--}--}}
+                                    {{--else {--}}
+                                        {{--alert(jsonData.info);--}}
+                                        {{--return false;--}}
 
-                                    }
-                                }
-                            });
-                        };
+                                    {{--}--}}
+                                {{--}--}}
+                            {{--});--}}
+                        {{--};--}}
 
-                        function Ajaxrecommend(id) {
-                            $(".comment-list").find(".comment-post").remove();
-                            $("#comm"+id).append("<div class='comment-post'><div class='emoticons'><div class='publisher'><div class='comment-msg'><textarea name='msg' id='msg"+id+"' class='comment-msg-txt'></textarea></p><p><a class='trigger' href='javascript:;'>☺</a><button type='button' class='button' onClick='AjaxReComment("+id+")'>回复</button><button type='button' class='button2 mr20' onClick='DelComment("+id+")'>取消</button></div></div></div></div>");
-                        };
-                        function DelComment(id) {
-                            $(".comment-list").find(".comment-post").remove();
+                        {{--function Ajaxrecommend(id) {--}}
+                            {{--$(".comment-list").find(".comment-post").remove();--}}
+                            {{--$("#comm"+id).append("<div class='comment-post'><div class='emoticons'><div class='publisher'><div class='comment-msg'><textarea name='msg' id='msg"+id+"' class='comment-msg-txt'></textarea></p><p><a class='trigger' href='javascript:;'>☺</a><button type='button' class='button' onClick='AjaxReComment("+id+")'>回复</button><button type='button' class='button2 mr20' onClick='DelComment("+id+")'>取消</button></div></div></div></div>");--}}
+                        {{--};--}}
+                        {{--function DelComment(id) {--}}
+                            {{--$(".comment-list").find(".comment-post").remove();--}}
 
-                        };
-                        function AjaxReComment(id) {
-                            var content = $("#msg"+id);
-                            if (content.val().length < 5) {
-                                alert('评论内容必须大于5个字');
-                                return false;
-                            }
-                            $.ajax({
-                                type : 'post',
-                                url : "/plus/comment.php?action=save",
-                                data : { aid: aid,fid:id,content:content.val()},
-                                dataType : 'JSON',
-                                success: function(jsonData ) {
-                                    if (jsonData.status == 1) {
-                                        $(content).val(''); //发布后置空评论内容
-                                        $("#comm"+id+" .comment-recommend").prepend(jsonData.info); //加载到列表顶部
-                                    }
-                                    else {
-                                        alert(jsonData.info);
-                                        return false;
+                        {{--};--}}
+                        {{--function AjaxReComment(id) {--}}
+                            {{--var content = $("#msg"+id);--}}
+                            {{--if (content.val().length < 5) {--}}
+                                {{--alert('评论内容必须大于5个字');--}}
+                                {{--return false;--}}
+                            {{--}--}}
+                            {{--$.ajax({--}}
+                                {{--type : 'post',--}}
+                                {{--url : "/plus/comment.php?action=save",--}}
+                                {{--data : { aid: aid,fid:id,content:content.val()},--}}
+                                {{--dataType : 'JSON',--}}
+                                {{--success: function(jsonData ) {--}}
+                                    {{--if (jsonData.status == 1) {--}}
+                                        {{--$(content).val(''); //发布后置空评论内容--}}
+                                        {{--$("#comm"+id+" .comment-recommend").prepend(jsonData.info); //加载到列表顶部--}}
+                                    {{--} else {--}}
+                                        {{--alert(jsonData.info);--}}
+                                        {{--return false;--}}
 
-                                    }
-                                }
-                            });
-                        };
-                    </script>
-                    <script language="javascript">
-                        <!--
-                        var ppl=70//每条长
-                        var maxl=200//总长
-                        document.onkeydown=function(){
-                            var s=document.getElementById("msg").value.length +1;
-                            if(s>maxl)document.getElementById("msg").value=document.getElementById("msg").value.substr(0,maxl-1)
-                            else document.getElementById("a").innerHTML="已输入："+s+"/"+maxl+" 字符"
-                        }
-                        function cha(){
-                            var txt=document.getElementById("msg").value,tl=txt.length;
-                            var txtArray=[],k=(tl/ppl<=1)?1:Math.ceil(tl/ppl);
-                            for (var i=0;i<k;i++){
-                                txtArray[i]=txt.substr(i*ppl,ppl);
-                                alert(txtArray[i]) ;
-                            }
-                            document.getElementById("msg").value=""
-                            document.getElementById("a").innerHTML="已输入字符: "
-                        }
-                        //-->
-                    </script> </div>
+                                    {{--}--}}
+                                {{--}--}}
+                            {{--});--}}
+                        {{--};--}}
+                    {{--</script>--}}
+                    {{--<script language="javascript">--}}
+                        {{--<!----}}
+                        {{--var ppl=70; //每条长--}}
+                        {{--var maxl=200; //总长--}}
+                        {{--document.onkeydown=function(){--}}
+                            {{--var s=document.getElementById("msg").value.length +1;--}}
+                            {{--if(s>maxl)document.getElementById("msg").value=document.getElementById("msg").value.substr(0,maxl-1);--}}
+                            {{--else document.getElementById("a").innerHTML="已输入："+s+"/"+maxl+" 字符"--}}
+                        {{--};--}}
+                        {{--function cha(){--}}
+                            {{--var txt=document.getElementById("msg").value,tl=txt.length;--}}
+                            {{--var txtArray=[],k=(tl/ppl<=1)?1:Math.ceil(tl/ppl);--}}
+                            {{--for (var i=0;i<k;i++){--}}
+                                {{--txtArray[i]=txt.substr(i*ppl,ppl);--}}
+                                {{--alert(txtArray[i]) ;--}}
+                            {{--}--}}
+                            {{--document.getElementById("msg").value="";--}}
+                            {{--document.getElementById("a").innerHTML="已输入字符: "--}}
+                        {{--}--}}
+                        {{--//-->--}}
+                    {{--</script>--}}
+                </div>
             </div>
         </div>
         <div class="knows shadow border mb30" style=" padding-top:3px;padding-left:12px;">
-            <script type="text/javascript" src="static/js/niaokhqxjlprx_3.js"></script>
+            <script type="text/javascript" src="/static/home/show/js/niaokhqxjlprx_3.js"></script>
         </div>
         <div class="knows shadow border mb30">
             <div class="ar_tit"> <span class="mark">相关日记</span> </div>
@@ -309,9 +325,6 @@
 </div>
 <script type="text/javascript">getDigg(55230);</script>
 <script src="/static/home/show/js/dpl-tab_v2_3.js" type="text/javascript"></script>
-<span id="click_num">
-<script type="text/javascript" src="/static/home/show/js/count_3.js"></script>
-</span>
 <script type="text/javascript">
     document.getElementById("click").innerHTML = document.getElementById("click_num").innerHTML;
 </script>

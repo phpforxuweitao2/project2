@@ -77,7 +77,7 @@
                             <span class="fr lgray">{{date('Y-m-d',$v->created_at)}}</span>
                             <span class="fr lgray">{{$v->size}}字</span>
                             <span class="fr pAuthor">{{$v->uname}}</span>
-                            <a style="cursor:pointer;" href="/{{$v->id}}/show">{{$v->title}}</a>
+                            <a style="cursor:pointer;" href="/list/{{$v->id}}/show">{{changeStr($v->title,'20','...')}}</a>
                         </p>
                     </li>
                 @endforeach

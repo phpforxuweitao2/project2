@@ -60,7 +60,7 @@ class ContentController extends Controller
         $data['updated_at'] = time();
         $data['status']     = '0';
         $data['is_admin']   = '1';
-        $data['uid']        = '0';
+        $data['uid']        = session('admin_info')['uid'];
         if ( DB::table('content')->insert($data) ) {
             return redirect('/bk_content/riji')->with('success','添加日记成功');
         } else {
@@ -141,7 +141,7 @@ class ContentController extends Controller
             ->where('a.status','1')
             ->where('a.uname','like','%'.$keywords.'%')
             ->orderBy('a.id')
-            ->paginate(2);
+            ->paginate(6);
         return view('admin.content.riji_vali',[
             'menu_content'          => 'active',
             'menu_content_riji_vali'=> 'active',

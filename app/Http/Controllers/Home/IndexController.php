@@ -11,15 +11,59 @@ use Cache;
 use Cookie;
 class IndexController extends Controller
 {
-    //无线递归方法
-    public function getCatesBypid($pid){
-        $s = DB::table('cates')->where('pid','=',$pid)->orderBy('id','asc')->get();
-        //±éÀú
-        $data=[];
-        foreach($s as $key=>$value){
-            $value->dev=$this->getCatesBypid($value->id);
-            $data[]=$value;
+
+    // 前台位置内容的方法
+    public function pon($pon)
+    {
+        // 获取该位置的顶级位置
+        $cid = DB::table('cates')
+                    ->select('id','name')
+                    ->where('position',$pon)
+                    ->where('status','!=','1')
+                    ->where('status','!=','2')
+                    ->first();
+        // 获取该位置顶级类的子类信息
+        $list = DB::table('cates')
+                    ->select('id','name')
+                    ->where('pid',$cid->id)
+                    ->where('status','!=','1')
+                    ->where('status','!=','2')
+                    ->orderBy('id')
+                    ->get();
+        // 将子类的信息存储在数组，找到该子类的所有内容
+        $con_id = [];
+        foreach($list as $v){
+            $con_id[] = $v->id;
         }
+        $con = DB::table('content')
+                    ->select('id','title')
+                    ->whereIn('cid',$con_id)
+                    ->where('status','0')
+                    ->limit(22)
+                    ->orderBy('id','desc')
+                    ->get(); 
+        // 将点击量的数据查询出来
+        $paihan = DB::table('content')
+                    ->select('id','title','num')
+                    ->whereIn('cid',$con_id)
+                    ->where('status','0')
+                    ->limit(22)
+                    ->orderBy('num','desc')
+                    ->get();
+        // 根据时间排序最新数据
+        $new = DB::table('content')
+                    ->select('id','title','num','created_at')
+                    ->whereIn('cid',$con_id)
+                    ->where('status','0')
+                    ->limit(22)
+                    ->orderBy('created_at','desc')
+                    ->get();
+        // 将顶级标题跟二级标题还有里面的内容存在数组
+        $data[] = $cid->name;
+        $data[] = $list;
+        $data[] = $con;
+        $data[] = $paihan;
+        $data[] = $new;     
         return $data;
     }
 
@@ -28,13 +72,13 @@ class IndexController extends Controller
      * @return [type] [description]
      */
     public function index(Request $req) {
-        // »ñÈ¡À¸Ä¿·ÖÀàµÄÊý¾Ý
-        $cate = $this->getCatesBypid(0);
-        // ÈÈÃÅÀàµÄÊý¾Ý
+        //  获取所有分类
+        $cate = getCatesBypid(0);
+        // 热门日记
         $data = DB::table('cates')->where('status', '3')->limit(5)->get();
-        // Ô­´´ÍÆ¼öµÄÕâ¿éµÄµÄÄÚÈÝ
+        // 原创下的文章
         $data_recommand = DB::table('content')->where('recommand', '=', '1')->limit(8)->get();
-        // Ô­´´ÏÂµÄÂÖ²¥
+        // 原创投稿的轮播
         $new = DB::table('content as c')
                     ->join('users_detail as u','c.uid','=','u.uid')
                     ->where('c.is_admin','0')
@@ -43,29 +87,47 @@ class IndexController extends Controller
                     ->select('c.title','c.created_at','u.nickname','u.uface','c.uid','c.id')
                     ->limit(10)
                     ->get();
-        // Ê×Ò³ÂÖ²¥Í¼
+        // 前台轮播图
         $pic = DB::table('lunbo')
                     ->where('status','0')
                     ->limit(4)
                     ->get();
-        // »ñÈ¡Ê×Ò³µÄ¹«¸æ
+        // 前台公告列表
         $notice = DB::table('notice')
                     ->orderBy('id','desc')
                     ->limit(3)
+                    ->get();
+        // 前台下的主要内容
+        $list = $this->pon(1);
+        // 站内前12个会员积分排行
+        $user = DB::table('users as u')
+                    ->join('users_detail as d','u.id','=','d.uid')
+                    ->select('u.id','d.nickname','d.uface')
+                    ->where('u.status','0')
+                    ->orderBy('u.score','desc')
+                    ->limit(12)
+                    ->get();
+        // dd($user);
+        // 友情链接信息
+        $link = DB::table('links')
+                    ->where('status','0')
                     ->get();
         return view('home.index.index',[
             'cates' => $cate,
             'data' => $data,
             'data_recommand' => $data_recommand,
-            'new'   => $new,
-            'pic'   => $pic,
-            'notice'=> $notice
+            'new'      => $new,
+            'pic'      => $pic,
+            'notice'   => $notice,
+            'con1'     => $list,
+            'users'    => $user,
+            'link'     => $link
         ]);
     }
 
 
     /**
-     * Ç°Ì¨ajax»ñÈ¡¹«¸æÏêÇé
+     * 公告详情
      * @param $id
      */
     public function show() {

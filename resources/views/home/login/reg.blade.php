@@ -263,6 +263,7 @@
                         url:'/regSendMail',
                         method:'post',
                         dataType:'json',
+                        contentType:'application/x-www-form-urlencoded',
                         data:{email:$f_email.val()},
                         success:function(res) {
                             if (res.code === '000') {

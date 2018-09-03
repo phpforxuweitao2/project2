@@ -29,7 +29,7 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::get('/index/show','IndexController@show');//前台公告 详情的AJAX
 
     Route::get('/list/{id}','ListController@index');//列表页面
-    Route::get('/{id}/show','ListController@show');//详情页面
+    Route::get('/list/{id}/show','ListController@show');//详情页面
 
 
 
@@ -185,6 +185,9 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         //系统设置模块
         Route::get('/bk_system/homemaintain', 'SystemController@maintain_home');//前台维护页面
         Route::post('/bk_system/homemaintainDownUp', 'SystemController@homemaintainDownUp');//关闭/开启前台访问
+
+        // 排版模块
+        Route::get('/bk_layout','LayoutController@index');//排版列表
     });
 
 
