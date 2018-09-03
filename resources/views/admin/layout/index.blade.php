@@ -25,7 +25,7 @@
                         <h4>排版列表</h4>
                     </div>
                     <div class="panel-body col-sm-6 text-right">
-                        <form class="form-inline" role="form" method="get" action="/bk_content/riji">
+                        <form class="form-inline" role="form" method="get" action="/bk_layout">
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputEmail2">内容搜索</label>
                                 <input type="text" class="form-control" id="exampleInputEmail2" placeholder="发布者/标题" name="keywords" />
@@ -38,34 +38,47 @@
                             <thead>
                                 <tr>
                                     <th> ID</th>
-                                    <th>发布者</th>
-                                    <th>类别</th>
-                                    <th>标题</th>
-                                    <th>字数</th>
-                                    <th>操作</th>
+                                    <th>排版类别</th>
+                                    <th>状态</th>
+                                    <th>排版位置</th>
+                                    <th class="col-sm-2 text-center" >操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                        
+                            @foreach($data as $v)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$v->id}}</td>
+                                    <td>{{$v->name}}</td>
                                     <td>
-                                        <a href="/bk_content/riji/show/"></a>
+                                        @if($v->status == 0) 
+                                        <span class="badge badge-success">正常</span> 
+                                        @elseif($v->status == 1) 
+                                        <span class="badge badge-important">禁用</span> 
+                                        @endif 
                                     </td>
-                                    <td></td>
                                     <td>
-                                       
-                                            <a class="label label-success" id="add-without-image" href="/bk_content/riji/{/recommand">标记推荐</a>
-                                        
-                                            <a class="label label-warning" id="add-without-image" href="/bk_content/riji/}/unrecommand">取消推荐</a>
-                                        
-                                        <a class="label label-info" id="add-without-image" href="/bk_content/riji/edit/}">修改</a>
-                                        <a class="label label-default" id="add-max" href="/bk_content/riji/del/}}" onclick="return confirm('确定删除吗?')">删除</a>
+                                        @if($v->position == 0) 
+                                        <span class="badge">未排版</span> 
+                                        @elseif($v->position == 1)
+                                        <span class="badge badge-warning">1号位</span> 
+                                        @elseif($v->position == 2)
+                                        <span class="badge badge-primary">2号位</span> 
+                                        @elseif($v->position == 3)
+                                        <span class="badge badge-success">3号位</span> 
+                                        @elseif($v->position == 4)
+                                        <span class="badge badge-info">4号位</span> 
+                                        @elseif($v->position == 5)
+                                        <span class="badge badge-inverse">5号位</span> 
+                                        @elseif($v->position == 6)
+                                        <span class="badge badge-important">6号位</span> 
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a class="label label-warning" id="add-without-image" href="/bk_layout/{{$v->id}}/edit">位置调整</a>
+                                         <a class="label label-danger" id="add-without-image" href="/bk_layout/{{$v->id}}/del">取消位置</a>
                                     </td>
                                 </tr>
-                            
+                            @endforeach
                             </tbody>
                         </table>
                         <!-- 分页 -->

@@ -125,7 +125,7 @@
            <ul class="p-info">
               <li>
               <div class="title">
-               <h1>{{$user->ncikname}}</h1>
+               <h1>{{$user->nickname}}</h1>
               </div>
               <div class="desk">
                 <span class="designation">人气&nbsp;&nbsp;&nbsp;&nbsp;</span>{{$user->fame}}

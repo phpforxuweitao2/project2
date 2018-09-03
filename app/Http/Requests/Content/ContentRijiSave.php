@@ -24,7 +24,7 @@ class ContentRijiSave extends FormRequest
     public function rules()
     {
         return [
-            'title'     => 'required|max:50',
+            'title'     => 'required|max:30',
             'content'   => 'required|regex:/\w+/'
         ];
     }
@@ -32,7 +32,7 @@ class ContentRijiSave extends FormRequest
     public function messages(){
         return [
             'title.required'    => '标题不能为空',
-            'title.max'         => '标题不能超过50个字符',
+            'title.max'         => '标题不能超过30个字符',
             'content.required'  => '内容不能为空',
             'content.regex'     => '内容不符合规则'
         ];

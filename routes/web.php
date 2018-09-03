@@ -18,6 +18,8 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::post('/login_check', 'LoginController@login_check');//验证登录
     Route::get('/logout', 'LoginController@logout');//退出登录
     Route::get('/reg', 'LoginController@register');//进入注册页面
+    Route::get('/forget','LoginController@forget');//进入忘记密码页面
+    Route::post('/doforget','LoginController@doforget');//处理忘记密码数据
     Route::post('/register_check', 'LoginController@registerCheck');//验证注册
     Route::post('/regCheckName','LoginController@checkName');//检测注册用户名
     Route::post('/regCheckNickname','LoginController@checkNickname');//检测注册笔名/妮称
@@ -188,6 +190,8 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
 
         // 排版模块
         Route::get('/bk_layout','LayoutController@index');//排版列表
+        Route::get('/bk_layout/{id}/edit','LayoutController@edit');//排版调整页
+        Route::post('/bk_layout/update','LayoutController@update');//排版调整操作方法
     });
 
 

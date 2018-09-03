@@ -11,134 +11,13 @@
   <link href="/static/home/index/css/newfix.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="/static/home/index/css/iconfont.css">
   <link rel="stylesheet" type="text/css" href="static/home/index/mycss/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="/static/home/register/mycss/mycss.css">
   <script src="/static/home/index/js/jquery-1.8.1.min.js" type="text/javascript"></script>
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
   <script src="/static/home/index/js/slideshow.js" type="text/javascript"></script>
   <script src="/static/home/index/js/g.js" type="text/javascript"></script>
   <style type="text/css">
-  .longd{
-    width:222px;
-    height: 30px;
-    padding:0px 5px 0px 34px;
-    margin-bottom:20px;
-    border: 1px solid #ccc;
-    position: relative;
-  }
-  .longd i{
-    position: absolute;
-    left: 6px;
-    top: 3px;
-    font-size: 18px;
-    color: #ccc;
-  }
-  .longd input{
-    height:30px;
-    border: none;
-  }
-  .cbx{
-    border: none;
-    line-height: 20px;
-    padding-left: 5px;
-  }
-  .cbx span{
-    position: relative;
-    top:-11px;
-    left: 3px;
-  }
-  #ddlulu{
-    height: 30px;
-    width: 264px;
-    background: #ccc;
-    text-align: center;
-    display: block;
-    font-size: 16px;
-    color: #fff;
-    line-height: 30px;
-  }
-  #ddlulu:hover{
-    background:#FC6F31;
-    cursor:pointer;
-  }
-  .gonggao{
-    width: 600px;
-    height: 450px;
-    position: fixed;
-    top: 80px;
-    left: 350px;
-    background: #fff;
-    z-index: 999;
-    font-family: "微软雅黑";
-    background: url('/static/home/index/images/gonggao1.png') no-repeat 0 80px #fff;
-  }
-  .gonggao h2{
-    text-align: center;
-    height: 80px;
-    line-height: 80px;
-    font-size: 24px;
-    background: #c7f8da;
-    border-bottom: 1px solid #ccc;
-    color:#da9b14;
-    font-weight: 500;
-  }
-  .gonggao p{
-    padding:20px;
-    font-size: 16px;
-    line-height: 32px;
-    padding-left: 100px;
-  }
-  .gonggao div{
-    position: absolute;
-    right: 0;
-    bottom: 50px;
-    padding:30px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 14px;
-  }
-  .gonggao i{
-    font-size: 16px;
-    position: absolute;
-    right: 0;
-    top:0;
-  }
-  .gonggao i:hover{
-    color: red;
-    cursor: pointer;
-  }
-  .gonggao button{
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #46b8da;
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: 400;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 4px;
-    position: absolute;
-    bottom: 30px;
-    left: 260px;
-  }
-  .motai{
-    height: 100%;
-    width: 100%;
-    background: rgba(204,204,204,0.4);
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    display: none;
-  }
-  a{
-    cursor: pointer;
-  }
+ 
   </style>
  </head>
  <body id="Jbody">
@@ -295,7 +174,11 @@
       @else
        <div class="c nq-center">
          <div style="height:226px">
-          <a class="first pc-edit"><img class="fl" src="{{session('home_user')['uface']}}" width="68" height="68" /> <span class="art-tit">{{session('home_user')['nickname']}}</span> <span class="art-des">积分：{{session('home_user')['score']}} </span></a>
+          <a class="first pc-edit" href="/ps_space/{{session('home_user')['id']}}">
+            <img class="fl" src="{{session('home_user')['uface']}}" width="68" height="68" />
+            <span class="art-tit">{{session('home_user')['nickname']}}</span> 
+            <span class="art-des">积分：{{session('home_user')['score']}} </span>
+          </a>
           <div class="user_menu">
            <ul>
             <li><a href="/ps_riji" target="_blank">发表文章</a></li>
@@ -316,6 +199,7 @@
       </div>
        </div>
      <div style="clear:both"></div>
+     <!-- 站内公告 -->
      <div class="iiarTitle">
       <a>本站公告</a>
      </div>
@@ -326,6 +210,7 @@
        @endforeach
       </ul>
      </div>
+     <!-- 公告结束 -->
     </div>
    </div>
   </div>
@@ -442,7 +327,7 @@
   <div class="motai">
     <div class="gonggao">
         <h2 id="notitle"></h2>
-        <p id="nocontent"></p>
+        <p id="nocontent" style="padding-left:80px;"></p>
         <div id="notiem">发布时间</div>
         <button class="g-but">确定</button>
         <i class="iconfont icon-guanbi"></i>

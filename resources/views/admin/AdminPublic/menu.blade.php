@@ -83,7 +83,7 @@
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>排版管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="form_layouts.html">首页排版</a></li>
+                    <li><a href="/bk_layout">首页排版</a></li>
                 </ul>
             </li>
             <li class="menu-list {{$menu_lunbo or ''}}">
