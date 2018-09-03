@@ -36,8 +36,11 @@
        {{$msg->signatrue}}
       </div> 
       <div class="per_xgBtn"> 
+       @if($msg->uid != session('home_user')['id'])
        <a class="per_btn gz_btn" href="/ps_space/gz/{{$msg->uid}}">关注</a> 
-       <button class="per_btn sx_btn"><a href="/ps_letter/send/{{$msg->uid}}" target="_blank">私信</a></button> 关注：{{$msg->from_uid}} 人&nbsp;&nbsp;&nbsp;&nbsp;粉丝：{{$fs}} 人 
+       <button class="per_btn sx_btn"><a href="/ps_letter/send/{{$msg->uid}}" target="_blank">私信</a></button> 
+       @endif
+       关注：{{$msg->from_uid}} 人&nbsp;&nbsp;&nbsp;&nbsp;粉丝：{{$fs}} 人 
       </div> 
      </div> 
      <div class="clear"></div> 

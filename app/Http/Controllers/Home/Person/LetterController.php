@@ -53,9 +53,6 @@ class LetterController extends Controller
 		$data = $req->only('to_uid','content');
 		$data['from_uid'] = $from_id;
 		$data['created_at'] = time();
-		if($data['to_uid'] == $from_id){
-			return back()->with('error','不能给自己发信件');
-		}
 		$res = DB::table('letter')->insert($data);
 		if($res){
 			return redirect('/ps_letter/out')->with('success','信件发送成功');
