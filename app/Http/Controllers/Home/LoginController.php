@@ -102,7 +102,6 @@ class LoginController extends Controller
                 DB::table('users_detail')->insert([
                     'nickname'  => $data['nickname'],
                     'uid'       => $uid,
-                    'sex'       => $data['sex'],
                 ]);
                 DB::commit();
                 return response()->json([
@@ -176,14 +175,14 @@ class LoginController extends Controller
         }
     }
 
-        //发送邮箱验证码
+    //发送邮箱验证码
     public function regSendMail(Request $req)  {
         $toEmail = $req->input('email');
         $vcode = mt_rand(10000,999999);
         $limit_time = 3;
         Cookie::queue('reg_vcode',$vcode,$limit_time);
         //邮件发送方式一:  以文本形式发送邮件
-        Mail::raw("你好,注册验证码为: {$vcode} , {$limit_time}分钟内有效。By 印象日记网络!",function($message) use($toEmail) {
+        Mail::raw("你好,注册验证码为: {$vcode} , {$limit_time}分钟内有效。By 印象日记网!",function($message) use($toEmail) {
             $message->subject('印象日记注册验证码');
             $message->to($toEmail);
         });
@@ -193,5 +192,19 @@ class LoginController extends Controller
             'time'      => time()
         ]);
     }
+
+    /**
+     * 进入忘记密码页面
+     */
+    public function forget() {
+        return view('home.login.forget');
+    }
+
+    public function doforget(Request $req) {
+        $data = $req->except('_token');
+        return response()->json($data);
+    }
+
+
 
 }

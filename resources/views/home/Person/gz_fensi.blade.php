@@ -23,14 +23,16 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             积分：{{$v->fame}}
           </span>
-          <a href="https://www.riji.cn/user/mail/13791/" target="_blank">发送短信</a>
-          <a href="https://www.riji.cn/user/13791/quguan/" target="_blank">关注TA</a>
+          <a href="/ps_letter/send/{{$v->from_uid}}" target="_blank">发送信息</a>
+          <a href="/ps_space/gz/{{$v->from_uid}}">关注TA</a>
         </div>
       </li>
       @endforeach
     </ul>
-    <div class="gz_page">   
-      <span>共 1 页/1条记录</span>
+    <div class="article_pages">   
+      <span>
+        {{$data->render()}}
+      </span>
     </div> 
   </div>
 @endsection

@@ -32,7 +32,7 @@
         <div class="clock">
             <img src="/static/home/register/img/aa.png" width="100px" class="wawa">
         </div>
-        <div class="regNew_enter">
+        <div class="regNew_enter" style="display: none;">
             <a href="/login">登录</a> <a href="/reg">注册</a>
         </div>
     </div>
@@ -78,21 +78,6 @@
                             <input type="text"  placeholder="笔名站内昵称仅允许汉字" id="f_nickname" autocomplete="off" class="form-control" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" oncontextmenu="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" name="nickname">
                         </div>
                         <span  class="col-lo-3 hide">账号名不符合规则密码错误为啥啊</span>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">性别</label>
-                        <div class="col-lg-7 text-left">
-                            <div class="sex col-lg-2">
-                                <label>
-                                    <input type="radio" name="sex" value="m" checked>男
-                                </label>
-                            </div>
-                            <div class="sex col-lg-2">
-                                <label>
-                                    <input type="radio" name="sex" value="w">女
-                                </label>
-                            </div>
-                        </div>
                     </div>
                     <div class="form-group ">
                         <label class="col-lg-2 control-label">邮箱</label>
@@ -334,8 +319,6 @@
                 });
             });
 
-
-
             $fm_reg.submit(function(ev){
                 $.ajax({
                     url: '/register_check',
@@ -374,7 +357,7 @@
     </script>
 </div>
 <div class="reg_footer">
-    <div class="reg_bqsm">Copyright © 2004-2017 www.riji.cn . All Rights Reserved <a href="/">日记网</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备16062942号-9</a></div>
+    <div class="reg_bqsm">Copyright © 2018</div>
 </div>
 </body>
 </html>
