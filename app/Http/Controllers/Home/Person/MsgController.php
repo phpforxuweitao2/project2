@@ -15,7 +15,7 @@ class MsgController extends Controller
         $id = $all['home_user']['id'];
     	$data = DB::table('users as u')
     		->join('users_detail as ud','u.id','=','ud.uid')
-    		->select('u.name','u.pass','ud.sex','ud.nickname','ud.uface')
+    		->select('u.name','u.pass','ud.sex','ud.nickname','ud.uface','ud.birthday')
     		->where('u.id','=',$id)
     		->get();
 
@@ -26,7 +26,15 @@ class MsgController extends Controller
     public function doedit(Request $req) {
         $all = $req->session()->all();
         $id = $all['home_user']['id'];
-    	$data = $req->only('nickname','sex');
+    	$data = $req->only('nickname','sex','birthday');
+        $y = substr($data['birthday'],0,4);
+        $m = substr($data['birthday'],5,2);
+        $d = substr($data['birthday'],8,2);
+        $mktime = mktime(0,0,0,$m,$d,$y);
+
+        if(time()-$mktime<0){
+            return back()->with('error','出生日期有误');
+        }
         // dd($data);
     	// 头像修改
     	if($req->hasFile('pic')){
