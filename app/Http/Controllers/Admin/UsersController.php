@@ -152,9 +152,9 @@ class UsersController extends Controller
         $data = DB::table('users as u')
             ->join('users_detail as ud','u.id','=','ud.uid')
             ->where('u.id',$id)
-            ->get();
-
-        return view('admin.users.show',['user'=>$data[0],'menu_users'=>'active']);
+            ->first();
+        // dd($data);
+        return view('admin.users.show',['user'=>$data,'menu_users'=>'active']);
     }
 
 

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/static/home/register/bs/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/home/register/static/css/mycss1.css">
     <link rel="stylesheet" type="text/css" href="/static/home/register/mycss/mycss.css">
+    <link rel="stylesheet" type="text/css" href="static/home/index/mycss/iconfont.css">
     <script type="text/javascript" src="/static/home/register/static/js/jquery-3.1.1.js"></script>
     <style type="text/css">
         .wawa{
@@ -24,6 +25,7 @@
 </head>
 
 <body>
+
 <div class="regNew_top">
     <div class="reg_topCon tupian">
         <div class="logo" style="z-index: 50"></div>
@@ -107,7 +109,7 @@
                         <span class="hide">验证码错误</span>
                         <button id="getCode" type="button" style="width: 150px; height: 40px;" class="btn btn-success">获取验证码</button>
                     </div>
-                    <div class="info_tip">点击“立即注册”,即表示您同意并愿意遵守<a>《用户协议》</a></div>
+                    <div class="info_tip">点击“立即注册”,即表示您同意并愿意遵守<a href="javascript:void(0)" id='xieyi'>《用户协议》</a></div>
                     <div class="form-group text-center" style="text-align: center;">
                         <div class="col-lg-8 ">
                             <button class="reg_btn" id="embed-submit" type="submit">立即注册</button>
@@ -120,7 +122,31 @@
     <div class=" col-md-2 tupian">
         <img src="/static/home/register/img/6.jpg" width="150px" class='yay'>
     </div>
+     {{--模态框--}}
+  <div class="motai">
+    <div class="gonggao">
+        <h2 id="notitle">本站协议</h2>
+        <p id="nocontent">&nbsp;&nbsp;&nbsp;&nbsp;大哥们，我现在要说的呢！！！很重要，关于用户协议呢，只要你们不犯法怎么舒服怎么来，大佬们高兴就好。。。当然本站最终解释权归老子所有...<br>PS：有什么得罪的地方你，请找我老大</p>
+        <div id="notiem">
+            伟大的站长致<br>
+            2018/09/03
+        </div>
+        <button class="g-but">确定</button>
+        <i class="iconfont icon-guanbi"></i>
+    </div>
+  </div>
+  {{--模态框结束--}}
     <script type="text/javascript">
+        $('#xieyi').click(function(){
+            // $('#notitle').html('本站协议');
+            $('.motai').css('display','block');
+        });
+
+        // 公告框隐藏
+        $('.icon-guanbi,.g-but').click(function(){
+            $('.motai').css('display','none');
+        });
+
         $(function(){
              $fm_reg = $("#fm_reg");
              $f_name = $("#f_name");

@@ -188,6 +188,8 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
 
         // 排版模块
         Route::get('/bk_layout','LayoutController@index');//排版列表
+        Route::get('/bk_layout/{id}/edit','LayoutController@edit');//排版调整页
+        Route::post('/bk_layout/update','LayoutController@update');//排版调整操作方法
     });
 
 
