@@ -7,7 +7,7 @@
  * @param $tail //截取后结尾替换的字符
  * @return null|string  返回截取后的字符窜
  */
-function changeStr($str,$len,$tail) {
+function changeStr(string $str, int $len, string $tail) :string {
     if ( mb_strlen($str)>$len ) {
         $tmp = mb_substr($str,0,$len,'utf8');
         return $tmp.$tail;

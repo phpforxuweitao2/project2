@@ -30,9 +30,9 @@ class ListController extends Controller
             ]);
         } else {    //进入顶级分类对应的子类列表
             //根据顶级类的id获取子类列表(一级分类) 和  子类的列表(内容)
-            $res_cids = DB::table('cates')->where('pid',$cate_info->id)->select('id','name')->get();
+            $res_cids = DB::table('cates')->where('pid',$cate_info->id)->orderBy('id')->select('id','name')->get();
             foreach ($res_cids as $k=>$v) {
-                $v->child = DB::table('content')->select(['id','title'])->where('cid',$v->id)->get();
+                $v->child = DB::table('content')->orderBy('id','desc')->where('cid',$v->id)->select(['id','title'])->get();
                 $lists[] = $v;
             }
             return view('home.index.list_p',[
@@ -46,16 +46,40 @@ class ListController extends Controller
 
     /**
      * 详情页面
-     * @param $id
+     * @param $id  int 内容id
      * @return string
      */
     public function show($id) {
-        return "{$id}的详情页面";
+        //$id对应的内容点击数量+1
+        DB::table('content')->where('id',$id)->increment('num');
         //导航栏分类列表
-        /*$cate = $this->getCatesBypid(0);
+        $cate = DB::table('cates')->select('id','name')->where('pid','=',0)->orderBy('id','asc')->get();
+        //根据内容参数$id 获取内容数据 以及根据内容数据中的cid 获取 内容页面子导航链接
+        $info = DB::table('content')
+            ->where('id','=',$id)
+            ->first();
+        $child_cate = DB::table('cates')->select('id','name','pid')->where('id','=',$info->cid)->first();
+        $parent_cate = DB::table('cates')->select('id','name')->where('id','=',$child_cate->pid)->first();
+        if ( DB::table('content')->select('is_admin')->where('is_admin','=','0')->where('id',$id)->first() ) {
+            $contents = DB::table('content as c')
+                ->join('users as u','c.uid','=','u.id')
+                ->join('users_detail as ud','c.uid','=','ud.uid')
+                ->select('c.*','ud.uface')
+                ->where('c.id',$id)
+                ->first();
+        } else {//管理员用户发表内容
+            $contents = DB::table('content')
+                ->where('id',$id)
+                ->first();
+        }
+
+        //dd($contents);
         return view('home.index.show',[
-            'cates' => $cate
-        ]);*/
+            'cates'         => $cate,
+            'parent_cate'   => $parent_cate,
+            'childrent_cate'=> $child_cate,
+            'contents'      => $contents
+        ]);
     }
 
 

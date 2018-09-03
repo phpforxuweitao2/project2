@@ -29,7 +29,7 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::get('/index/show','IndexController@show');//前台公告 详情的AJAX
 
     Route::get('/list/{id}','ListController@index');//列表页面
-    Route::get('/{id}/show','ListController@show');//详情页面
+    Route::get('/list/{id}/show','ListController@show');//详情页面
 
 
 

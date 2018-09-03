@@ -79,7 +79,7 @@ class LoginController extends Controller
     //退出登录
     public function logout() {
         session()->pull('home_user');
-        return back();
+        return redirect('/');
     }
 
     //进入注册页面
@@ -160,7 +160,7 @@ class LoginController extends Controller
     //检测邮箱验证码是否正确
     public function checkVcode(Request $req) {
         $vcode = $req->input('vcode');
-        $reg_vcode = Cache::get('reg_vcode');
+        $reg_vcode = Cookie::get('reg_vcode');
         if ( $req->ajax() && $vcode == $reg_vcode ) {
             return response()->json([
                 'code'      => '000',
@@ -181,11 +181,11 @@ class LoginController extends Controller
         $toEmail = $req->input('email');
         $vcode = mt_rand(10000,999999);
         $limit_time = 3;
-        Cache::put('reg_vcode',$vcode,$limit_time);
+        Cookie::queue('reg_vcode',$vcode,$limit_time);
         //邮件发送方式一:  以文本形式发送邮件
         Mail::raw("你好,注册验证码为: {$vcode} , {$limit_time}分钟内有效。By 印象日记网络!",function($message) use($toEmail) {
             $message->subject('印象日记注册验证码');
-            $message->to('1139204319@qq.com');
+            $message->to($toEmail);
         });
         return response()->json([
             'code'      => '000',
@@ -193,6 +193,5 @@ class LoginController extends Controller
             'time'      => time()
         ]);
     }
-
 
 }

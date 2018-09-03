@@ -44,13 +44,13 @@
             <div class="ia_ListPart">
                 <div class="ia_part">
                     <div class="iaAt_title">
-                        <h2><a href="/list/{{$v->id}}">{{$v->name}}</a></h2>
+                        <h2><a style="cursor:pointer;" href="/list/{{$v->id}}">{{$v->name}}</a></h2>
                     </div>
                     <div class="ia_articleList">
                         <ul>
                         @foreach($v->child as $k2=>$v2)
                             <li>
-                                <a style="cursor:pointer;" href="/{{$v2->id}}/show">{{$v2->title}}</a>
+                                <a style="cursor:pointer;" href="/list/{{$v2->id}}/show">{{changeStr($v2->title,20,'...')}}</a>
                             </li>
                         @endforeach
                         </ul>
