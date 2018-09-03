@@ -141,7 +141,7 @@ class ContentController extends Controller
             ->where('a.status','1')
             ->where('a.uname','like','%'.$keywords.'%')
             ->orderBy('a.id')
-            ->paginate(2);
+            ->paginate(6);
         return view('admin.content.riji_vali',[
             'menu_content'          => 'active',
             'menu_content_riji_vali'=> 'active',

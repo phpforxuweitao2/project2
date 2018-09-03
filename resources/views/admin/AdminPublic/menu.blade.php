@@ -77,30 +77,13 @@
                 <ul class="sub-menu-list">
                     <li class="{{$menu_content_riji_add or ''}}"><a href="/bk_content/riji/add"> 添加内容</a></li>
                     <li class="{{$menu_content_riji or ''}}"><a href="/bk_content/riji"> 内容列表</a></li>
-                    <li class="{{$menu_content_riji_vali or ''}}"><a href="/bk_content/riji/vali"> 内容审核列表</a></li>
-                    <li class="{{$menu_content_riji_unpasslist or ''}}"><a href="/bk_content/riji/unpasslist"> 内容审核未通过列表</a></li>
+                    <li class="{{$menu_content_riji_vali or ''}}"><a href="/bk_content/riji/vali"> 待审核列表</a></li>
+                    <li class="{{$menu_content_riji_unpasslist or ''}}"><a href="/bk_content/riji/unpasslist"> 审核驳回列表</a></li>
                 </ul>
             </li>
-
-            <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>Mail</span></a>
+            <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>排版管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="mail.html"> Inbox</a></li>
-                    <li><a href="mail_compose.html"> Compose Mail</a></li>
-                    <li><a href="mail_view.html"> View Mail</a></li>
-                </ul>
-            </li>
-
-            <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Forms</span></a>
-                <ul class="sub-menu-list">
-                    <li><a href="form_layouts.html"> Form Layouts</a></li>
-                    <li><a href="form_advanced_components.html"> Advanced Components</a></li>
-                    <li><a href="form_wizard.html"> Form Wizards</a></li>
-                    <li><a href="form_validation.html"> Form Validation</a></li>
-                    <li><a href="editors.html"> Editors</a></li>
-                    <li><a href="inline_editors.html"> Inline Editors</a></li>
-                    <li><a href="pickers.html"> Pickers</a></li>
-                    <li><a href="dropzone.html"> Dropzone</a></li>
-                    <li><a href="http://www.weidea.net"> More</a></li>
+                    <li><a href="form_layouts.html">首页排版</a></li>
                 </ul>
             </li>
             <li class="menu-list {{$menu_lunbo or ''}}">

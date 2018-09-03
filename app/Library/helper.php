@@ -7,6 +7,7 @@
  * @param $tail //截取后结尾替换的字符
  * @return null|string  返回截取后的字符窜
  */
+
 function changeStr($str,$len,$tail) {
     if ( mb_strlen($str)>$len ) {
         $tmp = mb_substr($str,0,$len,'utf8');
@@ -15,3 +16,19 @@ function changeStr($str,$len,$tail) {
         return $str;
     }
 }
+
+/**
+ * 无限级递归获取子类整合
+ * @param  [int] $pid [分类的pid]
+ * @return [type]      [description]
+ */
+function getCatesBypid($pid){
+        $s = DB::table('cates')->where('pid','=',$pid)->orderBy('id','asc')->get();
+        //±éÀú
+        $data=[];
+        foreach($s as $key=>$value){
+            $value->dev = getCatesBypid($value->id);
+            $data[] = $value;
+        }
+        return $data;
+    }

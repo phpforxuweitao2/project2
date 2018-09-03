@@ -324,11 +324,12 @@
   <div class="main tab3 clearfix" id="main2">
    <div class="left660 fl border shadow">
     <div class="th clearfix">
-     <p class="tabTit fl">小学生日记</p>
+     <p class="tabTit fl">{{$con1[0]}}</p>
      <div class="th-b fr">
-      <a href="https://www.riji.cn/1/" target="_blank">一年级</a>
+      @foreach($con1[1] as $c)
+      <a href="/list/{{$c->id}}" target="_blank">{{$c->name}}</a>
       <em></em>
-
+      @endforeach
      </div>
     </div>
     <div class="pic-txt">
@@ -338,8 +339,9 @@
      </div>
      <div class="txtbox">
       <ul class="txt" style="margin-top:20px">
-       <li><a href="https://www.riji.cn/html/55247.html" target="_blank">暑假过去一半了</a> </li>
-
+      @foreach($con1[2] as $nie)
+       <li><a href="https://www.riji.cn/html/55247.html" target="_blank">{{$nie->title}}</a> </li>
+      @endforeach
       </ul>
      </div>
     </div>
@@ -349,20 +351,23 @@
      <div class="control">
       <ul id="myTab">
        <li class="active" onmouseover="nTabs(this,0);"><a>阅读排行<em></em></a></li>
-       <li class="normal" onmouseover="nTabs(this,1);"><a>字数分类<em></em></a></li>
+       <li class="normal" onmouseover="nTabs(this,1);"><a>最新投稿<em></em></a></li>
       </ul>
      </div>
      <div class="tb-slide03">
       <div class="c" id="myTab_Content0">
        <ul class="hotPicUlList">
-        <li> <a href="https://www.riji.cn/html/53107.html" target="_blank"><i class="iName">放鞭炮</i> <i class="iGood">二年级日记</i> </a> </li>
-
+        @foreach($con1[3] as $val)
+        <li> <a href="{{$val->id}}" target="_blank"><i class="iName">{{$val->title}}</i> <i class="iGood">{{$val->num}}</i> </a> </li>
+        @endforeach
        </ul>
       </div>
       <div class="c" id="myTab_Content1" style="display:none;">
-       <div class="qc-list3 color9 mt25">
-        <a target="_blank" href="https://www.riji.cn/20zi/" title="日记20字">20字</a>
-       </div>
+       <ul class="hotPicUlList">
+        @foreach($con1[4] as $val)
+        <li> <a href="{{$val->id}}" target="_blank"><i class="iName">{{$val->title}}</i> <i class="iGood">{{date('Y-m-d',$val->created_at)}}</i> </a> </li>
+        @endforeach
+       </ul>
       </div>
      </div>
     </div>
@@ -372,10 +377,12 @@
   <div class="main border shadow mb30">
    <div class="i3_lBox">
     <div class="i3lBox-th">
-     <h3 class="mark">月投稿榜<span style=" margin-left:20px; font-size:14px; color:#666">[ 按一月内通过审核的投稿数排序 ]</span></h3>
+     <h3 class="mark">积分大佬榜<span style=" margin-left:20px; font-size:14px; color:#666">[ 按网站会员积分排序(积分通过签到、投稿等获取) ]</span></h3>
     </div>
     <ul class="picList-ul">
-     <li><a href="https://www.riji.cn/user/13050/" target="_blank"><img src="/static/home/index/picture/myface.png" width="65" height="65" /><i>柠檬不萌❤</i></a></li>
+     @foreach($users as $v)
+     <li><a href="https://www.riji.cn/user/13050/" target="_blank"><img src="{{$v->uface}}" width="65" height="65" /><i>{{$v->nickname}}</i></a></li>
+     @endforeach
     </ul>
    </div>
   </div>
@@ -403,8 +410,9 @@
      <img src="/static/home/index/picture/lxqq.gif" width="200" height="36" />
     </div>
     <div class="lBox-tb i3_hzhb clearfix">
-     <a href="http://www.riji.cn/" target="_blank">日记大全</a>
-
+      @foreach($link as $v)
+     <a href="{{$v->url}}" target="_blank">{{$v->name}}</a>
+     @endforeach
     </div>
    </div>
   </div>

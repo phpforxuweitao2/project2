@@ -181,6 +181,9 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         //系统设置模块
         Route::get('/bk_system/homemaintain', 'SystemController@maintain_home');//前台维护页面
         Route::post('/bk_system/homemaintainDownUp', 'SystemController@homemaintainDownUp');//关闭/开启前台访问
+
+        // 排版模块
+        Route::get('/bk_layout','LayoutController@index');//排版列表
     });
 
 
