@@ -7,12 +7,7 @@
  * @param $tail //截取后结尾替换的字符
  * @return null|string  返回截取后的字符窜
  */
-<<<<<<< HEAD
-function changeStr(string $str, int $len, string $tail) :string {
-=======
-
-function changeStr($str,$len,$tail) {
->>>>>>> ad2429d74d24bb854dccee4ab7e2455c17b91a94
+function changeStr(string $str, int $len, string$tail) :string {
     if ( mb_strlen($str)>$len ) {
         $tmp = mb_substr($str,0,$len,'utf8');
         return $tmp.$tail;
@@ -27,12 +22,12 @@ function changeStr($str,$len,$tail) {
  * @return [type]      [description]
  */
 function getCatesBypid($pid){
-        $s = DB::table('cates')->where('pid','=',$pid)->orderBy('id','asc')->get();
-        //±éÀú
-        $data=[];
-        foreach($s as $key=>$value){
-            $value->dev = getCatesBypid($value->id);
-            $data[] = $value;
-        }
-        return $data;
+    $s = DB::table('cates')->where('pid','=',$pid)->orderBy('id','asc')->get();
+    //数组集合
+    $data=[];
+    foreach($s as $key=>$value){
+        $value->dev = getCatesBypid($value->id);
+        $data[] = $value;
     }
+    return $data;
+}

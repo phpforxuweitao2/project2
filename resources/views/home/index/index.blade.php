@@ -225,20 +225,27 @@
     </div>
     <div class="middle_box">
      <div class="riji">
-      <a href="javascript:vod(0);" onclick="tougao();" target="_blank">我要投稿</a>原创日记
+      <a href="/ps_riji" target="_blank">我要投稿</a>原创日记
      </div>
      <div class="moveAr" id="scrollDiv">
       <ul>
+       {{--原创日记轮播--}}
         @foreach($new as $list)
-       <li> <p class="photo"><a href="" target="_blank"><img src="{{$list->uface}}" alt="{{$list->nickname}}" /></a></p>
+       <li> <p class="photo">
+         <a href="/ps_space/{{$list->uid}}" target="_blank">
+          <img src="{{$list->uface}}" alt="{{$list->nickname}}" />
+         </a>
+        </p>
         <div class="con_tit">
          <div class="ys_icon">
           <span class="data">{{date('m-d',$list->created_at)}}</span>
           <span class="writer">{{$list->nickname}}</span>
-          <a href="https://www.riji.cn/html/55234.html" target="_blank">{{$list->title}}</a>
+          <a href="/list/{{$list->id}}/show" target="_blank">{{$list->title}}</a>
          </div>
-        </div> </li>
+        </div>
+       </li>
         @endforeach
+       {{--原创日记轮播 结束--}}
       </ul>
      </div>
      <div class="riji_list">
@@ -291,13 +298,15 @@
           <a class="first pc-edit"><img class="fl" src="{{session('home_user')['uface']}}" width="68" height="68" /> <span class="art-tit">{{session('home_user')['nickname']}}</span> <span class="art-des">积分：{{session('home_user')['score']}} </span></a>
           <div class="user_menu">
            <ul>
-            <li><a href="/user/riji_add" target="_blank">发表文章</a></li>
-            <li><a href="/user/wenzhang/" target="_blank">我的投稿</a></li>
-            <li><a href="/user/lipin" target="_blank">积分兑换</a></li>
-            <li><a href="/user/touxiang" target="_blank">头像管理</a></li>
-            <li><a href="/" target="_blank">我的主页</a></li>
+            <li><a href="/ps_riji" target="_blank">发表文章</a></li>
+            <li><a href="/ps_article" target="_blank">我的投稿</a></li>
+            <li><a href="#" target="_blank">积分兑换</a></li>
+            <li><a href="/ps_msg" target="_blank">头像管理</a></li>
+            <li><a href="/ps_space/{{session('home_user')['id']}}" target="_blank">我的主页</a></li>
             <li><a href="/logout">退出登录</a></li>
-            <span><a href="/ps_index" target="_blank">进入会员中心</a></span>
+            <span>
+              <a href="/ps_index" target="_blank">进入会员中心</a>
+            </span>
            </ul>
           </div>
          </div>
@@ -381,7 +390,11 @@
     </div>
     <ul class="picList-ul">
      @foreach($users as $v)
-     <li><a href="https://www.riji.cn/user/13050/" target="_blank"><img src="{{$v->uface}}" width="65" height="65" /><i>{{$v->nickname}}</i></a></li>
+     <li>
+      <a href="/ps_space/{{$list->uid}}" target="_blank">
+       <img src="{{$v->uface}}" width="65" height="65" /><i>{{$v->nickname}}</i>
+      </a>
+     </li>
      @endforeach
     </ul>
    </div>
@@ -420,26 +433,21 @@
    <script src="/static/home/index/js/link.js" type="text/javascript"></script>
    <div style="clear:both;"></div>
    <div class="bqsm">
-    Copyright &copy; 2004-2017 www.riji.cn . All Rights Reserved
-    <a href="https://www.riji.cn/">日记网</a> 日记大全
-    <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备16062942号-9</a>
-    <br />
-    <img src="/static/home/index/picture/gongan.png" width="20" height="20" />苏公网安备 32132202000332号
+    Copyright &copy; 2018
+    <a href="/">日记网</a> 日记大全
    </div>
   </div>
+  {{--模态框--}}
   <div class="motai">
     <div class="gonggao">
-        <h2 id="notitle">哈哈哈</h2>
-        <p id="nocontent">
-          本站第一帅哥,w我发送的发放防风网rwefsfadfsfsfasdfffffffffffffffff的定位费我无法东方闪电fdsfdsfdsffa而非第三方第三方
-        </p>
-        <div id="notiem">
-          发布时间
-        </div>
+        <h2 id="notitle"></h2>
+        <p id="nocontent"></p>
+        <div id="notiem">发布时间</div>
         <button class="g-but">确定</button>
         <i class="iconfont icon-guanbi"></i>
     </div>
   </div>
+  {{--模态框结束--}}
   <script src="/static/home/index/js/dpl-tab_v2.js" type="text/javascript"></script>
  </body>
  <script type="text/javascript">
