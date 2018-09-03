@@ -74,7 +74,7 @@ a img{ border:none;}
 .title{ width:656px; height:34px;background:#F2F2F2; overflow:hidden; line-height:34px;}
 .zw_tit a{ display:block; float:left; margin-left:15px; width:auto; font-size:18px; font-weight:600; color:#101111;}
 .zw_tit a:hover{ color:#f40b37;}
-.zw_grade{display:block; float:right; margin-right:12px; width:auto; font-size:14px; color:#333;padding: 0 0 0 26px;background: url({{$msg->uface}}) no-repeat scroll left 10px transparent;}
+.zw_grade{display:block; float:right; margin-right:12px; width:auto; font-size:14px; color:#333;padding: 0 0 0 26px;background: url(/images/icon_book.png) no-repeat scroll left 10px transparent;}
 .summary{padding:26px 0px 15px 0px;}
 .summary p { font-size:14px;text-indent:2em; text-align:left; line-height:24px;}
 .artinfo {padding:0px 12px 6px 0px;height: 30px;text-align: right;color: #B9A086;font-size: 12px; margin-bottom:4px;}
