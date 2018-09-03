@@ -68,7 +68,7 @@
               @else
                 <a  class="label label-success" id="add-without-image" href="/bk_adminuser/open/{{$row->id}}">启用</a>
                @endif
-            <a class="label label-default" id="add-max" href="/bk_adminuser/del/{{$row->id}}">删除</a>
+            <a class="label label-default" id="add-max" href="/bk_adminuser/del/{{$row->id}}" onclick="return confirm('确定删除吗?')">删除</a>
           </td>
          </tr>
          @endforeach
