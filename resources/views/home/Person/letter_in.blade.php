@@ -18,22 +18,24 @@
         	<div class="znx_info">
         	<a><img src="{{$v->uface}}"></a>
         	<span>
-        		<a class="znx_name" href="" target="_blank">{{$v->nickname}}</a> 
-        		{{date('Y-m-d H:i:s',$v->created_at)}} <a href="">[回复TA]</a>
+        		<a class="znx_name" href="/ps_space/{{$v->from_uid}}" target="_blank">{{$v->nickname}}</a> 
+        		{{date('Y-m-d H:i:s',$v->created_at)}} 
+        		<a href="/ps_letter/send/{{$v->from_uid}}">[回复TA]</a>
             </span>
-          	<input class="fxk" name="deleteid" value="705" type="checkbox">
+          	<!-- <input class="fxk" name="deleteid" value="705" type="checkbox" -->>
+                <a class="fxk" href="/ps_letter/del/{{$v->id}}">删除</a>
         	</div>
         	<div style="clear:both"></div>
         	<div class="znx_other">{{$v->content}}</div>
       	</li>
       	@endforeach
-        <div style=" margin-top:20px; float:right">
-        	<button type="button" onclick="DoSubmit('inbox')" class="editPassword-submit">删除选中</button>
-        </div>
+        
     </form>
 </ul>
-<div class="ar_bjPage">
-	<span>共 1 页/1条记录</span> 
+<div class="article_pages">
+	<span>
+		{{$data->render()}}
+	</span> 
 </div>
 </div>
 @endsection

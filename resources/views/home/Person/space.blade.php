@@ -3,7 +3,7 @@
  <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
   <link rel="stylesheet" type="text/css" href="/static/home/person/css/space.css" /> 
-  <title>xxx的日记与作文</title> 
+  <title>{{$msg->nickname}}的日记与作文</title> 
  </head> 
  <body> 
   <!--登录显示--> 
@@ -36,8 +36,8 @@
        {{$msg->signatrue}}
       </div> 
       <div class="per_xgBtn"> 
-       <a class="per_btn gz_btn" href="" target="_blank">关注</a> 
-       <button class="per_btn sx_btn"><a href="" target="_blank">私信</a></button> 关注：{{$msg->from_uid}} 人&nbsp;&nbsp;&nbsp;&nbsp;粉丝：{{$fs}} 人 
+       <a class="per_btn gz_btn" href="/ps_space/gz/{{$msg->uid}}">关注</a> 
+       <button class="per_btn sx_btn"><a href="/ps_letter/send/{{$msg->uid}}" target="_blank">私信</a></button> 关注：{{$msg->from_uid}} 人&nbsp;&nbsp;&nbsp;&nbsp;粉丝：{{$fs}} 人 
       </div> 
      </div> 
      <div class="clear"></div> 

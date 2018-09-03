@@ -18,13 +18,14 @@ class IndexController extends Controller
     		->select('u.name','u.qq','u.email','u.score','ud.uface','ud.nickname','ud.fame')
     		->where('u.id','=',$id)
     		->get();
-
+            
         $to_uid = DB::table('guanzhu')->where('from_uid','=',$id)->count();
         $qd = DB::table('qiandao')->where('uid','=',$id)->get();
+
     	return view('home.Person.index',[
             'data'   => $data[0],
             'to_uid' => $to_uid,
-            'qd'     => $qd[0]
+            'qd'     => $qd
             ]);
     }
 

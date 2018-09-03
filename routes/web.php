@@ -51,9 +51,13 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         Route::post('ps_msg/doedit','MsgController@doedit'); //处理修改
         Route::get('ps_pass','PassController@index'); //处理修改
         Route::post('ps_pass/doedit','PassController@doedit'); //处理修改
-        Route::get('ps_space','SpaceController@index'); //个人空间主页
+        Route::get('ps_space/{id}','SpaceController@index'); //个人空间主页
+        Route::get('ps_space/gz/{id}','SpaceController@gz'); //个人空间内关注处理
         Route::get('ps_letter/in','LetterController@in'); //收件箱
         Route::get('ps_letter/out','LetterController@out'); //发件箱
+        Route::get('ps_letter/send/{id}','LetterController@send'); //发送信件页
+        Route::post('ps_letter/dosend','LetterController@dosend'); //信件处理
+        Route::get('ps_letter/del/{id}','LetterController@delete'); //删除信件处理
     });
 });
 

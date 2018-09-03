@@ -36,14 +36,16 @@
               积分：<span id="jf">{{$data->score}}</span> 
               人气：<span>{{$data->fame}}</span>  
               粉丝：<span>{{$to_uid}}</span>
-            </p> 
+            </p>
+            @foreach($qd as $v)
             <a href="javascript:void(0)" class="qd_btn fl">
-              @if($qd->status == 0)
+              @if($v->status == 0)
               未签到
-              @elseif($qd->status == 1)
+              @elseif($v->status == 1)
               已签到
               @endif
-            </a> 
+            </a>
+            @endforeach
             <a class="join_btn" target="_blank" href="">
              <img src="/static/home/person/images/group.png" title="点击加入小作者QQ群" border="0">
             </a>

@@ -3,12 +3,20 @@
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/user.css">
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/user_002.css">
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/riji.css">
+<!-- 文章 -->
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/article.css">
+<!-- 签名 -->
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/qianming.css">
+<!-- 积分 -->
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/jifen.css">
+<!-- 粉丝 -->
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/fensi.css">
+<!-- 发件箱收件箱 -->
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/fajianxiang.css">
+<!-- 关注 -->
 <link rel="stylesheet" type="text/css" href="/static/home/person/css/guanzhu.css">
+<!-- 发送信件 -->
+<link rel="stylesheet" type="text/css" href="/static/home/person/css/send.css">
 <!-- <link rel="stylesheet" type="text/css" href="/static/admin/css/bootstrap.min.css"> -->
 
 
@@ -37,7 +45,7 @@
 
 <div class="header_view">
   <div class="header_top_view">
-	<div class="islogin"> <a href="#"></a>你好，二年级小学生 ( ID：admin1234 )，欢迎回来！ </div>
+	<div class="islogin"> <a href="#"></a>你好，{{session('home_user')['name']}} ( ID：{{session('home_user')['id']}} )，欢迎回来！ </div>
   </div>
 </div>
 <div id="rj_header" class="header">

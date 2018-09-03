@@ -64,3 +64,22 @@
 .shop-nav2 a{ font-size:18px; margin-right:20px;}
 .shop-nav2 .selected {display: inline-block;height: 39px;line-height: 30px;color: #1f1f1f;font-size: 18px;transition: all 0.2s;-webkit-transition: all 0.2s;
 -moz-transition: all 0.2s;color: #04CE9B;border-bottom: #04CE9B 2px solid;}
+
+.editPassword-submit{
+	width: 100px;
+}
+.same{
+	padding: 0 12px;
+	height: 36px;
+	font-size: 16px;
+	line-height: 36px;
+	background: #04ce9b;
+	color: #fff;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+	font-family: '微软雅黑';
+}
+.same:hover {
+	background: #00b789;
+}

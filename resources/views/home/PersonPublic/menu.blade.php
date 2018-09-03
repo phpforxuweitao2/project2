@@ -7,7 +7,7 @@
       <dd><a href="/user/tougaoguize.html">投稿规则</a></dd>-->
       <dd><a href="/ps_article">我的文章</a></dd>
       <dd><a href="/ps_qianming">个性签名 <img src="/static/home/person/images/new.gif"></a> </dd>
-      <dd><a href="/ps_space" target="_blank">我的空间</a></dd>
+      <dd><a href="/ps_space/{{session('home_user')['id']}}" target="_blank">我的空间</a></dd>
       <dd><a href="/ps_guanzhu">粉丝关注 <img src="/static/home/person/images/new.gif"></a></dd>
       <dd><a href="/ps_letter/in">站内信</a></dd>	
       </dl>	
