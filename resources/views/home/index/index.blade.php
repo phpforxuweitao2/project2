@@ -254,7 +254,7 @@
         @php
          $title = changeStr($v->title,'10','...');
         @endphp
-        <li><a href="#" target="_blank">{{$title}}</a></li>
+        <li><a href="/list/{{$v->id}}/show" target="_blank">{{$title}}</a></li>
        @endforeach
       </ul>
      </div>
@@ -349,12 +349,13 @@
      <div class="txtbox">
       <ul class="txt" style="margin-top:20px">
       @foreach($con1[2] as $nie)
-       <li><a href="https://www.riji.cn/html/55247.html" target="_blank">{{$nie->title}}</a> </li>
+       <li><a href="/list/{{$nie->id}}/show" target="_blank">{{$nie->title}}</a> </li>
       @endforeach
       </ul>
      </div>
     </div>
    </div>
+   <!-- 排行内容 -->
    <div class="right306 border shadow fr">
     <div class="slide03">
      <div class="control">
@@ -367,14 +368,14 @@
       <div class="c" id="myTab_Content0">
        <ul class="hotPicUlList">
         @foreach($con1[3] as $val)
-        <li> <a href="{{$val->id}}" target="_blank"><i class="iName">{{$val->title}}</i> <i class="iGood">{{$val->num}}</i> </a> </li>
+        <li> <a href="/list/{{$val->id}}/show" target="_blank"><i class="iName">{{$val->title}}</i> <i class="iGood">{{$val->num}}</i> </a> </li>
         @endforeach
        </ul>
       </div>
       <div class="c" id="myTab_Content1" style="display:none;">
        <ul class="hotPicUlList">
         @foreach($con1[4] as $val)
-        <li> <a href="{{$val->id}}" target="_blank"><i class="iName">{{$val->title}}</i> <i class="iGood">{{date('Y-m-d',$val->created_at)}}</i> </a> </li>
+        <li> <a href="/list/{{$val->id}}/show" target="_blank"><i class="iName">{{$val->title}}</i> <i class="iGood">{{date('Y-m-d',$val->created_at)}}</i> </a> </li>
         @endforeach
        </ul>
       </div>
@@ -391,7 +392,7 @@
     <ul class="picList-ul">
      @foreach($users as $v)
      <li>
-      <a href="/ps_space/{{$list->uid}}" target="_blank">
+      <a href="/ps_space/{{$v->id}}" target="_blank">
        <img src="{{$v->uface}}" width="65" height="65" /><i>{{$v->nickname}}</i>
       </a>
      </li>
