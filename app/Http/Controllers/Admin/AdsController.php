@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Http\Requests\Ads\Ads;
 use App\Http\Requests\Ads\AdsEdit;
+use Config;
 
 class AdsController extends Controller
 {
@@ -40,9 +41,9 @@ class AdsController extends Controller
     		//获取上传文件的后缀
     		$ext = $req->file('pic')->getClientOriginalExtension();
     		//存放到指定位置
-    		$req->file('pic')->move('./uploads/ads/',$name.'.'.$ext);
-    		//获取图片位置
-    		$pic = '/uploads/ads/'.$name.'.'.$ext;
+    		$req->file('pic')->move(Config::get('app.app_upload'),$name.'.'.$ext);
+            //获取图片位置
+            $pic = Config::get('app.app_upload').'/'.$name.'.'.$ext;
     	}
     	$data['pic'] = $pic;
     	$data['created_at'] = time();
@@ -58,8 +59,14 @@ class AdsController extends Controller
 
     //删除处理
     public function delete($id) {
+        //获取删除轮播图的图片
+        $info = DB::table('advertising')->where('id','=',$id)->first();
+        $pic=$info->pic;
+
     	$res = DB::table('advertising')->where('id','=',$id)->delete();
     	if($res){
+            //删除本地图片
+            unlink($pic);
     		return redirect('/bk_ads')->with('success','删除成功');
     	}else{
     		return redirect('/bk_ads')->with('success','删除失败');
@@ -79,9 +86,9 @@ class AdsController extends Controller
     		//获取上传文件的后缀
     		$ext = $req->file('pic')->getClientOriginalExtension();
     		//存放到指定位置
-    		$req->file('pic')->move('./uploads/ads/',$name.'.'.$ext);
-    		//获取图片位置
-    		$pic = '/uploads/ads/'.$name.'.'.$ext;
+    		$req->file('pic')->move(Config::get('app.app_upload'),$name.'.'.$ext);
+            //获取图片位置
+            $pic = Config::get('app.app_upload').'/'.$name.'.'.$ext;
     		$data['pic'] = $pic;
     	}
     	

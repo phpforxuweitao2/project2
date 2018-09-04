@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use DB;
 use Cache;
 use Cookie;
+use App\Http\Requests\Links\Links;
+
 class IndexController extends Controller
 {
 
@@ -144,6 +146,20 @@ class IndexController extends Controller
         $data->created_at = date('Y/m/d',$data->created_at);
         return json_encode($data);
     }
+
+    //前台友情链接申请处理
+    public function addlinks(Links $req) {
+        $data = $req->only('name','url');
+        $data['created_at'] = time();
+        $data['updated_at'] = time();
+        
+        if(DB::table('links')->insert($data)){
+            return back()->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
+    }
+
 
 
 }

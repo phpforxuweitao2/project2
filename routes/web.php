@@ -14,6 +14,7 @@
 Route::get('/','Home\IndexController@index');
 Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::get('/', 'IndexController@index');
+        Route::post('/addlinks','IndexController@addlinks'); //前台友情链接申请处理
     Route::get('/login', 'LoginController@login');//登录页面
     Route::post('/login_check', 'LoginController@login_check');//验证登录
     Route::get('/logout', 'LoginController@logout');//退出登录

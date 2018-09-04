@@ -236,4 +236,9 @@ return [
 
     //内容图片存放目录
     'app_content' => './static/content/'.date('Y-m-d'),
+
+    //上传文件类型
+    'app_upload' => './uploads/'.date('Y-m-d'),
+
+
 ];
