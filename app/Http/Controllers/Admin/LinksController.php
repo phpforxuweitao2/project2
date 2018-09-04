@@ -43,6 +43,7 @@ class LinksController extends Controller
     	}
     }
 
+    
     // //友情链接删除处理
     // public function delete($id) {
     // 	$del = DB::table('links')->where('id','=',$id)->delete();

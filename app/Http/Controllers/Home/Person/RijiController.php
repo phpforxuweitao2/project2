@@ -15,7 +15,7 @@ class RijiController extends Controller
     } 
 
     //日记添加处理
-    public function doadd(Request $req) {
+    public function doadd(ContentRijiSave $req) {
         $all = $req->session()->all();
         $id = $all['home_user']['id'];
         $name = $all['home_user']['name'];

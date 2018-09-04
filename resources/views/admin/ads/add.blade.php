@@ -32,7 +32,7 @@
                 <div class="panel-body">
                     <div class="form">
 
-                        <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_lunbo/doadd" enctype="multipart/form-data">
+                        <form class="cmxform form-horizontal adminex-form" method="post" action="/bk_ads/doadd" enctype="multipart/form-data">
                             <div class="form-group ">
                                 <label for="name" class="control-label col-lg-2">广告名称</label>
                                 <div class="col-lg-8">
@@ -59,7 +59,7 @@
                             <div class="form-group ">
                                 <label for="name" class="control-label col-lg-2">排序号</label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" id="orderlist" name="orderlist" type="text">
+                                    <input class="form-control" id="listorder" name="orderlist" type="text">
                                 </div>
                             </div>
                             <div class="form-group">

@@ -16,8 +16,20 @@
   <script src="/static/home/index/js/f188a890851e45b28d5d90a437612ffa.js" type="text/javascript"></script>
   <script src="/static/home/index/js/slideshow.js" type="text/javascript"></script>
   <script src="/static/home/index/js/g.js" type="text/javascript"></script>
+  <script src="/static/home/index/js/jquery.leanModal.min.js" type="text/javascript"></script>
   <style type="text/css">
- 
+
+    #lean_overlay { position: fixed; z-index: 100; top: 0px; left: 0px; height: 100%; width: 100%; background: #000; display: none; }
+    #OpenWindow { background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.7); display: none; padding-bottom: 2px; width: 404px; z-index: 11000; left: 50%; margin-left: -202px; opacity: 1; position: fixed; top: 200px; }
+    #OpenWindow-header {  border-bottom: 1px solid #CCCCCC; border-top-left-radius: 5px; border-top-right-radius: 5px; padding: 18px 18px 14px; }
+    .modal_close { background: url("/static/home/index/images/modal_close.png") repeat scroll 0 0 transparent; display: block; height: 14px; position: absolute; right: 12px; top: 12px; width: 14px; z-index: 2; border-radius: 14px; }
+    body { font-size: 13px; }
+    #OpenWindow .txt-fld { border-bottom: 1px solid #EEEEEE; padding: 14px 2px; position: relative; text-align: right; width: 364px; }
+    #OpenWindow .txt-fld input { height: 16px; background: none repeat scroll 0 0 #F7F7F7; border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC; border-radius: 4px 4px 4px 4px; border-style: solid; border-width: 1px; color: #222222; font-family: "Helvetica Neue"; font-size: 1.2em; outline: medium none; padding: 8px; width: 244px; }
+    #OpenWindow .btn-fld { overflow: hidden; padding: 12px 36px 12px 114px; width: 254px;}
+    button { background: none repeat scroll 0 0 #3F9D4A; border: medium none; border-radius: 4px 4px 4px 4px; color: #FFFFFF; float: right; font-family: Verdana; font-size: 13px; font-weight: bold; overflow: visible; padding: 7px 10px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); width: auto; cursor: pointer; }
+    h2{ font-weight: 500; }
+
   </style>
  </head>
  <body id="Jbody">
@@ -161,11 +173,12 @@
               <i class="iconfont icon-icon_password"></i>
               <input type="password" name="pass" value="{{Cookie::get('home_info')['pass']}}">
             </div>
-            <div class="longd cbx">
+            <div class="longd cbx" style="width: 256px;">
               <label>
                 <input type="checkbox" name="rem" value="1">
                 <span>记住密码</span>
               </label>
+              <span><a id='pass1' >忘记密码？</a></span>
             </div>
             <a id="ddlulu" href="javascript:void(0)">登  录</a>
         </div>
@@ -176,7 +189,7 @@
          <div style="height:226px">
           <a class="first pc-edit" href="/ps_space/{{session('home_user')['id']}}">
             <img class="fl" src="{{session('home_user')['uface']}}" width="68" height="68" />
-            <span class="art-tit">{{session('home_user')['nickname']}}</span> 
+            <span class="art-tit">{{session('home_user')['nickname']}}</span>
             <span class="art-des">积分：{{session('home_user')['score']}} </span>
           </a>
           <div class="user_menu">
@@ -228,8 +241,10 @@
     </div>
     <div class="pic-txt">
      <div class="pics">
-      <span><a target="_blank" href="https://www.riji.cn/html/42637.html"><img src="/static/home/index/picture/1-1612202106051n.jpg" border="0" width="180" height="135" alt="猫" /><em></em><i>猫</i></a></span>
-      <span><a target="_blank" href="https://www.riji.cn/html/12832.html"><img src="/static/home/index/picture/1-161210120954435.jpg" border="0" width="180" height="135" alt="我爱看书" /><em></em><i>我爱看书</i></a></span>
+     <!-- 两图片的位置 -->
+     @foreach($con1[5] as $v)
+      <span><a target="_blank" href="/list/{{$v->id}}/show"><img src="{{$v->img}}" border="0" width="180" height="135" alt="{{$v->title}}" /><em></em><i>{{$v->title}}</i></a></span>
+     @endforeach
      </div>
      <div class="txtbox">
       <ul class="txt" style="margin-top:20px">
@@ -306,7 +321,7 @@
    <div class="i3_lBox border shadow">
     <div class="i3lBox-th">
      <h3 class="mark">合作伙伴</h3>
-     <img src="/static/home/index/picture/lxqq.gif" width="200" height="36" />
+     <a id="aOpen" style="display: block;margin:20px;font-size: 16px;float: left;" href="#OpenWindow" rel="leanModal">申请友情链接</a>
     </div>
     <div class="lBox-tb i3_hzhb clearfix">
       @foreach($link as $v)
@@ -320,9 +335,39 @@
    <div style="clear:both;"></div>
    <div class="bqsm">
     Copyright &copy; 2018
-    <a href="/">日记网</a> 日记大全
+    <a href="/">涛涛网</a> 涛涛攻略大全
    </div>
   </div>
+  <!-- 成功失败提示框弹出 -->
+  @if(session('success'))
+  <strong class="a" style="display: none">{{session('success')}}</strong>
+  <script>
+  a = $('.a').text();
+  alert(a);
+  </script>
+  @endif
+
+  @if(session('error'))
+  <strong class="a" style="display: none">{{session('error')}}</strong>
+  <script>
+  a = $('.a').text();
+  alert(a);
+  </script>
+  @endif
+
+  @if (count($errors) > 0)
+  <div class="alert alert-danger">
+  @foreach ($errors->all() as $error)
+      <li class="a" style="display: none">{{ $error }}</li>
+  @endforeach
+  </div>
+
+  <script>
+  a = $('.a').text();
+  alert(a);
+  </script>
+  @endif
+  <!-- 成功失败提示框弹出结束 -->
   {{--模态框--}}
   <div class="motai">
     <div class="gonggao">
@@ -334,6 +379,30 @@
     </div>
   </div>
   {{--模态框结束--}}
+  <!-- 友情链接申请 -->
+  <div id="OpenWindow">
+    <div id="signup-ct">
+      <div id="OpenWindow-header">
+        <h2>友情链接申请</h2>
+        <a href="javascript:void(0)" class="modal_close"></a>
+      </div>
+      <form action="/addlinks" method="post">
+        <div class="txt-fld">
+            <label for="">链接名称</label>
+            <input type="text" name="name" id="" />
+        </div>
+        <div class="txt-fld">
+            <label for="">url地址</label>
+            <input type="text" name="url" id="" />
+        </div>
+        {{csrf_field()}}
+        <div class="btn-fld">
+            <button type="submit">提交</button>
+        </div>
+      </form>
+    </div>
+    </div>
+  <!-- 友情链接申请结束 -->
   <script src="/static/home/index/js/dpl-tab_v2.js" type="text/javascript"></script>
  </body>
  <script type="text/javascript">
@@ -383,5 +452,10 @@
 
       },'json');
     }
+
+     $(document).ready(function () {
+          //$('#aOpen').leanModal({ top: 100, closeButton: ".modal_close" });
+          $('a[rel*=leanModal]').leanModal({ top: 100, closeButton: ".modal_close" });
+      });
  </script>
 </html>

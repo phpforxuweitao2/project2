@@ -14,6 +14,7 @@
 Route::get('/','Home\IndexController@index');
 Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
     Route::get('/', 'IndexController@index');
+        Route::post('/addlinks','IndexController@addlinks'); //前台友情链接申请处理
     Route::get('/login', 'LoginController@login');//登录页面
     Route::post('/login_check', 'LoginController@login_check');//验证登录
     Route::get('/logout', 'LoginController@logout');//退出登录
@@ -194,6 +195,10 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         Route::get('/bk_layout','LayoutController@index');//排版列表
         Route::get('/bk_layout/{id}/edit','LayoutController@edit');//排版调整页
         Route::post('/bk_layout/update','LayoutController@update');//排版调整操作方法
+        Route::get('/bk_layout/{id}/show','LayoutController@show');//排版详情
+        Route::get('/bk_layout/{id}/img','LayoutController@img');//图片位设定页面
+        Route::post('/bk_layout/doimg','LayoutController@doimg');//图片位设定方法
+
     });
 
 

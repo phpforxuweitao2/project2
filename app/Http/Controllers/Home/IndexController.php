@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use DB;
 use Cache;
 use Cookie;
+use App\Http\Requests\Links\Links;
+
 class IndexController extends Controller
 {
 
@@ -41,7 +43,7 @@ class IndexController extends Controller
                     ->where('status','0')
                     ->limit(22)
                     ->orderBy('id','desc')
-                    ->get(); 
+                    ->get();
         // 将点击量的数据查询出来
         $paihan = DB::table('content')
                     ->select('id','title','num')
@@ -58,12 +60,19 @@ class IndexController extends Controller
                     ->limit(22)
                     ->orderBy('created_at','desc')
                     ->get();
+        // 获取两张图片的内容
+        $pic = DB::table('content')
+                    ->where('status','0')
+                    ->where('recommand','2')
+                    ->limit(2)
+                    ->get();
         // 将顶级标题跟二级标题还有里面的内容存在数组
         $data[] = $cid->name;
         $data[] = $list;
         $data[] = $con;
         $data[] = $paihan;
-        $data[] = $new;     
+        $data[] = $new;
+        $data[] = $pic;
         return $data;
     }
 
@@ -107,7 +116,7 @@ class IndexController extends Controller
                     ->orderBy('u.score','desc')
                     ->limit(12)
                     ->get();
-        // dd($user);
+        // dd($list);
         // 友情链接信息
         $link = DB::table('links')
                     ->where('status','0')
@@ -137,6 +146,20 @@ class IndexController extends Controller
         $data->created_at = date('Y/m/d',$data->created_at);
         return json_encode($data);
     }
+
+    //前台友情链接申请处理
+    public function addlinks(Links $req) {
+        $data = $req->only('name','url');
+        $data['created_at'] = time();
+        $data['updated_at'] = time();
+        
+        if(DB::table('links')->insert($data)){
+            return back()->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
+    }
+
 
 
 }

@@ -56,7 +56,11 @@ return [
     */
 
     'from' => [
+<<<<<<< HEAD
         'address' => env('MAIL_USERNAME', 'xuweitao1139204319@foxmail.com'),
+=======
+        'address' => env('MAIL_FROM_ADDRESS', 'xiaoluo@163.com'),
+>>>>>>> 7af12c6a13d4543ef03177efca1c83ec04832778
         'name' => env('MAIL_FROM_NAME', '印象日记网'),
     ],
 
