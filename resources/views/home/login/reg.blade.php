@@ -29,7 +29,9 @@
 
 <div class="regNew_top">
     <div class="reg_topCon tupian">
-        <div class="logo" style="z-index: 50"></div>
+        <a href="/">
+            <div class="logo" style="z-index: 50"></div>
+        </a>
         <div class="clock">
             <img src="/static/home/register/img/aa.png" width="100px" class="wawa">
         </div>
