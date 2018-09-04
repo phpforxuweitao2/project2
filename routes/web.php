@@ -192,6 +192,10 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
         Route::get('/bk_layout','LayoutController@index');//排版列表
         Route::get('/bk_layout/{id}/edit','LayoutController@edit');//排版调整页
         Route::post('/bk_layout/update','LayoutController@update');//排版调整操作方法
+        Route::get('/bk_layout/{id}/show','LayoutController@show');//排版详情
+        Route::get('/bk_layout/{id}/img','LayoutController@img');//图片位设定页面
+        Route::post('/bk_layout/doimg','LayoutController@doimg');//图片位设定方法
+
     });
 
 

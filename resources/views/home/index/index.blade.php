@@ -17,7 +17,7 @@
   <script src="/static/home/index/js/slideshow.js" type="text/javascript"></script>
   <script src="/static/home/index/js/g.js" type="text/javascript"></script>
   <style type="text/css">
- 
+
   </style>
  </head>
  <body id="Jbody">
@@ -161,11 +161,12 @@
               <i class="iconfont icon-icon_password"></i>
               <input type="password" name="pass" value="{{Cookie::get('home_info')['pass']}}">
             </div>
-            <div class="longd cbx">
+            <div class="longd cbx" style="width: 256px;">
               <label>
                 <input type="checkbox" name="rem" value="1">
                 <span>记住密码</span>
               </label>
+              <span><a id='pass1' >忘记密码？</a></span>
             </div>
             <a id="ddlulu" href="javascript:void(0)">登  录</a>
         </div>
@@ -176,7 +177,7 @@
          <div style="height:226px">
           <a class="first pc-edit" href="/ps_space/{{session('home_user')['id']}}">
             <img class="fl" src="{{session('home_user')['uface']}}" width="68" height="68" />
-            <span class="art-tit">{{session('home_user')['nickname']}}</span> 
+            <span class="art-tit">{{session('home_user')['nickname']}}</span>
             <span class="art-des">积分：{{session('home_user')['score']}} </span>
           </a>
           <div class="user_menu">
@@ -228,8 +229,10 @@
     </div>
     <div class="pic-txt">
      <div class="pics">
-      <span><a target="_blank" href="https://www.riji.cn/html/42637.html"><img src="/static/home/index/picture/1-1612202106051n.jpg" border="0" width="180" height="135" alt="猫" /><em></em><i>猫</i></a></span>
-      <span><a target="_blank" href="https://www.riji.cn/html/12832.html"><img src="/static/home/index/picture/1-161210120954435.jpg" border="0" width="180" height="135" alt="我爱看书" /><em></em><i>我爱看书</i></a></span>
+     <!-- 两图片的位置 -->
+     @foreach($con1[5] as $v)
+      <span><a target="_blank" href="/list/{{$v->id}}/show"><img src="{{$v->img}}" border="0" width="180" height="135" alt="{{$v->title}}" /><em></em><i>{{$v->title}}</i></a></span>
+     @endforeach
      </div>
      <div class="txtbox">
       <ul class="txt" style="margin-top:20px">
@@ -320,7 +323,7 @@
    <div style="clear:both;"></div>
    <div class="bqsm">
     Copyright &copy; 2018
-    <a href="/">日记网</a> 日记大全
+    <a href="/">涛涛网</a> 涛涛攻略大全
    </div>
   </div>
   {{--模态框--}}

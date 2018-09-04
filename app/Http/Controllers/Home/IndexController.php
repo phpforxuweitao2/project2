@@ -41,7 +41,7 @@ class IndexController extends Controller
                     ->where('status','0')
                     ->limit(22)
                     ->orderBy('id','desc')
-                    ->get(); 
+                    ->get();
         // 将点击量的数据查询出来
         $paihan = DB::table('content')
                     ->select('id','title','num')
@@ -58,12 +58,19 @@ class IndexController extends Controller
                     ->limit(22)
                     ->orderBy('created_at','desc')
                     ->get();
+        // 获取两张图片的内容
+        $pic = DB::table('content')
+                    ->where('status','0')
+                    ->where('recommand','2')
+                    ->limit(2)
+                    ->get();
         // 将顶级标题跟二级标题还有里面的内容存在数组
         $data[] = $cid->name;
         $data[] = $list;
         $data[] = $con;
         $data[] = $paihan;
-        $data[] = $new;     
+        $data[] = $new;
+        $data[] = $pic;
         return $data;
     }
 
@@ -107,7 +114,7 @@ class IndexController extends Controller
                     ->orderBy('u.score','desc')
                     ->limit(12)
                     ->get();
-        // dd($user);
+        // dd($list);
         // 友情链接信息
         $link = DB::table('links')
                     ->where('status','0')

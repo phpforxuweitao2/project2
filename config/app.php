@@ -234,4 +234,6 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
+    //内容图片存放目录
+    'app_content' => './static/content/'.date('Y-m-d'),
 ];
