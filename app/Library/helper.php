@@ -31,3 +31,17 @@ function getCatesBypid($pid){
     }
     return $data;
 }
+
+//发送邮箱验证码
+function SendEmail($email,$data,$subject='印象日记注册验证码')  {
+    try {
+        Mail::send('home.login.linkActive',$data,function($message) use($email,$subject) {
+            $message->subject($subject);
+            $message->to($email);
+        });
+        return true;
+    } catch (Exception $e) {
+        return $e;
+    }
+}
+

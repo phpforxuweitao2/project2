@@ -3,15 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="csrf-token" id="csrftoken" content="{{ csrf_token() }}">
-    <title>会员注册_日记网</title>
-    <meta name="keywords" content="会员注册" />
-    <meta name="description" content="日记网会员注册" />
+    <title>修改密码_日记网</title>
+    <meta name="keywords" content="修改密码" />
+    <meta name="description" content="日记网会员修改密码" />
     <link href="/static/home/register/static/css/reg_1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/static/home/register/bs/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/home/register/static/css/mycss1.css">
     <link rel="stylesheet" type="text/css" href="/static/home/register/mycss/mycss.css">
     <script type="text/javascript" src="/static/home/register/static/js/jquery-3.1.1.js"></script>
-
     <style type="text/css">
         .wawa{
             left: -50px;
@@ -24,7 +23,6 @@
         }
     </style>
 </head>
-
 <body>
 <div class="regNew_top">
     <div class="reg_topCon tupian">
@@ -34,9 +32,6 @@
         <div class="clock">
             <img src="/static/home/register/img/aa.png" width="100px" class="wawa">
         </div>
-        {{--<div class="regNew_enter">--}}
-            {{--<a href="/login">登录</a> <a href="/reg">注册</a>--}}
-        {{--</div>--}}
     </div>
 </div>
 <!-- <button class="btn btn-success btn-lg btn-block" type="button">Block level button</button> -->
@@ -48,21 +43,30 @@
     <div class=" reg_border col-md-8">
         <section class="panel">
             <header class="panel-heading htt">
-                <h4>忘记密码</h4>
+                <h4>修改密码</h4>
             </header>
             <div class="col-md-1 "></div>
             <div class="panel-body col-md-10 ht">
-                <form class="form-horizontal" id="fm_forget">
+                <form class="form-horizontal" id="fm_savechangepwd">
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">邮箱</label>
+                        <label class="col-lg-2 control-label">密码</label>
                         <div class="col-lg-7">
-                            <input type="text" autocomplete="off" placeholder="请输入邮箱帐号..." id="f_email" class="form-control" name="email">
+                            <input type="password" autocomplete="off" placeholder="请输入修改密码..." id="f_pass" class="form-control" name="pass">
                         </div>
-                        <span  class="col-lo-3 hide">邮箱错误</span>
+                        <span  class="col-lo-3 hide">密码错误</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">确认密码</label>
+                        <div class="col-lg-7">
+                            <input type="password" autocomplete="off" placeholder="请输入确认密码..." id="f_repass" class="form-control" name="repass">
+                        </div>
+                        <span  class="col-lo-3 hide">密码错误</span>
                     </div>
                     <div class="form-group text-center" style="text-align: center;">
                         <div class="col-lg-4">
-                            <button class="reg_btn btn_disabled" id="forgetPwd" disabled type="submit">找回密码</button>
+                            <input type="hidden" name="id" value="{{$id}}">
+                            <input type="hidden" name="token" value="{{$token}}">
+                            <button class="reg_btn btn_disabled" disabled id="btn_changePwd" type="submit">修改密码</button>
                         </div>
                     </div>
                 </form>
@@ -74,65 +78,58 @@
     </div>
     <script type="text/javascript">
         $(function(){
-            $fm_forget  = $("#fm_forget");
-            $f_email    = $("#f_email");
+            $fm_savechangepwd  = $("#fm_savechangepwd");
+            $f_pass    = $("#f_pass");
+            $f_repass    = $("#f_repass");
             //禁用form表单下所有input的回车提交表单事件
-            $fm_forget.find('input').keydown(function(event){
+            $fm_savechangepwd.find('input').keydown(function(event){
                 if (event.keyCode === 13) {
                     event.preventDefault ? event.preventDefault() : event.returnValue = false;
                 }
             });
-            //检测邮箱是否存在
-            $f_email.blur(function(){
-                that = $(this);
-                that_val = that.val();
-                reg_email = /^\w+@\w+(\.\w+){1,3}$/;
-                if ( !that.val().length ) {
-                    that.parent().next("span").removeClass('hide').css({'color':'red'}).text('邮箱为空!');
-                    $("#forgetPwd").attr('disabled','true').addClass('btn_disabled');
-                    return false;
-                } else if( !reg_email.test(that_val) ) {
-                    $("#forgetPwd").attr('disabled','true').addClass('btn_disabled');
-                    that.parent().next("span").removeClass('hide').css('color','red').text('请输入正确的邮箱格式');
+
+            $f_pass.blur(function(){
+                if ( !$(this).val().length ) {
+                    $f_pass.parent().next("span").removeClass('hide').css('color','red').text('密码为空');
+                    $("#btn_changePwd").addClass('btn_disabled').attr('disabled','true');
                     return false;
                 }
-                that.parent().next("span").addClass('hide');
-
-                $.ajax({
-                    url: '/regCheckEmail',
-                    method: 'post',
-                    dataType:'json',
-                    contentType:'application/x-www-form-urlencoded',
-                    data:{email:that_val},
-                    success:function(res) {
-                        if ( res.code === '111' ) {//邮箱存在
-                            that.parent().next("span").removeClass('hide').css('color','green').text('邮箱帐号存在');
-                            $("#forgetPwd").removeAttr('disabled').removeClass('btn_disabled');
-                        } else {//邮箱不存在
-                            $("#forgetPwd").attr('disabled','true').addClass('btn_disabled');
-                            that.parent().next("span").removeClass('hide').css('color','red').text('邮箱不存在');
-                        }
-                    },error:function(err) {
-                        console.log('网络错误');
-                    },beforeSend:function(xhr) {
-                        xhr.setRequestHeader('X-CSRF-TOKEN',$("#csrftoken").attr('content'))
-                    }
-                });
+                $("#btn_changePwd").removeClass('btn_disabled').removeAttr('disabled');
+                $f_pass.parent().next("span").addClass('hide');
+            });
+            $f_repass.blur(function(){
+                if ( !$(this).val().length ) {
+                    $f_repass.parent().next("span").removeClass('hide').css('color','red').text('确认密码为空');
+                    $("#btn_changePwd").addClass('btn_disabled').attr('disabled','true');
+                    return false;
+                } else if ( $f_pass.val() != $f_repass.val() ) {
+                    $f_repass.parent().next("span").removeClass('hide').css('color','red').text('密码与确认密码不一致');
+                    $("#btn_changePwd").addClass('btn_disabled').attr('disabled','true');
+                    return false;
+                }
+                $("#btn_changePwd").removeClass('btn_disabled').removeAttr('disabled');
+                $f_repass.parent().next("span").addClass('hide');
             });
 
-            $fm_forget.submit(function(ev){
-                that = $(this);
-                if ( !$f_email.val().length ) {
-                    $f_email.parent().next("span").removeClass('hide').css('color','red').text('邮箱为空');
+            $fm_savechangepwd.submit(function(ev){
+                if ( !$f_pass.val().length ) {
+                    $f_pass.parent().next("span").removeClass('hide').css('color','red').text('密码为空');
+                    $("#btn_changePwd").addClass('btn_disabled').attr('disabled','true');
                     return false;
                 }
-                $("#forgetPwd").attr('disabled','true').addClass('btn_disabled');
+                if ( !$f_repass.val().length ) {
+                    $f_repass.parent().next("span").removeClass('hide').css('color','red').text('确认密码为空');
+                    $("#btn_changePwd").addClass('btn_disabled').attr('disabled','true');
+                    return false;
+                }
+                $("#btn_changePwd").addClass('btn_disabled').attr('disabled','true');
+                let $fm_savechangepwd = $(this).serialize();
                 $.ajax({
-                    url: '/doforget',
+                    url: '/dochangepwd',
                     method: 'POST',
                     contentType:'application/x-www-form-urlencoded',
                     dataType:'json',
-                    data:{email:$f_email.val()},
+                    data:$fm_savechangepwd,
                     success:function(res){
                         if ( res.code === '000' ) {
                             $("#modal_reg").find('.reg_body').text(res.msg);
@@ -159,6 +156,7 @@
         });
     </script>
 </div>
+
 <div id="modal_reg" class="reg_hide">
     <div class="reg">
         <i class="iconfont icon-guanbi">x</i>
@@ -172,6 +170,7 @@
         $(this).parents("#modal_reg").addClass('reg_hide');
     });
 </script>
+
 <div class="reg_footer" style="position: fixed; bottom: 0;">
     <div class="reg_bqsm">
         Copyright © 2018

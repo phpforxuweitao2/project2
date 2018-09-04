@@ -36,8 +36,8 @@ class LoginController extends Controller
             return json_encode(['code'=>3,'msg'=>'该用户不存在或用户输入有误']);
         }
         // 判断该用户是否被禁用
-        if ($row->status == 1) {
-            return json_encode(['code'=>4,'msg'=>'该用户被禁用请联系管理员']);
+        if ($row->status == '1') {
+            return json_encode(['code'=>4,'msg'=>'用户未激活,请前往邮箱激活后再登录!']);
         }
         // 判断密码跟用户是否存在
         if ( $row && Hash::check($_POST['pass'],$row->pass)) {
@@ -71,7 +71,7 @@ class LoginController extends Controller
                 ]);
             return json_encode(['code'=>0,'msg'=>'登录成功!']);
         } else {
-            return json_encode(['code'=>4,'msg'=>'密码错误']);
+            return json_encode(['code'=>4,'msg'=>'用户名或密码错误']);
         }
 
     }
@@ -90,23 +90,44 @@ class LoginController extends Controller
     //处理注册页面数据
     public function registerCheck(Request $req) {
         if ( $req->ajax() ) {
-            $data   = $req->only(['name','pass','email','sex','nickname','sex']);
+            $data   = $req->only(['name','pass','email','nickname']);
+            $token  = str_random(50);
             DB::beginTransaction();
             try {
                 $uid = DB::table('users')->insertGetId([
                     'name'  => $data['name'],
                     'pass'  => Hash::make($data['pass']),
-                    'email' => $data['email']
+                    'email' => $data['email'],
+                    'status'=> '1',
+                    'token' => $token
                 ]);
                 DB::table('qiandao')->insert(['uid'=>$uid]);
                 DB::table('users_detail')->insert([
                     'nickname'  => $data['nickname'],
                     'uid'       => $uid,
                 ]);
+                $info = [
+                    'links' => "http://www.project2.com/registerActive/{{$uid}}/{{$token}}",
+                    'uname' => $data['name'],
+                    'tip'   => '点击激活账号'
+                ];
+                //发送邮件给用户,成功返回true
+                $res = SendEmail($data['email'],$info);
+                if ( $res != true ) {
+                    DB::rollBack();
+                    return response()->json([
+                        'code'      => '000',
+                        'msg'       => '发送邮件失败',
+                        'time'      => time()
+                    ]);
+                }
+
+
                 DB::commit();
+
                 return response()->json([
                     'code'      => '000',
-                    'msg'       => '注册成功',
+                    'msg'       => '注册成功,请在邮箱中激活账号，再登录',
                     'time'      => time()
                 ]);
             } catch (\Exception $e) {
@@ -117,6 +138,25 @@ class LoginController extends Controller
                     'time'      => time()
                 ]);
             }
+        }
+    }
+
+    //用户帐号激活页面
+    public function registerActive($id,$token) {
+        $info = DB::table('users')->where('id','=',$id)->first();
+        if ( $info && $info->token == $token && $info->status == '1' ) {
+            $up = [
+                'id'    => $info->id,
+                'token' => str_random(50),
+                'status'=> '0'
+            ];
+            if ( DB::table('users')->where('id',$id)->update($up) ) {
+                echo '帐号已激活!';
+            } else {
+                echo '帐号激活失败';
+            }
+        } else {
+            echo '帐号激活验证失败';
         }
     }
 
@@ -156,43 +196,6 @@ class LoginController extends Controller
         }
     }
 
-    //检测邮箱验证码是否正确
-    public function checkVcode(Request $req) {
-        $vcode = $req->input('vcode');
-        $reg_vcode = Cookie::get('reg_vcode');
-        if ( $req->ajax() && $vcode == $reg_vcode ) {
-            return response()->json([
-                'code'      => '000',
-                'msg'       => '验证码正确',
-                'time'      => time()
-            ]);
-        } else {
-            return response()->json([
-                'code'      => '111',
-                'msg'       => '验证码错误',
-                'time'      => time()
-            ]);
-        }
-    }
-
-    //发送邮箱验证码
-    public function regSendMail(Request $req)  {
-        $toEmail = $req->input('email');
-        $vcode = mt_rand(10000,999999);
-        $limit_time = 3;
-        Cookie::queue('reg_vcode',$vcode,$limit_time);
-        //邮件发送方式一:  以文本形式发送邮件
-        Mail::raw("你好,注册验证码为: {$vcode} , {$limit_time}分钟内有效。By 印象日记网!",function($message) use($toEmail) {
-            $message->subject('印象日记注册验证码');
-            $message->to($toEmail);
-        });
-        return response()->json([
-            'code'      => '000',
-            'msg'       => '邮件发送成功',
-            'time'      => time()
-        ]);
-    }
-
     /**
      * 进入忘记密码页面
      */
@@ -200,11 +203,90 @@ class LoginController extends Controller
         return view('home.login.forget');
     }
 
+    //发送邮箱路径  进入修改密码页面
     public function doforget(Request $req) {
-        $data = $req->except('_token');
-        return response()->json($data);
+        $email = $req->input('email');
+        $info = DB::table('users')->where('email','=',$email)->first();
+        if ( $info ) {
+            $data = [
+                'links' => "http://www.project2.com/changepwd/{$info->id}/{$info->token}",
+                'uname' => $info->name,
+                'tip'   => '点击前往修改密码',
+            ];
+            //发送邮件给用户,成功返回true
+            $res = SendEmail($email,$data);
+            if ( $res ) {
+                return response()->json([
+                    'code'      => '000',
+                    'msg'       => '修改密码链接已经发送至邮件中,请登录邮箱进入修改!',
+                    'time'      => time()
+                ]);
+            } else {
+                return response()->json([
+                    'code'      => '111',
+                    'msg'       => '邮件发送失败',
+                    'time'      => time()
+                ]);
+            }
+
+        } else {
+            return response()->json([
+                'code'      => '111',
+                'msg'       => '邮箱帐号不存在',
+                'time'      => time()
+            ]);
+        }
+
     }
 
+    /**
+     * 邮箱中的修改密码链接
+     */
+    public function changePwd($id,$token) {
+        $info = DB::table('users')->where('id','=',$id)->first();
+        //如果邮箱中的验证码和id通过验证后  就进入修改密码页面
+        if ($info && $info->token == $token) {
+            return view('home.login.changepwd',[
+                'id'    => $id,
+                'token' => $token
+            ]);
+        } else {
+            return redirect('/forget');
+        }
+    }
 
+    /**
+     * 执行修改密码
+     * @param Request $req
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function doChangePwd(Request $req) {
+        $id     = $req->input('id');
+        $token  = $req->input('token');
+        $pass   = $req->input('pass');
+        $info = DB::table('users')->where('id',$id)->first();
+        if ( $info && $info->token == $token ) {
+            $pass = Hash::make($pass);
+            if ( DB::table('users')->update(['pass'=>$pass]) ) {
+                return response()->json([
+                    'code'      => '000',
+                    'msg'       => '修改密码成功',
+                    'time'      => time()
+                ]);
+            } else {
+                return response()->json([
+                    'code'      => '111',
+                    'msg'       => '修改密码失败',
+                    'time'      => time()
+                ]);
+            }
+        } else {
+            return response()->json([
+                'code'      => '111',
+                'msg'       => '用户验证失败',
+                'time'      => time()
+            ]);
+        }
+    }
 
 }
