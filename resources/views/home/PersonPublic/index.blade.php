@@ -20,7 +20,8 @@
 <!-- <link rel="stylesheet" type="text/css" href="/static/admin/css/bootstrap.min.css"> -->
 
 
-<script language="javascript" src="/static/home/person/js/jquery-1.js"></script>
+
+<script type="text/javascript" src="/static/home/person/js/jquery-1.js"></script>
 <script type="text/javascript" src="/static/home/person/js/box.js"></script>
 <script type="text/javascript" language="javascript" src="/static/home/person/js/j.js"></script>
 <script type="text/javascript" language="javascript" src="/static/home/person/js/table_function.js"></script>
@@ -63,31 +64,6 @@
   </div>           
 </div>
 
-@if(session('success'))
-<div class="alert alert-success alert-dismissible" role="alert">
-    <button type="button" id="success" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>{{session('success')}}</strong>
-</div>
-<script>
-
-setInterval(function(){
-    $('#success').trigger('click');
-},2500)
-</script>
-@endif
-
-@if(session('error'))
-<div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" id="error" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>{{session('error')}}</strong>
-</div>
-<script>
-setInterval(function(){
-    $('#error').trigger('click');
-},2500)
-</script>
-@endif
-
 <div id="wrapper" class="clearfix w1000">
   <!-- 左侧导航栏 -->
   @include('home.PersonPublic.menu')
@@ -98,6 +74,38 @@ setInterval(function(){
   @show
   <!-- 右侧区域结束 -->
 </div>
+
+  <!-- 成功失败提示框弹出 -->
+  @if(session('success'))
+  <strong class="a" style="display: none">{{session('success')}}</strong>
+  <script>
+  a = $('.a').text();
+  alert(a);
+  </script>
+  @endif
+
+  @if(session('error'))
+  <strong class="a" style="display: none">{{session('error')}}</strong>
+  <script>
+  a = $('.a').text();
+  alert(a);
+  </script>
+  @endif
+
+  @if (count($errors) > 0)
+  <div class="alert alert-danger">
+  @foreach ($errors->all() as $error)
+      <li class="a" style="display: none">{{ $error }}</li>
+  @endforeach
+  </div>
+
+  <script>
+  a = $('.a').text();
+  alert(a);
+  </script>
+  @endif
+  <!-- 成功失败提示框弹出结束 -->
+  
 </body>
 <!-- 图片预览 -->
 <script src="/static/admin/js/ads.js"></script>

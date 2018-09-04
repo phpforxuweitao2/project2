@@ -46,7 +46,7 @@
               </select>
             </div>
             <div class="publish-title" style="clear: both">
-              <input name="title" value="请填写日记标题" title="请输入日记标题" id="title" onfocus="inputAutoClear(this)" type="text">
+              <input name="title" title="请输入日记标题" id="title" placeholder="请输入日记标题" type="text">
             </div>
           </div>
           <!--<div class="top1Right">
@@ -56,7 +56,7 @@
           <div class="clear"></div>
         </div>
         <div class="hy_tearea">
-          <textarea id="text_body" name="content" cols="92" rows="5" onkeydown="countChar('text_body','counter');" onkeyup="countChar('text_body','counter');" onfocus="inputAutoClear(this)">注意：《日记网》只接受原创投稿，转载抄袭会被扣除积分、限制投稿!</textarea>
+          <textarea id="text_body" name="content" cols="92" rows="5" placeholder="请输入日记内容" onkeydown="countChar('text_body','counter');" onkeyup="countChar('text_body','counter');" onfocus="inputAutoClear(this)"></textarea>
         </div>
         <div class="hy_sm">字数：<span id="counter" style="color:#F00">0</span>字</div>
         <div class="button_area">

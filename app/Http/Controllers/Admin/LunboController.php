@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Http\Requests\Lunbo\Lunbo;
 use App\Http\Requests\Lunbo\LunboEdit;
+use Config;
 
 class LunboController extends Controller
 {
@@ -39,9 +40,9 @@ class LunboController extends Controller
     		//获取上传文件的后缀
     		$ext = $req->file('pic')->getClientOriginalExtension();
     		//存放到指定位置
-    		$req->file('pic')->move('./uploads/lunbo/',$name.'.'.$ext);
-    		//获取图片位置
-    		$pic = '/uploads/lunbo/'.$name.'.'.$ext;
+    		$req->file('pic')->move(Config::get('app.app_upload'),$name.'.'.$ext);
+            //获取图片位置
+            $pic = Config::get('app.app_upload').'/'.$name.'.'.$ext;
     	}
     	$data['pic'] = $pic;
     	$data['created_at'] = time();
@@ -56,8 +57,14 @@ class LunboController extends Controller
 
     //删除处理
     public function delete($id){
+        //获取删除轮播图的图片
+        $info = DB::table('lunbo')->where('id','=',$id)->first();
+        $pic=$info->pic;
+
     	$res = DB::table('lunbo')->where('id','=',$id)->delete();
     	if($res){
+            //删除本地图片
+            unlink($pic);
     		return redirect('bk_lunbo')->with('success','删除成功');	
     	}else{
     		return redirect('bk_lunbo}')->with('error','删除失败');
@@ -81,15 +88,16 @@ class LunboController extends Controller
     		//获取上传文件的后缀
     		$ext = $req->file('pic')->getClientOriginalExtension();
     		//存放到指定位置
-    		$req->file('pic')->move('./uploads/lunbo/',$name.'.'.$ext);
-    		//获取图片位置
-    		$pic = '/uploads/lunbo/'.$name.'.'.$ext;
+    		$req->file('pic')->move(Config::get('app.app_upload'),$name.'.'.$ext);
+            //获取图片位置
+            $pic = Config::get('app.app_upload').'/'.$name.'.'.$ext;
     		$data['pic'] = $pic;
     	}
     	$data['updated_at'] = time();
 
     	$res = DB::table('lunbo')->where('id','=',$id)->update($data);
     	if($res){
+            
     		return redirect('bk_lunbo')->with('success','修改成功');	
     	}else{
     		return redirect('bk_lunbo/edit/{$id}')->with('error','修改失败');

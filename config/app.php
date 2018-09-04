@@ -234,4 +234,7 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
+    //上传文件类型
+    'app_upload' => './uploads/'.date('Y-m-d'),
+
 ];
