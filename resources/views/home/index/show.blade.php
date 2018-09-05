@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="id" content="{{session('home_user')['id']}}">
     <meta http-equiv="Cache-Control" content="no-transform " />
-    <title>我的手肿了_日记网</title>
+    <title>{{$contents->title}}_日记网</title>
     <meta name="keywords" content="我的手肿了" />
     <meta name="description" content="我的手肿了:今天，我和爸爸妈妈在来福士吃完晚饭——“麻将”以后，逛起了商场。 突然，我的手臂上似乎被蚊子叮了一口，肿了一小块，痒痒的。我立刻拿起无比滴在痒的位置涂抹。过了一会儿" />
     <link rel="alternate" media="only screen and(max-width: 640px)"  href="https://m.riji.cn/html/55230.html" >
@@ -84,8 +85,8 @@
                             <span class="mr_15">发布时间：{{date('Y-m-d H:i:s',$contents->created_at)}}</span>
                             <span class="mr_15">{{$contents->week}}</span>
                             <span class="mr_15">{{$contents->weather}}</span>
+                            <span>浏览次数: </span>
                             <span>{{$contents->num}}</span>
-                            <span>人看过</span>
                         </div>
                     </div>
                 </div>
@@ -100,24 +101,25 @@
                     </div>
                     <div class="xg" id="newdigg">
                         <div class="vote_box">
-                            {{--<a onclick="javascript:postDigg('good',55230)" class="vote_recommend">--}}
-                                {{--<span class="vote_icon"><i class="face_happy face_happyPlay"></i></span>--}}
-                                {{--<span class="vote_number" id="voteLike"  data-likenum="点赞">点赞<i>（8）</i></span>--}}
-                                {{--<span class="vote_text">点赞<i>（8）</i></span>--}}
-                            {{--</a>--}}
-                            {{--<a onclick="javascript:postDigg('bad',55230)" class="vote_not_recommend">--}}
-                                {{--<span class="vote_icon"><i class="face_unhappy face_unhappyPlay"></i></span>--}}
-                                {{--<span class="vote_number" id="voteUnLike"  data-unlikenum="呵呵">呵呵<i>（3）</i></span>--}}
-                                {{--<span class="vote_text">呵呵<i>（3）</i></span>--}}
-                            {{--</a>--}}
+                            <a id="diggGood" class="vote_recommend" title="哎哟,不错喔">
+                                <span class="vote_icon"><i class="face_happy face_happyPlay"></i></span>
+                                <span class="vote_number c_good" id="voteLike"  data-likenum="点赞">点赞（<i>{{$contents->laud}}</i>）</span>
+                                <span class="vote_text c_good">点赞（<i>{{$contents->laud}}</i>）</span>
+                            </a>
+
+                            <a id="diggBad" class="vote_not_recommend" title="不怎么样">
+                                <span class="vote_icon"><i class="face_unhappy face_unhappyPlay"></i></span>
+                                <span class="vote_number c_bad" id="voteUnLike"  data-unlikenum="呵呵">呵呵（<i>{{$contents->belittle}}</i>）</span>
+                                <span class="vote_text c_bad">呵呵（<i>{{$contents->belittle}}</i>）</span>
+                            </a>
                         </div>
                     </div>
                     <ul>
-                        <li>上一篇：<a href='/html/55229.html'>老酸奶</a> </li>
-                        <li>下一篇：没有了 </li>
+                        <li>上一篇：@if($lastPage) <a href='/list/{{$lastPage->id}}/show' title="{{$lastPage->title}}">{{changeStr($lastPage->title,20,'...')}}</a> @else 没有了 @endif </li>
+                        <li>下一篇：@if($nextPage) <a href='/list/{{$nextPage->id}}/show' title="{{$nextPage->title}}">{{changeStr($nextPage->title,20,'...')}}</a> @else 没有了 @endif </li>
                     </ul>
                     <div style="clear:both"></div>
-                    <script type="text/javascript" src="static/js/jquery.emoticons_3.js"></script>
+                    <script type="text/javascript" src="/static/home/show/js/jquery.emoticons_3.js"></script>
                     {{--<script>--}}
                         {{--$.emoticons({--}}
                             {{--'activeCls':'trigger-active'--}}
@@ -254,79 +256,122 @@
             </div>
         </div>
         <div class="knows shadow border mb30" style=" padding-top:3px;padding-left:12px;">
-            <script type="text/javascript" src="/static/home/show/js/niaokhqxjlprx_3.js"></script>
+            {{--<script type="text/javascript" src="/static/home/show/js/niaokhqxjlprx_3.js"></script>--}}
         </div>
         <div class="knows shadow border mb30">
             <div class="ar_tit"> <span class="mark">相关日记</span> </div>
             <div class="lBox-tb lBox-List2-tb">
                 <ul class="ulList">
-                    <li><a href="https://www.riji.cn/html/55230.html" target="_blank">我的手肿了</a></li>
-                    <li><a href="https://www.riji.cn/html/55229.html" target="_blank">老酸奶</a></li>
-                    <li><a href="https://www.riji.cn/html/55099.html" target="_blank">中学的书</a></li>
-                    <li><a href="https://www.riji.cn/html/55078.html" target="_blank">日记网</a></li>
-                    <li><a href="https://www.riji.cn/html/55057.html" target="_blank">难忘的第一次</a></li>
-                    <li><a href="https://www.riji.cn/html/55028.html" target="_blank">我和爸爸一起去钓鱼</a></li>
-                    <li><a href="https://www.riji.cn/html/54939.html" target="_blank">《萤火之森》</a></li>
-                    <li><a href="https://www.riji.cn/html/55017.html" target="_blank">下雨了</a></li>
-                    <li><a href="https://www.riji.cn/html/55016.html" target="_blank">去万达玩＋遇见范丞丞</a></li>
-                    <li><a href="https://www.riji.cn/html/54982.html" target="_blank">张海迪姐姐对我的教育</a></li>
-
+                @foreach($relateds as $k=>$v)
+                    <li><a href="/list/{{$v->id}}/show" target="_blank" title="{{$v->title}}">{{changeStr($v->title,15,'...')}}</a></li>
+                @endforeach
                 </ul>
             </div>
-        </div>
-        <div class="knows shadow border mb30">
-            <div class="ar_tit"> <span class="mark"><a href="https://www.riji.cn/zhuantiriji/">专题日记</a></span> </div>
-            <div class="zhuanti color9 mt25" style="width:auto"> <a href="https://www.riji.cn/zt/yuwen/" title="语文日记">语文</a><a href="https://www.riji.cn/4/150zi/" title="四年级日记150字日记">四年级日记150字</a><a href="https://www.riji.cn/zt/shijian/" title="时间日记">时间</a><a href="https://www.riji.cn/250zi/" title="日记250字日记">日记250字</a><a href="https://www.riji.cn/yurenjie/200zi/" title="愚人节日记200字日记">愚人节日记200字</a><a href="https://www.riji.cn/qingmingjie/500zi/" title="清明节日记500字日记">清明节日记500字</a><a href="https://www.riji.cn/zt/ganen/" title="感恩日记">感恩</a><a href="https://www.riji.cn/gaoer/200zi/" title="高二日记200字日记">高二日记200字</a><a href="https://www.riji.cn/gaoyi/400zi/" title="高一日记400字日记">高一日记400字</a><a href="https://www.riji.cn/chuer/400zi/" title="初二日记400字日记">初二日记400字</a><a href="https://www.riji.cn/yuanxiaojie/400zi/" title="元宵节日记400字日记">元宵节日记400字</a><a href="https://www.riji.cn/6/400zi/" title="六年级日记400字日记">六年级日记400字</a><a href="https://www.riji.cn/gaoer/600zi/" title="高二日记600字日记">高二日记600字</a><a href="https://www.riji.cn/zt/linju/" title="邻居日记">邻居</a><a href="https://www.riji.cn/zt/meimei/" title="妹妹日记">妹妹</a><a href="https://www.riji.cn/zt/zhongwu/" title="中午日记">中午</a><a href="https://www.riji.cn/xinnian/400zi/" title="新年日记400字日记">新年日记400字</a><a href="https://www.riji.cn/zt/xinnian/" title="新年日记">新年</a><a href="https://www.riji.cn/zt/yeye/" title="爷爷日记">爷爷</a><a href="https://www.riji.cn/zt/qushi/" title="趣事日记">趣事</a><a href="https://www.riji.cn/zt/dongtian/" title="冬天日记">冬天</a><a href="https://www.riji.cn/chuxi/600zi/" title="除夕日记600字日记">除夕日记600字</a><a href="https://www.riji.cn/yuandanjie/100zi/" title="元旦日记100字日记">元旦日记100字</a><a href="https://www.riji.cn/3/250zi/" title="三年级日记250字日记">三年级日记250字</a><a href="https://www.riji.cn/liuyi/500zi/" title="六一儿童节日记500字日记">六一儿童节日记500字</a><a href="https://www.riji.cn/zt/guangjie/" title="逛街日记">逛街</a><a href="https://www.riji.cn/duanwujie/200zi/" title="端午节日记200字日记">端午节日记200字</a><a href="https://www.riji.cn/zt/tizuqiu/" title="踢足球日记">踢足球</a><a href="https://www.riji.cn/zt/banhuike/" title="班会课日记">班会课</a><a href="https://www.riji.cn/4/300zi/" title="四年级日记300字日记">四年级日记300字</a><a href="https://www.riji.cn/5/600zi/" title="五年级日记600字日记">五年级日记600字</a><a href="https://www.riji.cn/zt/biye/" title="毕业日记">毕业</a><a href="https://www.riji.cn/zt/jiejie/" title="姐姐日记">姐姐</a><a href="https://www.riji.cn/zt/ziji/" title="自己日记">自己</a><a href="https://www.riji.cn/zt/youqu/" title="有趣日记">有趣</a><a href="https://www.riji.cn/gaoyi/200zi/" title="高一日记200字日记">高一日记200字</a><a href="https://www.riji.cn/zt/mengxiang/" title="梦想日记">梦想</a><a href="https://www.riji.cn/chuyi/200zi/" title="初一日记200字日记">初一日记200字</a><a href="https://www.riji.cn/200zi/" title="日记200字日记">日记200字</a><a href="https://www.riji.cn/yuandanjie/200zi/" title="元旦日记200字日记">元旦日记200字</a><a href="https://www.riji.cn/wuyijie/100zi/" title="五一劳动节日记100字日记">五一劳动节日记100字</a><a href="https://www.riji.cn/yurenjie/300zi/" title="愚人节日记300字日记">愚人节日记300字</a> </div>
         </div>
     </div>
     <div class="r-box">
         <div id="JscrollBox">
-            <div class="mb30">
+            <div class="mb30" style="width: 303px; height: 250px; background:white;">
+                广告位置
                 <script type="text/javascript">a300();</script>
-            </div>
-            <div class="border shadow tjzt mb30">
-                <div class="list3_th"><span class="mark">日记字数</span></div>
-                <div class="qc-list3 color9"> <a target="_blank" href="https://www.riji.cn/20zi/" title="日记20字">20字</a> <a target="_blank" href="https://www.riji.cn/30zi/" title="日记30字">30字</a> <a target="_blank" href="https://www.riji.cn/40zi/" title="日记40字">40字</a> <a target="_blank" href="https://www.riji.cn/50zi/" title="日记50字">50字</a> <a target="_blank" href="https://www.riji.cn/60zi/" title="日记60字">60字</a> <a target="_blank" href="https://www.riji.cn/70zi/" title="日记70字">70字</a> <a target="_blank" href="https://www.riji.cn/80zi/" title="日记80字">80字</a> <a target="_blank" href="https://www.riji.cn/90zi/" title="日记90字">90字</a> <a target="_blank" href="https://www.riji.cn/100zi/" title="日记100字">100字</a> <a target="_blank" href="https://www.riji.cn/150/" title="日记150字">150字</a> <a target="_blank" href="https://www.riji.cn/200zi/" title="日记200字">200字</a> <a target="_blank" href="https://www.riji.cn/250zi/" title="日记250字">250字</a> <a target="_blank" href="https://www.riji.cn/300zi/" title="日记300字">300字</a> <a target="_blank" href="https://www.riji.cn/350zi/" title="日记350字">350字</a> <a target="_blank" href="https://www.riji.cn/400zi/" title="日记400字">400字</a> <a target="_blank" href="https://www.riji.cn/450zi/" title="日记450字">450字</a> <a target="_blank" href="https://www.riji.cn/500zi/" title="日记500字">500字</a> <a target="_blank" href="https://www.riji.cn/550zi/" title="日记550字">550字</a> <a target="_blank" href="https://www.riji.cn/600zi/" title="日记600字">600字</a> </div>
-            </div>
-            <div class="mb30"> </div>
-            <div class="border shadow tjzt mb30">
-                <div class="list3_th"><span class="mark">年级分类</span></div>
-                <div class="qc-list3 color9"> <a href="https://www.riji.cn/1/" target="_blank" title="一年级日记">一年级</a> <a href="https://www.riji.cn/2/" target="_blank" title="二年级日记">二年级</a> <a href="https://www.riji.cn/3/" target="_blank" title="三年级日记">三年级</a> <a href="https://www.riji.cn/4/" target="_blank" title="四年级日记">四年级</a> <a href="https://www.riji.cn/5/" target="_blank" title="五年级日记">五年级</a> <a href="https://www.riji.cn/6/" target="_blank" title="六年级日记">六年级</a> <a href="https://www.riji.cn/chuyi/" target="_blank" title="初一日记">初一</a> <a href="https://www.riji.cn/chuer/" target="_blank" title="初二日记">初二</a> <a href="https://www.riji.cn/chusan/" target="_blank" title="初三日记">初三</a> <a href="https://www.riji.cn/gaoyi/" target="_blank" title="高一日记">高一</a> <a href="https://www.riji.cn/gaoer/" target="_blank" title="高二日记">高二</a> <a href="https://www.riji.cn/gaosan/" target="_blank" title="高三日记">高三</a> </div>
-            </div>
-            <div class="border shadow tjzt mb30">
-                <div class="list3_th"><span class="mark">节日日记</span></div>
-                <div class="qc-list3 color9"> <a href="https://www.riji.cn/yuandanjie/" target="_blank" title="元旦日记">元旦</a> <a href="https://www.riji.cn/chuxi/" target="_blank" title="除夕日记">除夕 </a> <a href="https://www.riji.cn/chunjie/" target="_blank" title="春节日记">春节</a> <a href="https://www.riji.cn/xinnian/" target="_blank" title="新年日记">新年</a> <a href="https://www.riji.cn/funvjie/" target="_blank" title="三八妇女节日记">妇女节</a> <a href="https://www.riji.cn/qingmingjie/" target="_blank" title="清明节日记">清明节</a> <a href="https://www.riji.cn/zhishujie/" target="_blank" title="植树节日记">植树节</a> <a href="https://www.riji.cn/yurenjie/" target="_blank" title="愚人节日记">愚人节</a> <a href="https://www.riji.cn/wuyijie/" target="_blank" title="五一劳动节日记">劳动节</a> <a href="https://www.riji.cn/muqinjie/" target="_blank" title="母亲节日记">母亲节</a> <a href="https://www.riji.cn/fuqinjie/" target="_blank" title="父亲节日记">父亲节</a> <a href="https://www.riji.cn/liuyi/" target="_blank" title="六一儿童节日记">儿童节</a> <a href="https://www.riji.cn/duanwujie/" target="_blank" title="端午节日记">端午节</a> <a href="https://www.riji.cn/zhongqiujie/" target="_blank" title="中秋节日记">中秋节</a> <a href="https://www.riji.cn/guoqingjie/" target="_blank" title="国庆节日记">国庆节</a> <a href="https://www.riji.cn/chongyangjie/" target="_blank" title="重阳节日记">重阳节</a> <a href="https://www.riji.cn/jiaoshijie/" target="_blank" title="教师节日记">教师节</a> <a href="https://www.riji.cn/ganenjie/" target="_blank" title="感恩节日记">感恩节</a> <a href="https://www.riji.cn/shengdanjie/" target="_blank" title="圣诞节日记">圣诞节</a> </div>
             </div>
             <div class="relation shadow border tjzt mb30">
                 <div class="list3_th"><span class="mark">阅读排行</span></div>
                 <ul class="red_ph">
-                    <li><span class="ar_onHot">1</span><a href="https://www.riji.cn/html/28922.html" target="_blank">例行钙片</a></li>
-                    <li><span class="ar_onHot">2</span><a href="https://www.riji.cn/html/19623.html" target="_blank">臭气熏天</a></li>
-                    <li><span class="ar_onHot">3</span><a href="https://www.riji.cn/html/19949.html" target="_blank">家庭闹剧</a></li>
-
-                    <li><span class="ar_offHot">4 </span><a href="https://www.riji.cn/html/53596.html" target="_blank">诡异</a></li>
-                    <li><span class="ar_offHot">5 </span><a href="https://www.riji.cn/html/21982.html" target="_blank">观看演出</a></li>
-                    <li><span class="ar_offHot">6 </span><a href="https://www.riji.cn/html/3175.html" target="_blank">值日不容易啊！</a></li>
-                    <li><span class="ar_offHot">7 </span><a href="https://www.riji.cn/html/19106.html" target="_blank">公交车上的拥挤</a></li>
-                    <li><span class="ar_offHot">8 </span><a href="https://www.riji.cn/html/12997.html" target="_blank">跳神比赛啦</a></li>
-                    <li><span class="ar_offHot">9 </span><a href="https://www.riji.cn/html/3869.html" target="_blank">去墓地</a></li>
-                    <li><span class="ar_offHot">10 </span><a href="https://www.riji.cn/html/14750.html" target="_blank">日记格式</a></li>
-
+                @foreach($readTop10 as $k=>$v)
+                    @if( $k < 3 )
+                    <li>
+                        <span class="ar_onHot">{{$k+1}}</span>
+                        <a href="/list/{{$v->id}}/show" target="_blank" title="{{$v->title}}">{{changeStr($v->title,13,'...')}}</a>
+                    </li>
+                    @else
+                        <li>
+                            <span class="ar_offHot">{{$k+1}}</span>
+                            <a href="/list/{{$v->id}}/show" target="_blank" title="{{$v->title}}">{{changeStr($v->title,13,'...')}}</a>
+                        </li>
+                    @endif
+                @endforeach
                 </ul>
+            </div>
+            <div class="border shadow tjzt mb30">
+                <div class="list3_th"><span class="mark">年级分类</span></div>
+                <div class="qc-list3 color9">
+                @foreach($classCates as $k=>$v)
+                    <a href="/list/{{$v->id}}" title="{{$v->name}}">{{$v->name}}</a>
+                @endforeach
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div style="clear:both;"></div>
 <div class="footer">
-    <script src="/static/home/show/js/link_3.js" type="text/javascript"></script>
+    <div class='footerIn'>
+        <a href='#' target='_blank'>关于我们</a>|<a href='#' target='_blank'>网站申明</a>|<a href='#' target='_blank'>投稿帮助</a>|<a href='#' target='_blank'>意见建议</a>|<a href='#' target='_blank'>联系我们</a>
+    </div>
     <div style="clear:both;"></div>
-    <div class="bqsm">Copyright &copy; 2004-2017 <a href="https://www.riji.cn/">日记网</a> All Rights Reserved <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备16062942号-9</a></div>
+    <div class="bqsm">Copyright &copy; 2018</div>
 </div>
-<script type="text/javascript">getDigg(55230);</script>
+
+{{--赞和踩--}}
+<script>
+    $diggGood   = $("#diggGood");//赞按钮
+    $diggBad    = $("#diggBad");//踩按钮
+    {{--diggPost('good',{{$contents->id}})--}}
+
+    $diggGood.click(function(){
+        @if( empty( session('home_user')['id'] ) )
+            if ( confirm('请先登录!') ) {
+                window.location.href = '/';
+            }
+        @else
+            diggPost('good',{{$contents->id}});
+        @endif
+    });
+    $diggBad.click(function(){
+        @if( empty( session('home_user')['id'] ) )
+        if ( confirm('请先登录!') ) {
+            window.location.href = '/';
+        }
+        @else
+        diggPost('bad',{{$contents->id}});
+        @endif
+    });
+
+    function diggPost($type,$id) {
+        $.ajax({
+            url: '/digg',
+            type: 'post',
+            dataType:'json',
+            data: {
+                digg:$type,
+                id:$id,
+                uid: $("meta[name='id']").attr('content')
+            },
+            success:function(res) {
+                if ( res.type == 'good' ) { //点赞后点赞数通过DOM加上
+                    $(".c_good").find('i').each(function(){
+                        $n1 = parseInt( $(this).text() );
+                        $(this).text( $n1+1 );
+                    });
+                } else if( res.type == 'bad' ) {
+                    $(".c_bad").find('i').each(function(){
+                        $n1 = parseInt( $(this).text() );
+                        $(this).text( $n1+1 );
+                    });
+                }
+                alert( res.msg );
+            },error:function(err) {
+                console.log('网络错误');
+            },beforeSend:function(xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN','{{csrf_token()}}')
+            }
+        });
+    }
+</script>
 <script src="/static/home/show/js/dpl-tab_v2_3.js" type="text/javascript"></script>
 <script type="text/javascript">
-    document.getElementById("click").innerHTML = document.getElementById("click_num").innerHTML;
+    //document.getElementById("click").innerHTML = document.getElementById("click_num").innerHTML;
 </script>
 </body>
 </html>

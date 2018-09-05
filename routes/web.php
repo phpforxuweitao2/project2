@@ -36,7 +36,7 @@ Route::group(['middleware' => 'homemaintain','namespace'=>'Home'],function() {
 
     Route::get('/list/{id}','ListController@index');//列表页面
     Route::get('/list/{id}/show','ListController@show');//详情页面
-
+    Route::post('/digg','ListController@digg');// 传送参数digg为good时 为顶 | digg为bad时为 踩
 
     //个人中心模块
     Route::group(['namespace' => 'Person'], function () {

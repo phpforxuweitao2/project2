@@ -25,6 +25,9 @@
         div.list_page>span>.pagination>li.active>span {
             border: 1px solid #81c08f;
         }
+        a {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body id="Jbody">
@@ -100,16 +103,19 @@
         <div class="relation shadow border tjzt mb30">
             <div class="list3_th"><span class="mark">阅读排行</span></div>
             <ul class="red_ph">
-                <li><span class="ar_onHot">1</span><a href="https://www.riji.cn/html/54833.html" target="_blank">去游泳馆旅游</a></li>
-                <li><span class="ar_onHot">2</span><a href="https://www.riji.cn/html/54486.html" target="_blank">美好的暑假</a></li>
-                <li><span class="ar_onHot">3</span><a href="https://www.riji.cn/html/54484.html" target="_blank">水上乐园游玩记</a></li>
-                <li><span class="ar_offHot">4 </span><a href="https://www.riji.cn/html/54408.html" target="_blank">我的七天暑假</a></li>
-                <li><span class="ar_offHot">5 </span><a href="https://www.riji.cn/html/50904.html" target="_blank">五彩滩</a></li>
-                <li><span class="ar_offHot">6 </span><a href="https://www.riji.cn/html/40922.html" target="_blank">快乐的暑假</a></li>
-                <li><span class="ar_offHot">7 </span><a href="https://www.riji.cn/html/50951.html" target="_blank">快乐的暑假</a></li>
-                <li><span class="ar_offHot">8 </span><a href="https://www.riji.cn/html/51059.html" target="_blank">日照一日游</a></li>
-                <li><span class="ar_offHot">9 </span><a href="https://www.riji.cn/html/40556.html" target="_blank">大海三部曲</a></li>
-                <li><span class="ar_offHot">10 </span><a href="https://www.riji.cn/html/40384.html" target="_blank">小鬼当错家</a></li>
+                @foreach($readTop10 as $k=>$v)
+                    @if( $k<3 )
+                        <li>
+                            <span class="ar_onHot">{{$k+1}}</span>
+                            <a href="/list/{{$v->id}}/show" target="_blank" title="{{$v->title}}">{{changeStr($v->title,15,'...')}}</a>
+                        </li>
+                    @else
+                        <li>
+                            <span class="ar_offHot">{{$k+1}}</span>
+                            <a href="/list/{{$v->id}}/show" target="_blank" title="{{$v->title}}">{{changeStr($v->title,15,'...')}}</a>
+                        </li>
+                    @endif
+                @endforeach
             </ul>
         </div>
 
