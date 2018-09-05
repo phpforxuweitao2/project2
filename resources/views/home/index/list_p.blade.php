@@ -10,6 +10,11 @@
     <script src="/static/home/list_p/js/uaredirect.js" type="text/javascript"></script>
     <script src="/static/home/list_p/js/jquery-1.8.1.min.js" type="text/javascript"></script>
     <script src="/static/home/list_p/js/g.js" type="text/javascript"></script>
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body id="Jbody">
 <div class="head">
@@ -69,17 +74,28 @@
             <div class="relation shadow border tjzt mb30">
                 <div class="list3_th"><span class="mark">阅读排行</span></div>
                 <ul class="red_ph">
-                    <li><span class="ar_onHot">1</span><a href="https://www.riji.cn/html/55601.html" target="_blank">一只胆小的狗</a></li>
-                    <li><span class="ar_onHot">2</span><a href="https://www.riji.cn/html/55589.html" target="_blank">往事即风</a></li>
-                    <li><span class="ar_onHot">3</span><a href="https://www.riji.cn/html/55575.html" target="_blank">未来，正在等你</a></li>
-                    <li><span class="ar_offHot">4 </span><a href="https://www.riji.cn/html/55569.html" target="_blank">以后读书要住宿了</a></li>
-                    <li><span class="ar_offHot">5 </span><a href="https://www.riji.cn/html/55568.html" target="_blank">无火影——不青春</a></li>
-                    <li><span class="ar_offHot">6 </span><a href="https://www.riji.cn/html/55559.html" target="_blank">父亲</a></li>
-                    <li><span class="ar_offHot">7 </span><a href="https://www.riji.cn/html/55528.html" target="_blank">和同学们的最后一次玩耍</a></li>
-                    <li><span class="ar_offHot">8 </span><a href="https://www.riji.cn/html/55529.html" target="_blank">悔恨当初</a></li>
-                    <li><span class="ar_offHot">9 </span><a href="https://www.riji.cn/html/55523.html" target="_blank">没有重点的</a></li>
-                    <li><span class="ar_offHot">10 </span><a href="https://www.riji.cn/html/55520.html" target="_blank">他</a></li>
+                @foreach($readTop10 as $k=>$v)
+                    @if( $k<3 )
+                    <li>
+                        <span class="ar_onHot">{{$k+1}}</span>
+                        <a href="/list/{{$v->id}}/show" target="_blank" title="{{$v->title}}">{{changeStr($v->title,15,'...')}}</a>
+                    </li>
+                    @else
+                    <li>
+                        <span class="ar_offHot">{{$k+1}}</span>
+                        <a href="/list/{{$v->id}}/show" target="_blank" title="{{$v->title}}">{{changeStr($v->title,15,'...')}}</a>
+                    </li>
+                    @endif
+                @endforeach
                 </ul>
+            </div>
+            <div class="border shadow tjzt mb30">
+                <div class="list3_th"><span class="mark">年级分类</span></div>
+                <div class="qc-list3 color9">
+                    @foreach($classCates as $k=>$v)
+                        <a href="/list/{{$v->id}}" title="{{$v->name}}">{{$v->name}}</a>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

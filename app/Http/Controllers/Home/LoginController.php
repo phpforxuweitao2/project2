@@ -267,7 +267,7 @@ class LoginController extends Controller
         $info = DB::table('users')->where('id',$id)->first();
         if ( $info && $info->token == $token ) {
             $pass = Hash::make($pass);
-            if ( DB::table('users')->update(['pass'=>$pass]) ) {
+            if ( DB::table('users')->where('id',$id)->update(['pass'=>$pass]) ) {
                 return response()->json([
                     'code'      => '000',
                     'msg'       => '修改密码成功',
