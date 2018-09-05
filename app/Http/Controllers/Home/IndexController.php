@@ -24,56 +24,61 @@ class IndexController extends Controller
                     ->where('status','!=','1')
                     ->where('status','!=','2')
                     ->first();
-        // 获取该位置顶级类的子类信息
-        $list = DB::table('cates')
-                    ->select('id','name')
-                    ->where('pid',$cid->id)
-                    ->where('status','!=','1')
-                    ->where('status','!=','2')
-                    ->orderBy('id')
-                    ->get();
-        // 将子类的信息存储在数组，找到该子类的所有内容
-        $con_id = [];
-        foreach($list as $v){
-            $con_id[] = $v->id;
+        if ($cid) {
+            // 获取该位置顶级类的子类信息
+            $list = DB::table('cates')
+                        ->select('id','name')
+                        ->where('pid',$cid->id)
+                        ->where('status','!=','1')
+                        ->where('status','!=','2')
+                        ->orderBy('id')
+                        ->get();
+            // 将子类的信息存储在数组，找到该子类的所有内容
+            $con_id = [];
+            foreach($list as $v){
+                $con_id[] = $v->id;
+            }
+            $con = DB::table('content')
+                        ->select('id','title')
+                        ->whereIn('cid',$con_id)
+                        ->where('status','0')
+                        ->limit(22)
+                        ->orderBy('id','desc')
+                        ->get();
+            // 将点击量的数据查询出来
+            $paihan = DB::table('content')
+                        ->select('id','title','num')
+                        ->whereIn('cid',$con_id)
+                        ->where('status','0')
+                        ->limit(22)
+                        ->orderBy('num','desc')
+                        ->get();
+            // 根据时间排序最新数据
+            $new = DB::table('content')
+                        ->select('id','title','num','created_at')
+                        ->whereIn('cid',$con_id)
+                        ->where('status','0')
+                        ->limit(22)
+                        ->orderBy('created_at','desc')
+                        ->get();
+            // 获取两张图片的内容
+            $pic = DB::table('content')
+                        ->whereIn('cid',$con_id)
+                        ->where('status','0')
+                        ->where('recommand','2')
+                        ->limit(2)
+                        ->get();
+            // 将顶级标题跟二级标题还有里面的内容存在数组
+            $data[] = $cid->name;
+            $data[] = $list;
+            $data[] = $con;
+            $data[] = $paihan;
+            $data[] = $new;
+            $data[] = $pic;
+            return $data;
+        } else {
+            return false;
         }
-        $con = DB::table('content')
-                    ->select('id','title')
-                    ->whereIn('cid',$con_id)
-                    ->where('status','0')
-                    ->limit(22)
-                    ->orderBy('id','desc')
-                    ->get();
-        // 将点击量的数据查询出来
-        $paihan = DB::table('content')
-                    ->select('id','title','num')
-                    ->whereIn('cid',$con_id)
-                    ->where('status','0')
-                    ->limit(22)
-                    ->orderBy('num','desc')
-                    ->get();
-        // 根据时间排序最新数据
-        $new = DB::table('content')
-                    ->select('id','title','num','created_at')
-                    ->whereIn('cid',$con_id)
-                    ->where('status','0')
-                    ->limit(22)
-                    ->orderBy('created_at','desc')
-                    ->get();
-        // 获取两张图片的内容
-        $pic = DB::table('content')
-                    ->where('status','0')
-                    ->where('recommand','2')
-                    ->limit(2)
-                    ->get();
-        // 将顶级标题跟二级标题还有里面的内容存在数组
-        $data[] = $cid->name;
-        $data[] = $list;
-        $data[] = $con;
-        $data[] = $paihan;
-        $data[] = $new;
-        $data[] = $pic;
-        return $data;
     }
 
     /**
@@ -152,7 +157,7 @@ class IndexController extends Controller
         $data = $req->only('name','url');
         $data['created_at'] = time();
         $data['updated_at'] = time();
-        
+
         if(DB::table('links')->insert($data)){
             return back()->with('success','添加成功');
         }else{

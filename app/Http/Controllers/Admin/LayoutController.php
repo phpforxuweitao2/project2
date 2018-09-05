@@ -19,7 +19,10 @@ class LayoutController extends Controller
                 ->where('pid','0')
                 ->where('name','like',"%".$k."%")
                 ->get();
-        return view('admin.layout.index',['data' => $data]);
+        return view('admin.layout.index',[
+            'menu_layout'    => 'active',
+            'menu_layout_index'=>'active',
+            'data' => $data]);
     }
 
     // 排版调整页
@@ -80,6 +83,8 @@ class LayoutController extends Controller
                     ->paginate(6);
         // dd($cid);
         return view('admin.layout.show',[
+                'menu_layout'    => 'active',
+                'menu_layout_index'=>'active',
                 'data'=>$con,
                 'cates'=>$cid,
                 'request'=>$request->all()
@@ -94,6 +99,8 @@ class LayoutController extends Controller
                 ->select('title','id')
                 ->first();
         return view('admin.layout.img',[
+                'menu_layout'    => 'active',
+                'menu_layout_index'=>'active',
                 'data' => $data
             ]);
     }

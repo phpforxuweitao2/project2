@@ -228,6 +228,7 @@
    </div>
   </div>
   <div style="clear:both"></div>
+  @if($con1)
   <div class="main tab3 clearfix" id="main2">
    <div class="left660 fl border shadow">
     <div class="th clearfix">
@@ -283,6 +284,7 @@
     </div>
    </div>
   </div>
+  @endif
   <div style="clear:both"></div>
   <div class="main border shadow mb30">
    <div class="i3_lBox">

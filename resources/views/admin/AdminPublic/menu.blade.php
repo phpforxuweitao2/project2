@@ -81,9 +81,9 @@
                     <li class="{{$menu_content_riji_unpasslist or ''}}"><a href="/bk_content/riji/unpasslist"> 审核驳回列表</a></li>
                 </ul>
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>排版管理</span></a>
+            <li class="menu-list {{$menu_layout or ''}}" ><a href=""><i class="fa fa-tasks"></i> <span>排版管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="/bk_layout">首页排版</a></li>
+                    <li class="{{$menu_layout_index or ''}}"><a href="/bk_layout">首页排版</a></li>
                 </ul>
             </li>
             <li class="menu-list {{$menu_lunbo or ''}}">
